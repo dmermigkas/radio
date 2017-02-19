@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/maven-radio-station.iml" filepath="$PROJECT_DIR$/maven-radio-station.iml" />
       <module fileurl="file://$PROJECT_DIR$/radioStation.iml" filepath="$PROJECT_DIR$/radioStation.iml" />
     </modules>
   </component>
