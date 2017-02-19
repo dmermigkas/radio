@@ -8,14 +8,14 @@ import java.util.Calendar;
 public class AdTrack extends Track{
 
     @Id
-    @Column(name="id", )
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(name="brand")
     private String brand;
 
-    @Column(name="playbackzone") //JPA will not work here
+    @Embedded
     private PlayBackZone zone;
 
     @Column(name="fromdate")

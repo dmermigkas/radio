@@ -2,21 +2,30 @@ package com.radio.Models;
 
 import com.radio.Daos.DaoFactory;
 
+import javax.persistence.*;
 import java.time.Duration;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
+@MappedSuperclass
 public class Show {
 
-    private Integer id;
+    @Column(name="name")
     private String name;
+
+    @Column(name="playdatetime")
     private Calendar playDateTime;
+
+    @Column(name="duration") //JPA will not work
     private Duration duration;
     private DaoFactory dao;
 
     //Relational Properties
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name="producerid")
     private Producer producer;
+    
     private Set<MusicTrack> musicTracks = new HashSet<>();
     private Set<AdTrack> adTracks = new HashSet<>();
 

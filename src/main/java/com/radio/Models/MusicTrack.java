@@ -16,13 +16,12 @@ public class MusicTrack extends Track{
     @Column(name="artist")
     private String artist;
 
-    @Column(name="genre") //JPA will not work
+    @ManyToOne
+    @JoinColumn(name="genreid", nullable = false)
     private Genre genre;
 
     @Column(name="releaseyear")
     private int releaseYear;
-
-    public MusicTrack(){};
 
     public MusicTrack(String title,String artist,Genre genre,int releaseYear){
 

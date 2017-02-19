@@ -2,15 +2,28 @@ package com.radio.Models;
 
 import com.radio.Daos.DaoFactory;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name="PRODUCERS")
 public class Producer {
 
+    @Id
+    @Column(name="producerid")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     private DaoFactory dao;
+
+    @Column(name="firstname")
     private String firstName;
+
+    @Column(name="lastname")
     private String lastName;
+
+    @Embedded
     private EmailAddress email;
 
     private Set<AutoShow> autoShows = new HashSet<>();
