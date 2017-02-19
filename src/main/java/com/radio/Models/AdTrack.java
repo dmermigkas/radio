@@ -8,7 +8,7 @@ import java.util.Calendar;
 public class AdTrack extends Track{
 
     @Id
-    @Column(name="id", )
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 

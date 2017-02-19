@@ -16,19 +16,17 @@ public class Show {
     private DaoFactory dao;
 
     //Relational Properties
-    private Producer producer;
     private Set<MusicTrack> musicTracks = new HashSet<>();
     private Set<AdTrack> adTracks = new HashSet<>();
 
     public Show(){};
 
-    public Show(DaoFactory dao,String name,Calendar playDateTime,Duration duration,Producer producer){
+    public Show(DaoFactory dao,String name,Calendar playDateTime,Duration duration){
 
         this.dao = dao;
         this.name = name;
         this.playDateTime = playDateTime;
         this.duration = duration;
-        this.producer = producer;
 
     }
 
@@ -58,14 +56,6 @@ public class Show {
 
     public void setDuration(Duration duration) {
         this.duration = duration;
-    }
-
-    public Producer getProducer() {
-        return producer;
-    }
-
-    public void setProducer(Producer producer) {
-        this.producer = producer;
     }
 
     public Set<MusicTrack> getMusicTracks() {
