@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="radioStation" />
+        <module name="maven-radio-station" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="radioStation" target="1.7" />
+      <module name="maven-radio-station" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
