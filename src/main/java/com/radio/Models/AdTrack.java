@@ -8,19 +8,23 @@ import java.util.Calendar;
 public class AdTrack extends Track{
 
     @Id
-    @Column(name="id")
+    @Column(name="id", )
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(name="brand")
     private String brand;
 
-    @Column(name="playbackzone")
+    @Column(name="playbackzone") //JPA will not work here
     private PlayBackZone zone;
 
+    @Column(name="fromdate")
+    private Calendar fromDate;
 
-    private Calendar from;
-    private Calendar to;
+    @Column(name="todate")
+    private Calendar toDate;
+
+    @Column(name="playsperzone")
     private int playsPerZone; //
 
     public AdTrack(){};
@@ -29,8 +33,8 @@ public class AdTrack extends Track{
 
         this.brand = brand;
         this.zone = zone;
-        this.from = from;
-        this.to = to;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
         this.playsPerZone = playsPerZone;
 
     }
@@ -52,19 +56,19 @@ public class AdTrack extends Track{
     }
 
     public Calendar getFrom() {
-        return from;
+        return fromDate;
     }
 
     public void setFrom(Calendar from) {
-        this.from = from;
+        this.fromDate = from;
     }
 
     public Calendar getTo() {
-        return to;
+        return toDate;
     }
 
     public void setTo(Calendar to) {
-        this.to = to;
+        this.toDate = to;
     }
 
     public int getPlaysPerZone() {

@@ -1,13 +1,25 @@
 package com.radio.Models;
 
+import javax.persistence.*;
 import java.time.Duration;
-
+@Entity
+@Table(name="MUSICTRACKS")
 public class MusicTrack extends Track{
-
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(name="title")
     private String title;
+
+    @Column(name="artist")
     private String artist;
+
+    @Column(name="genre") //JPA will not work
     private Genre genre;
+
+    @Column(name="releaseyear")
     private int releaseYear;
 
     public MusicTrack(){};
