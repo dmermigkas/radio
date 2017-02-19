@@ -15,7 +15,7 @@ public class AdTrack extends Track{
     @Column(name="brand")
     private String brand;
 
-    @Column(name="playbackzone") //JPA will not work here
+    @Embedded
     private PlayBackZone zone;
 
     @Column(name="fromdate")
