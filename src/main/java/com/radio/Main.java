@@ -15,11 +15,21 @@ public class Main {
         MusicTrackDao dao = prod.getDao();
 
         MusicTrack track = new MusicTrack("test","test artist",new Genre("test"),1990);
-        AdTrack ad = new AdTrack("test",new PlayBackZone(today,today),today,today,4);
+
         PlaylistShow pl = new PlaylistShow();
         pl.addMusicTrackToList(track);
-        pl.removeMusicTrackFromList(track);
-        pl.addAdTrackToList(ad);
+        prod.addPlaylistShow(pl);
+        prod.getPlaylistShows();
+
+//        MusicTrack track = new MusicTrack("test","test artist",new Genre("test"),1990);
+//        AdTrack ad = new AdTrack("test",new PlayBackZone(today,today),today,today,4);
+//        PlaylistShow pl = new PlaylistShow();
+//        pl.addMusicTrackToList(track);
+//        pl.removeMusicTrackFromList(track);
+//        pl.addAdTrackToList(ad);
+//
+//        AutoShow auto = new AutoShow();
+//        auto.getPolicies().playedLastHour();
 
     }
 

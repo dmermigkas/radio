@@ -2,6 +2,9 @@ package com.radio.Models;
 
 public class AutoShow extends Show{
 
+    private Genre genre;
+    private Policies policies = new Policies();
+
     public Genre getGenre() {
         return genre;
     }
@@ -10,6 +13,11 @@ public class AutoShow extends Show{
         this.genre = genre;
     }
 
-    private Genre genre;
+    public Policies getPolicies() {
+        return policies;
+    }
 
+    public void setPolicies(Policies policies) {
+        this.policies = policies;
+    }
 }

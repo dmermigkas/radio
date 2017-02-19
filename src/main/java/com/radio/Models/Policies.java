@@ -5,7 +5,7 @@ public class Policies {
     public Policies(){};
 
     public boolean playedLastHour(){
-        return true;
+        System.out.println("true!!!");return true;
     }
 
     public int timesPlayedToday(){
