@@ -2,12 +2,20 @@ package com.radio.Models;
 
 import com.radio.Daos.DaoFactory;
 
+import javax.persistence.*;
 import java.time.Duration;
 
-public class Track {
 
+@MappedSuperclass
+public class Track {
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(name="duration", length = 20, nullable=false)
     private Duration duration;
+    
     private DaoFactory dao;
 
     public Track(){};
