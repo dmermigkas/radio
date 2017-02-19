@@ -19,7 +19,7 @@ public class PlaylistShow extends Show{
             getMusicTracks().remove(track);
             getMusicTracks();
         }
-
+//s
     }
 
     public void addAdTrackToList(AdTrack track){
