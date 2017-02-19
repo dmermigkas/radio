@@ -9,7 +9,7 @@ import java.time.Duration;
 @MappedSuperclass
 public class Track {
 
-    @Column(name="duration", length = 20, nullable=false)
+    @Column(name="duration", nullable=false)
     private Duration duration;
 
     private DaoFactory dao;
