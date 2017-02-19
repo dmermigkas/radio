@@ -1,7 +1,17 @@
 package com.radio.Models;
 
+import com.sun.javafx.beans.IDProperty;
+
+@Entity
+@Table(name="GENRES")
 public class Genre {
 
+    @Id
+    @Column(name="id")
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private Integer id;
+
+    @Column(name="genre")
     private String genre;
 
     public Genre(){};
