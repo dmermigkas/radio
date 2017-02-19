@@ -10,7 +10,7 @@ public class PlaylistShow extends Show{
             getMusicTracks().add(track);
             getMusicTracks();
         }
-
+        
     }
 
     public void removeMusicTrackFromList(MusicTrack track){
