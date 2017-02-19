@@ -17,7 +17,8 @@ public class Show {
 
     //Relational Properties
     private Producer producer;
-    private Set<Track> tracks = new HashSet<>();
+    private Set<MusicTrack> musicTracks = new HashSet<>();
+    private Set<AdTrack> adTracks = new HashSet<>();
 
     public Show(){};
 
@@ -67,12 +68,21 @@ public class Show {
         this.producer = producer;
     }
 
-    public Set<Track> getTracks() {
-        return tracks;
+    public Set<MusicTrack> getMusicTracks() {
+        System.out.println(musicTracks);
+        return musicTracks;
     }
 
-    public void setTracks(Set<Track> tracks) {
-        this.tracks = tracks;
+    public void setMusicTracks(Set<MusicTrack> musicTracks) {
+        this.musicTracks = musicTracks;
     }
 
+    public Set<AdTrack> getAdTracks() {
+        System.out.println(adTracks);
+        return adTracks;
+    }
+
+    public void setAdTracks(Set<AdTrack> adTracks) {
+        this.adTracks = adTracks;
+    }
 }
