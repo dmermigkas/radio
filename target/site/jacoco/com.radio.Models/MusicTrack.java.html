@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MusicTrack.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">maven-radio-station</a> &gt; <a href="index.source.html" class="el_package">com.radio.Models</a> &gt; <span class="el_source">MusicTrack.java</span></div><h1>MusicTrack.java</h1><pre class="source lang-java linenums">package com.radio.Models;
+
+import java.time.Duration;
+
+public class MusicTrack extends Track{
+
+    private Integer id;
+    private String title;
+    private String artist;
+    private Genre genre;
+    private int releaseYear;
+
+<span class="nc" id="L13">    public MusicTrack(){};</span>
+
+<span class="nc" id="L15">    public MusicTrack(String title,String artist,Genre genre,int releaseYear){</span>
+
+<span class="nc" id="L17">        this.title = title;</span>
+<span class="nc" id="L18">        this.artist = artist;</span>
+<span class="nc" id="L19">        this.genre = genre;</span>
+<span class="nc" id="L20">        this.releaseYear = releaseYear;</span>
+
+<span class="nc" id="L22">    }</span>
+
+    public String getTitle() {
+<span class="nc" id="L25">        return title;</span>
+    }
+
+    public void setTitle(String title) {
+<span class="nc" id="L29">        this.title = title;</span>
+<span class="nc" id="L30">    }</span>
+
+    public String getArtist() {
+<span class="nc" id="L33">        return artist;</span>
+    }
+
+    public void setArtist(String artist) {
+<span class="nc" id="L37">        this.artist = artist;</span>
+<span class="nc" id="L38">    }</span>
+
+    public Genre getGenre() {
+<span class="nc" id="L41">        return genre;</span>
+    }
+
+    public void setGenre(Genre genre) {
+<span class="nc" id="L45">        this.genre = genre;</span>
+<span class="nc" id="L46">    }</span>
+
+    public int getReleaseYear() {
+<span class="nc" id="L49">        return releaseYear;</span>
+    }
+
+    public void setReleaseYear(int releaseYear) {
+<span class="nc" id="L53">        this.releaseYear = releaseYear;</span>
+<span class="nc" id="L54">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>
