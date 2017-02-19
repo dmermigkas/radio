@@ -1,12 +1,24 @@
 package com.radio.Models;
 
+import javax.persistence.*;
 import java.util.Calendar;
 
+@Entity
+@Table(name="ADTRACKS")
 public class AdTrack extends Track{
 
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(name="brand")
     private String brand;
+
+    @Column(name="playbackzone")
     private PlayBackZone zone;
+
+
     private Calendar from;
     private Calendar to;
     private int playsPerZone; //
