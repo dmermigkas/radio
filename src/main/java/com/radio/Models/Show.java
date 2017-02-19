@@ -15,7 +15,6 @@ public class Show {
     private Duration duration;
     private DaoFactory dao;
 
-
     //Relational Properties
     private Producer producer;
     private Set<Track> tracks = new HashSet<>();

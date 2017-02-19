@@ -2,7 +2,7 @@ package com.radio.Models;
 
 import java.util.Calendar;
 
-public class AdPlayEvent {
+public class TrackPlayEvent {
 
     private Calendar dateTime;
     private AdTrack ad;
