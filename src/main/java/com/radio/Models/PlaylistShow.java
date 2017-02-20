@@ -1,8 +1,14 @@
 package com.radio.Models;
 
-@
+import javax.persistence.*;
+
+@Entity
+@Table(name="PLAYLISTSHOWS")
 public class PlaylistShow extends Show{
 
+    @Id
+    @Column(name="playlistshowid")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     public void addMusicTrackToList(MusicTrack track){
