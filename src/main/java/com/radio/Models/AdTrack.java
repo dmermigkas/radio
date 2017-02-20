@@ -2,6 +2,8 @@ package com.radio.Models;
 
 import javax.persistence.*;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="ADTRACKS")
@@ -27,6 +29,8 @@ public class AdTrack extends Track{
     @Column(name="playsperzone")
     private int playsPerZone; //
 
+    private Set<Track> adTracks = new HashSet<>();
+
     public AdTrack(){};
 
     public AdTrack(String brand, PlayBackZone zone, Calendar from, Calendar to, int playsPerZone){
@@ -38,6 +42,12 @@ public class AdTrack extends Track{
         this.playsPerZone = playsPerZone;
 
     }
+
+    @Override
+    public Set<Track> getTracks(){
+        return adTracks;
+    }
+
 
     public String getBrand() {
         return brand;

@@ -1,10 +1,22 @@
 package com.radio.Models;
 
+import javax.persistence.*;
 import java.util.Calendar;
 
+@Entity
+@Table(name="TRACKPLAYEVENTS")
 public class TrackPlayEvent {
 
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
+    @Column(name="timestamp")
     private Calendar dateTime;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name="trackid") //problem here: we have id for child classes only
     private Track track;
 
     public Calendar getDateTime() {
