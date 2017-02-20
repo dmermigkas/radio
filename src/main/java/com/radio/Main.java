@@ -16,8 +16,10 @@ public class Main {
 
         MusicTrack track = new MusicTrack("test","test artist",new Genre("test"),1990);
 
+        Track track2 = new MusicTrack("test","test artist",new Genre("test"),1990);
+
         PlaylistShow pl = new PlaylistShow();
-        pl.addMusicTrackToList(track);
+        pl.addTrackToList(track);
         prod.addPlaylistShow(pl);
         prod.getPlaylistShows();
 

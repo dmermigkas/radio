@@ -4,10 +4,12 @@ import com.radio.Daos.DaoFactory;
 
 import javax.persistence.*;
 import java.time.Duration;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @MappedSuperclass
-public class Track {
+public abstract class Track {
 
     @Column(name="duration", nullable=false)
     private Duration duration;
@@ -22,6 +24,8 @@ public class Track {
         this.duration = duration;
 
     }
+
+    public abstract <T> Set<T> getTracks();
 
     public <T> T getDao(){
         return dao.getDao();

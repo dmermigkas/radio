@@ -11,7 +11,7 @@ public class PlaylistShow extends Show{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    public void addMusicTrackToList(MusicTrack track){
+    public void addTrackToList(MusicTrack track){
 
         if (track != null) {
             getMusicTracks().add(track);

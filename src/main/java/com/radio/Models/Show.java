@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @MappedSuperclass
-public class Show {
+public abstract class Show {
 
     @Column(name="name")
     private String name;
@@ -27,8 +27,9 @@ public class Show {
     @JoinColumn(name="producerid")
     private Producer producer;
 
-    private Set<MusicTrack> musicTracks = new HashSet<>();
-    private Set<AdTrack> adTracks = new HashSet<>();
+//    private Set<MusicTrack> musicTracks = new HashSet<>();
+//    private Set<AdTrack> adTracks = new HashSet<>();
+    private Set<Track> tracks = new HashSet<>();
 
     public Show(){};
 
@@ -69,21 +70,26 @@ public class Show {
         this.duration = duration;
     }
 
-    public Set<MusicTrack> getMusicTracks() {
-        System.out.println(musicTracks);
-        return musicTracks;
+    public void setTracks(Set<Track> tracks) {
+
+        this.tracks = tracks;
     }
 
-    public void setMusicTracks(Set<MusicTrack> musicTracks) {
-        this.musicTracks = musicTracks;
-    }
-
-    public Set<AdTrack> getAdTracks() {
-        System.out.println(adTracks);
-        return adTracks;
-    }
-
-    public void setAdTracks(Set<AdTrack> adTracks) {
-        this.adTracks = adTracks;
-    }
+    //    public Set<MusicTrack> getMusicTracks() {
+//        System.out.println(musicTracks);
+//        return musicTracks;
+//    }
+//
+//    public void setMusicTracks(Set<MusicTrack> musicTracks) {
+//        this.musicTracks = musicTracks;
+//    }
+//
+//    public Set<AdTrack> getAdTracks() {
+//        System.out.println(adTracks);
+//        return adTracks;
+//    }
+//
+//    public void setAdTracks(Set<AdTrack> adTracks) {
+//        this.adTracks = adTracks;
+//    }
 }
