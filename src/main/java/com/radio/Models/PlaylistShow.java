@@ -11,38 +11,38 @@ public class PlaylistShow extends Show{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    public void addTrackToList(MusicTrack track){
+    public void addTrackToList(Track track){
 
         if (track != null) {
-            getMusicTracks().add(track);
-            getMusicTracks();
+            track.getTracks().add(track);
+            track.getTracks();
         }
 
     }
 
-    public void removeMusicTrackFromList(MusicTrack track){
+    public void removeMusicTrackFromList(Track track){
 
         if (track != null) {
-            getMusicTracks().remove(track);
-            getMusicTracks();
+            track.getTracks().remove(track);
+            track.getTracks();
         }
 //
     }
 
-    public void addAdTrackToList(AdTrack track){
+    public void addAdTrackToList(Track track){
 
         if (track != null) {
-            getAdTracks().add(track);
-            getAdTracks();
+            track.getTracks().add(track);
+            track.getTracks();
         }
 
     }
 
-    public void removeAdTrackFromList(AdTrack track){
+    public void removeAdTrackFromList(Track track){
 
         if (track != null) {
-            getAdTracks().remove(track);
-            getAdTracks();
+            track.getTracks().remove(track);
+            track.getTracks();
         }
 
     }

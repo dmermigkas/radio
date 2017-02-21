@@ -27,12 +27,12 @@ public class TrackPlayEvent {
         this.dateTime = dateTime;
     }
 
-    public Track getTrack() {
-        return track == null ? null : new Track();
-    }
+//    public Track getTrack() {
+//        //return track == null ? null : new Track();
+//    }
 
-    public void setTrack(Track track) {
-        this.track = track == null ? null : new Track();
-    }
+//    public void setTrack(Track track) {
+//        //this.track = track == null ? null : new Track();
+//    }
 
 }
