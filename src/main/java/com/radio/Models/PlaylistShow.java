@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class PlaylistShow extends Show{
 
     @Id
-    @Column(name="id")
+    @Column(name="playlistshowid")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
