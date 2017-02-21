@@ -11,7 +11,9 @@ public class Main {
 
         Calendar today = Calendar.getInstance();
 
-        Producer prod = new Producer(new MusicTrackDao(), "dimitris", "mermigkas", new EmailAddress("ddsadasds"));
+
+        Producer prod = new Producer("dimitris", "mermigkas", new EmailAddress("ddsadasds"));
+        //Producer prod = new Producer(new MusicTrackDao(), "dimitris", "mermigkas", new EmailAddress("ddsadasds"));
         MusicTrackDao dao = prod.getDao();
 
         MusicTrack track = new MusicTrack("test","test artist",new Genre("test"),1990);
