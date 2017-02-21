@@ -14,6 +14,7 @@ public class PlaylistShow extends Show{
     public void addTrackToList(Track track){
 
         if (track != null) {
+            //test
             track.getTracks().add(track);
             track.getTracks();
         }
