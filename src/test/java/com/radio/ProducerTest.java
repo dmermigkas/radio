@@ -1,5 +1,6 @@
 package com.radio;
 
+import com.radio.Models.AutoShow;
 import com.radio.Models.EmailAddress;
 import com.radio.Models.Producer;
 import org.junit.Assert;
@@ -31,7 +32,7 @@ public class ProducerTest {
 
     @Test
     public void producerGetEmailTest(){
-        Assert.assertEquals("a@a.a", producer.getEmail());
+        Assert.assertEquals("a@a.a", producer.getEmail().getEmail());
     }
 
     @Test
@@ -44,6 +45,17 @@ public class ProducerTest {
     public void producerSetLastNameTest(){
         producer.setLastName("newlastname");
         Assert.assertEquals("newlastname", producer.getLastName());
+    }
+
+    @Test
+    public void producerSetEmailTest(){
+        producer.setEmail(new EmailAddress("b@b.c"));
+        Assert.assertEquals(producer.getEmail().getEmail(), "b.b.c");
+    }
+
+    @Test
+    public void producerSetAutoShowTest(){
+        producer.addAutoShow(new AutoShow());
     }
 
 
