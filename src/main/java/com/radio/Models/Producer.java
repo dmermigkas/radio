@@ -31,9 +31,9 @@ public class Producer {
 
     public Producer(){};
 
-    public Producer(DaoFactory dao, String firstName, String lastName, EmailAddress email){
-
-        this.dao = dao;
+    //public Producer(DaoFactory dao, String firstName, String lastName, EmailAddress email){
+    public Producer(String firstName, String lastName, EmailAddress email){
+        //this.dao = dao;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
