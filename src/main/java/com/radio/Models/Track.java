@@ -25,7 +25,7 @@ public abstract class Track {
 
     }
 
-    public abstract <T> Set<T> getTracks();
+    public abstract <T> HashSet<T> getTracks();
 
     public <T> T getDao(){
         return dao.getDao();

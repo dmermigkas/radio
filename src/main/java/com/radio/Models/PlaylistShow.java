@@ -11,13 +11,13 @@ public class PlaylistShow extends Show{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    public void addTrackToList(Track track){
+    public void addTrackToList(MusicTrack track){
 
         if (track != null) {
             //test
-
-            track.getTracks().add(track);
-            track.getTracks();
+            System.out.println(super.getTracks());
+//            track.getTracks().add(track);
+//            track.getTracks();
         }
 
     }
@@ -31,23 +31,23 @@ public class PlaylistShow extends Show{
 //
     }
 
-    public void addAdTrackToList(Track track){
-
-        if (track != null) {
-            track.getTracks().add(track);
-            track.getTracks();
-        }
-
-    }
-
-    public void removeAdTrackFromList(Track track){
-
-        if (track != null) {
-            track.getTracks().remove(track);
-            track.getTracks();
-        }
-
-    }
+//    public void addAdTrackToList(Track track){
+//
+//        if (track != null) {
+//            track.getTracks().add(track);
+//            track.getTracks();
+//        }
+//
+//    }
+//
+//    public void removeAdTrackFromList(Track track){
+//
+//        if (track != null) {
+//            track.getTracks().remove(track);
+//            track.getTracks();
+//        }
+//
+//    }
 
 
 }
