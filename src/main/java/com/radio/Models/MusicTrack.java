@@ -26,7 +26,7 @@ public class MusicTrack extends Track{
     @Column(name="releaseyear")
     private int releaseYear;
 
-    private Set<MusicTrack> musicTracks = new HashSet<>();
+    //private Set<MusicTrack> musicTracks = new HashSet<>();
 
     public MusicTrack(String title,String artist,Genre genre,int releaseYear){
 
@@ -38,9 +38,9 @@ public class MusicTrack extends Track{
     }
 
     @Override
-    public Set<MusicTrack> getTracks(){
-        System.out.println("im in here");
-        return musicTracks;
+    public HashSet<MusicTrack> getTracks(){
+        System.out.println(new HashSet<MusicTrack>());
+        return new HashSet<MusicTrack>();
     }
 
     public String getTitle() {

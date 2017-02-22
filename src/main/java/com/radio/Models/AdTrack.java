@@ -29,7 +29,7 @@ public class AdTrack extends Track{
     @Column(name="playsperzone")
     private int playsPerZone; //
 
-    private Set<Track> adTracks = new HashSet<>();
+    //private Set<Track> adTracks = new HashSet<>();
 
     public AdTrack(){};
 
@@ -44,8 +44,8 @@ public class AdTrack extends Track{
     }
 
     @Override
-    public Set<Track> getTracks(){
-        return adTracks;
+    public HashSet<AdTrack> getTracks(){
+        return new HashSet<AdTrack>();
     }
 
 

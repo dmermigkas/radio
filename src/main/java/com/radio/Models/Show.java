@@ -29,7 +29,7 @@ public abstract class Show {
 
 //    private Set<MusicTrack> musicTracks = new HashSet<>();
 //    private Set<AdTrack> adTracks = new HashSet<>();
-    private Set<Track> tracks = new HashSet<>();
+    private Set<Track> tracks = new HashSet<Track>();
 
     public Show(){};
 
@@ -70,26 +70,8 @@ public abstract class Show {
         this.duration = duration;
     }
 
-    public void setTracks(Set<Track> tracks) {
-
-        this.tracks = tracks;
+    public Set<Track> getTracks(){
+        return new HashSet<>(tracks);
     }
 
-    //    public Set<MusicTrack> getMusicTracks() {
-//        System.out.println(musicTracks);
-//        return musicTracks;
-//    }
-//
-//    public void setMusicTracks(Set<MusicTrack> musicTracks) {
-//        this.musicTracks = musicTracks;
-//    }
-//
-//    public Set<AdTrack> getAdTracks() {
-//        System.out.println(adTracks);
-//        return adTracks;
-//    }
-//
-//    public void setAdTracks(Set<AdTrack> adTracks) {
-//        this.adTracks = adTracks;
-//    }
 }

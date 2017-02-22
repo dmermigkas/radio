@@ -15,9 +15,13 @@ public class TrackPlayEvent {
     @Column(name="timestamp")
     private Calendar dateTime;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name="trackid") //problem here: we have id for child classes only
-    private Track track;
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+//    @JoinColumn(name="trackid") //problem here: we have id for child classes only
+//    @Embedded
+//    private Track musicTrack = new MusicTrack("test","test artist",new Genre("test"),1990);
+//
+//    @Embedded
+//    private Track ad = new AdTrack();
 
     public Calendar getDateTime() {
         return dateTime;
@@ -28,10 +32,11 @@ public class TrackPlayEvent {
     }
 
     //
-//    public Track getTrack() {
+//    public String getMusicTrack() {
+//        return musicTrack.getTitle();
 //        //return track == null ? null : new Track();
 //    }
-
+//
 //    public void setTrack(Track track) {
 //        //this.track = track == null ? null : new Track();
 //    }
