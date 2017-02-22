@@ -13,8 +13,8 @@ public class ProducerTest {
 
     @Before
     public void setupProducerTests(){
-        Producer producer = new Producer("firstname", "lastname", new EmailAddress("a@a.a"));
-    }/*
+        public Producer producer = new Producer("firstname", "lastname", new EmailAddress("a@a.a"));
+    }
 
     @Test
     public void producerGetFirstNameTest(){
@@ -32,5 +32,17 @@ public class ProducerTest {
         Assert.assertEquals("a@a.a", producer.getEmail.getEmail);
     }
 
-*/
+    @Test
+    public void producerSetFirstNameTest(){
+        producer.setFirstName("newfirstname");
+        Assert.assertEquals("newfirstname", producer.getFirstName);
+    }
+
+    @Test
+    public void producerSetLastNameTest(){
+        producer.setLastName("newlastname");
+        Assert.assertEquals("newlastname", producer.getLastName);
+    }
+
+
 }
