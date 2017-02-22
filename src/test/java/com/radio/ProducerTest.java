@@ -11,37 +11,39 @@ import org.junit.Test;
  */
 public class ProducerTest {
 
+    private Producer producer;
+
     @Before
     public void setupProducerTests(){
-        public Producer producer = new Producer("firstname", "lastname", new EmailAddress("a@a.a"));
+        producer = new Producer("firstname", "lastname", new EmailAddress("a@a.a"));
     }
 
     @Test
     public void producerGetFirstNameTest(){
-        Producer producer = new Producer("firstname", "lastname", new EmailAddress("a@a.a"));
-        Assert.assertEquals("firstname", producer.getFirstName);
+        producer = new Producer("firstname", "lastname", new EmailAddress("a@a.a"));
+        Assert.assertEquals("firstname", producer.getFirstName());
     }
 
     @Test
     public void producerGetLastNameTest(){
-        Assert.assertEquals("lastname", producer.getLastName);
+        Assert.assertEquals("lastname", producer.getLastName());
     }
 
     @Test
     public void producerGetEmailTest(){
-        Assert.assertEquals("a@a.a", producer.getEmail.getEmail);
+        Assert.assertEquals("a@a.a", producer.getEmail());
     }
 
     @Test
     public void producerSetFirstNameTest(){
         producer.setFirstName("newfirstname");
-        Assert.assertEquals("newfirstname", producer.getFirstName);
+        Assert.assertEquals("newfirstname", producer.getFirstName());
     }
 
     @Test
     public void producerSetLastNameTest(){
         producer.setLastName("newlastname");
-        Assert.assertEquals("newlastname", producer.getLastName);
+        Assert.assertEquals("newlastname", producer.getLastName());
     }
 
 
