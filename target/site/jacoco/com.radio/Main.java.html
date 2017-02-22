@@ -3,14 +3,39 @@
 import com.radio.Models.*;
 import com.radio.Daos.*;
 
-<span class="nc" id="L6">public class Main {</span>
+import java.util.Calendar;
+
+<span class="nc" id="L8">public class Main {</span>
 
     public static void main(String[] args) {
 
-<span class="nc" id="L10">        Producer prod = new Producer(new MusicTrackDao(), &quot;dimitris&quot;, &quot;mermigkas&quot;, new EmailAddress(&quot;ddsadasds&quot;));</span>
-<span class="nc" id="L11">        MusicTrackDao dao = prod.getDao();</span>
+<span class="nc" id="L12">        Calendar today = Calendar.getInstance();</span>
 
-<span class="nc" id="L13">    }</span>
+
+<span class="nc" id="L15">        Producer prod = new Producer(&quot;dimitris&quot;, &quot;mermigkas&quot;, new EmailAddress(&quot;ddsadasds&quot;));</span>
+        //Producer prod = new Producer(new MusicTrackDao(), &quot;dimitris&quot;, &quot;mermigkas&quot;, new EmailAddress(&quot;ddsadasds&quot;));
+        //MusicTrackDao dao = prod.getDao();
+
+<span class="nc" id="L19">        MusicTrack track = new MusicTrack(&quot;test&quot;,&quot;test artist&quot;,new Genre(&quot;test&quot;),1990);</span>
+
+<span class="nc" id="L21">        Track track2 = new MusicTrack(&quot;test&quot;,&quot;test artist&quot;,new Genre(&quot;test&quot;),1990);</span>
+
+<span class="nc" id="L23">        PlaylistShow pl = new PlaylistShow();</span>
+<span class="nc" id="L24">        pl.addTrackToList(track);</span>
+<span class="nc" id="L25">        prod.addPlaylistShow(pl);</span>
+<span class="nc" id="L26">        prod.getPlaylistShows();</span>
+
+//        MusicTrack track = new MusicTrack(&quot;test&quot;,&quot;test artist&quot;,new Genre(&quot;test&quot;),1990);
+//        AdTrack ad = new AdTrack(&quot;test&quot;,new PlayBackZone(today,today),today,today,4);
+//        PlaylistShow pl = new PlaylistShow();
+//        pl.addMusicTrackToList(track);
+//        pl.removeMusicTrackFromList(track);
+//        pl.addAdTrackToList(ad);
+//
+//        AutoShow auto = new AutoShow();
+//        auto.getPolicies().playedLastHour();
+
+<span class="nc" id="L38">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

@@ -1,33 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PlayBackZone.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">maven-radio-station</a> &gt; <a href="index.source.html" class="el_package">com.radio.Models</a> &gt; <span class="el_source">PlayBackZone.java</span></div><h1>PlayBackZone.java</h1><pre class="source lang-java linenums">package com.radio.Models;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import java.util.Calendar;
 
+@Embeddable
 public class PlayBackZone {
 
+    @Column(name=&quot;fromtime&quot;)
     private Calendar fromTime;
+
+    @Column(name=&quot;totime&quot;)
     private Calendar toTime;
 
-<span class="nc" id="L10">    public PlayBackZone(){};</span>
-
-<span class="nc" id="L12">    public PlayBackZone(Calendar fromTime,Calendar toTime){</span>
-<span class="nc" id="L13">        this.fromTime = fromTime;</span>
-<span class="nc" id="L14">        this.toTime = toTime;</span>
-<span class="nc" id="L15">    }</span>
+<span class="nc" id="L16">    public PlayBackZone(Calendar fromTime,Calendar toTime){</span>
+<span class="nc" id="L17">        this.fromTime = fromTime;</span>
+<span class="nc" id="L18">        this.toTime = toTime;</span>
+<span class="nc" id="L19">    }</span>
 
     public Calendar getFromTime() {
-<span class="nc" id="L18">        return fromTime;</span>
+<span class="nc" id="L22">        return fromTime;</span>
     }
 
     public void setFromTime(Calendar fromTime) {
-<span class="nc" id="L22">        this.fromTime = fromTime;</span>
-<span class="nc" id="L23">    }</span>
+<span class="nc" id="L26">        this.fromTime = fromTime;</span>
+<span class="nc" id="L27">    }</span>
 
     public Calendar getToTime() {
-<span class="nc" id="L26">        return toTime;</span>
+<span class="nc" id="L30">        return toTime;</span>
     }
 
     public void setToTime(Calendar toTime) {
-<span class="nc" id="L30">        this.toTime = toTime;</span>
-<span class="nc" id="L31">    }</span>
+<span class="nc" id="L34">        this.toTime = toTime;</span>
+<span class="nc" id="L35">    }</span>
+
+    public PlayBackZone getPlaybackZone(){
+<span class="nc" id="L38">        return new PlayBackZone(this.fromTime, this.toTime);</span>
+    }
+
+    @Override
+    public boolean equals(Object other) {
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        if (other == null) {</span>
+<span class="nc" id="L44">            return false;</span>
+        }
+
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (this == other) {</span>
+<span class="nc" id="L48">            return true;</span>
+        }
+
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if (!(other instanceof PlayBackZone)) {</span>
+<span class="nc" id="L52">            return false;</span>
+        }
+
+<span class="nc" id="L55">        PlayBackZone playbackzone = (PlayBackZone) other;</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        return playbackzone == null</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">                ? playbackzone.getPlaybackZone() == null</span>
+<span class="nc" id="L58">                : playbackzone.equals(playbackzone.getPlaybackZone());</span>
+    }
+
+
+    @Override
+    public int hashCode() {
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        return new PlayBackZone(this.fromTime, this.toTime) == null ? 0 : new PlayBackZone(this.fromTime, this.toTime).hashCode();</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

@@ -2,34 +2,42 @@
 
 import com.radio.Daos.DaoFactory;
 
+import javax.persistence.*;
 import java.time.Duration;
+import java.util.HashSet;
+import java.util.Set;
 
-public class Track {
 
-    private Integer id;
+@MappedSuperclass
+public abstract class Track {
+
+    @Column(name=&quot;duration&quot;, nullable=false)
     private Duration duration;
+
     private DaoFactory dao;
 
-<span class="nc" id="L13">    public Track(){};</span>
+<span class="nc" id="L19">    public Track(){};</span>
 
-<span class="nc" id="L15">    public Track(DaoFactory dao,Duration duration){</span>
+<span class="nc" id="L21">    public Track(DaoFactory dao,Duration duration){</span>
 
-<span class="nc" id="L17">        this.dao = dao;</span>
-<span class="nc" id="L18">        this.duration = duration;</span>
+<span class="nc" id="L23">        this.dao = dao;</span>
+<span class="nc" id="L24">        this.duration = duration;</span>
 
-<span class="nc" id="L20">    }</span>
+<span class="nc" id="L26">    }</span>
+
+    public abstract &lt;T&gt; HashSet&lt;T&gt; getTracks();
 
     public &lt;T&gt; T getDao(){
-<span class="nc" id="L23">        return dao.getDao();</span>
+<span class="nc" id="L31">        return dao.getDao();</span>
     }
 
     public Duration getDuration() {
-<span class="nc" id="L27">        return duration;</span>
+<span class="nc" id="L35">        return duration;</span>
     }
 
     public void setDuration(Duration duration) {
-<span class="nc" id="L31">        this.duration = duration;</span>
-<span class="nc" id="L32">    }</span>
+<span class="nc" id="L39">        this.duration = duration;</span>
+<span class="nc" id="L40">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

@@ -2,51 +2,104 @@
 
 import com.radio.Daos.DaoFactory;
 
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+@Entity
+@Table(name=&quot;PRODUCERS&quot;)
 public class Producer {
 
+    @Id
+    @Column(name=&quot;producerid&quot;)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     private DaoFactory dao;
+
+    @Column(name=&quot;firstname&quot;)
     private String firstName;
+
+    @Column(name=&quot;lastname&quot;)
     private String lastName;
+
+    @Embedded
     private EmailAddress email;
 
-<span class="nc" id="L13">    public Producer(){};</span>
+<span class="pc" id="L29">    private Set&lt;AutoShow&gt; autoShows = new HashSet&lt;&gt;();</span>
+<span class="pc" id="L30">    private Set&lt;PlaylistShow&gt; playlistShows = new HashSet&lt;&gt;();</span>
 
-<span class="nc" id="L15">    public Producer(DaoFactory dao, String firstName, String lastName, EmailAddress email){</span>
+<span class="nc" id="L32">    public Producer(){};</span>
 
-<span class="nc" id="L17">        this.dao = dao;</span>
-<span class="nc" id="L18">        this.firstName = firstName;</span>
-<span class="nc" id="L19">        this.lastName = lastName;</span>
-<span class="nc" id="L20">        this.email = email;</span>
+    //public Producer(DaoFactory dao, String firstName, String lastName, EmailAddress email){
+<span class="fc" id="L35">    public Producer(String firstName, String lastName, EmailAddress email){</span>
+        //this.dao = dao;
+<span class="fc" id="L37">        this.firstName = firstName;</span>
+<span class="fc" id="L38">        this.lastName = lastName;</span>
+<span class="fc" id="L39">        this.email = email;</span>
 
-<span class="nc" id="L22">    }</span>
+<span class="fc" id="L41">    }</span>
 
     public &lt;T&gt; T getDao(){
-<span class="nc" id="L25">        return dao.getDao();</span>
+<span class="nc" id="L44">        return dao.getDao();</span>
     }
 
     public String getFirstName() {
-<span class="nc" id="L29">        return firstName;</span>
+<span class="fc" id="L48">        return firstName;</span>
     }
 
     public void setFirstName(String firstName) {
-<span class="nc" id="L33">        this.firstName = firstName;</span>
-<span class="nc" id="L34">    }</span>
+<span class="fc" id="L52">        this.firstName = firstName;</span>
+<span class="fc" id="L53">    }</span>
 
     public String getLastName() {
-<span class="nc" id="L37">        return lastName;</span>
+<span class="fc" id="L56">        return lastName;</span>
     }
 
     public void setLastName(String lastName) {
-<span class="nc" id="L41">        this.lastName = lastName;</span>
-<span class="nc" id="L42">    }</span>
+<span class="fc" id="L60">        this.lastName = lastName;</span>
+<span class="fc" id="L61">    }</span>
 
     public EmailAddress getEmail() {
-<span class="nc" id="L45">        return email;</span>
+<span class="fc" id="L64">        return email;</span>
     }
 
     public void setEmail(EmailAddress email) {
-<span class="nc" id="L49">        this.email = email;</span>
-<span class="nc" id="L50">    }</span>
+<span class="nc" id="L68">        this.email = email;</span>
+<span class="nc" id="L69">    }</span>
+
+    public Set&lt;AutoShow&gt; getAutoShows() {
+<span class="nc" id="L72">        System.out.println(autoShows);</span>
+<span class="nc" id="L73">        return autoShows;</span>
+    }
+
+    public void setAutoShows(Set&lt;AutoShow&gt; autoShows) {
+<span class="nc" id="L77">        this.autoShows = autoShows;</span>
+<span class="nc" id="L78">    }</span>
+
+    public Set&lt;PlaylistShow&gt; getPlaylistShows() {
+<span class="nc" id="L81">        return playlistShows;</span>
+    }
+
+    public void setPlaylistShows(Set&lt;PlaylistShow&gt; playlistShows) {
+<span class="nc" id="L85">        this.playlistShows = playlistShows;</span>
+<span class="nc" id="L86">    }</span>
+
+    public void addAutoShow(AutoShow show){
+<span class="nc" id="L89">        this.autoShows.add(show);</span>
+<span class="nc" id="L90">    }</span>
+
+    public void removeAutoShow(AutoShow show){
+<span class="nc" id="L93">        this.autoShows.remove(show);</span>
+<span class="nc" id="L94">    }</span>
+
+    public void addPlaylistShow(PlaylistShow show){
+<span class="nc" id="L97">        this.playlistShows.add(show);</span>
+<span class="nc" id="L98">    }</span>
+
+    public void removePlaylistShow(PlaylistShow show){
+<span class="nc" id="L101">        this.playlistShows.remove(show);</span>
+<span class="nc" id="L102">    }</span>
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>
