@@ -3,20 +3,17 @@ package com.radio.Models;
 import javax.persistence.*;
 
 @Entity
+@DiscriminatorValue("AU")
 @Table(name="AUTOSHOWS")
 public class AutoShow extends Show{
-    @Id
-    @Column(name="autoshowid")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
 
     @ManyToMany(cascade ={CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinTable(name="SHOWGENRES",
-            joinColumns = {@JoinColumn (name="autoshowid")},
+            joinColumns = {@JoinColumn (name="showId")},
             inverseJoinColumns = {@JoinColumn(name="genreid")})
     private Genre genre;
 
-    private Policies policies = new Policies();
+    //private Policies policies = new Policies();
 
     public Genre getGenre() {
         return genre;
@@ -26,11 +23,20 @@ public class AutoShow extends Show{
         this.genre = genre;
     }
 
-    public Policies getPolicies() {
-        return policies;
+    public void addTrackToList(Track track){
+
     }
 
-    public void setPolicies(Policies policies) {
-        this.policies = policies;
+    public void removeTrackFromList(Track track){
+
     }
+
+//    public Policies getPolicies() {
+//        return policies;
+//    }
+//
+//    public void setPolicies(Policies policies) {
+//        this.policies = policies;
+//    }
+
 }

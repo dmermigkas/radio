@@ -6,12 +6,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@DiscriminatorValue("MT")
 @Table(name="MUSICTRACKS")
 public class MusicTrack extends Track{
-    @Id
-    @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
 
     @Column(name="title")
     private String title;
@@ -26,7 +23,7 @@ public class MusicTrack extends Track{
     @Column(name="releaseyear")
     private int releaseYear;
 
-    //private Set<MusicTrack> musicTracks = new HashSet<>();
+    public MusicTrack(){}
 
     public MusicTrack(String title,String artist,Genre genre,int releaseYear){
 
@@ -35,12 +32,6 @@ public class MusicTrack extends Track{
         this.genre = genre;
         this.releaseYear = releaseYear;
 
-    }
-
-    @Override
-    public HashSet<MusicTrack> getTracks(){
-        System.out.println(new HashSet<MusicTrack>());
-        return new HashSet<MusicTrack>();
     }
 
     public String getTitle() {

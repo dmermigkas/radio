@@ -53,10 +53,10 @@ public class ProducerTest {
         Assert.assertEquals(producer.getEmail().getEmail(), "b.b.c");
     }
 
-    @Test
-    public void producerSetAutoShowTest(){
-        producer.addAutoShow(new AutoShow());
-    }
+//    @Test
+//    public void producerSetAutoShowTest(){
+//        producer.addAutoShow(new AutoShow());
+//    }
 
 
 }

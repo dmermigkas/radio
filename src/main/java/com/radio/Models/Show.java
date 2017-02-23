@@ -3,13 +3,21 @@ package com.radio.Models;
 import com.radio.Daos.DaoFactory;
 
 import javax.persistence.*;
-import java.time.Duration;
+import java.time.*;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="SHOW_TYPE")
+@Table(name="SHOWS")
 public abstract class Show {
+
+    @Id
+    @Column(name="showId")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer showId;
 
     @Column(name="name")
     private String name;
@@ -17,23 +25,27 @@ public abstract class Show {
     @Column(name="playdatetime")
     private Calendar playDateTime;
 
-    @Column(name="duration") //JPA will not work
-    private Duration duration;
+    @Column(name="duration")
+    private int duration;
+
     private DaoFactory dao;
 
     //Relational Properties
-
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name="producerid")
     private Producer producer;
 
-//    private Set<MusicTrack> musicTracks = new HashSet<>();
-//    private Set<AdTrack> adTracks = new HashSet<>();
-    private Set<Track> tracks = new HashSet<Track>();
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE },
+            fetch=FetchType.LAZY)
+    @JoinTable(name="SHOWTRACKS",
+            joinColumns = {@JoinColumn(name="showId")},
+            inverseJoinColumns = {@JoinColumn(name="trackId")}
+    )
+    private Set<Track> tracks = new HashSet<>();
 
     public Show(){};
 
-    public Show(DaoFactory dao,String name,Calendar playDateTime,Duration duration){
+    public Show(DaoFactory dao,String name,Calendar playDateTime,int duration){
 
         this.dao = dao;
         this.name = name;
@@ -62,16 +74,28 @@ public abstract class Show {
         this.playDateTime = playDateTime;
     }
 
-    public Duration getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(Duration duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
-    public Set<Track> getTracks(){
-        return new HashSet<>(tracks);
+    public Producer getProducer() {
+        return producer;
     }
+
+    public void setProducer(Producer producer) {
+        this.producer = producer;
+    }
+
+    public Set<Track> getTracks(){
+        return tracks;
+    }
+
+    public abstract void addTrackToList(Track track);
+
+    public abstract void removeTrackFromList(Track track);
 
 }

@@ -7,35 +7,40 @@ import java.time.Duration;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="TRACK_TYPE")
+@Table(name="TRACKS")
+public class Track {
 
-@MappedSuperclass
-public abstract class Track {
+    @Id
+    @Column(name="trackId")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer trackId;
 
     @Column(name="duration", nullable=false)
-    private Duration duration;
+    private int duration;
 
     private DaoFactory dao;
 
     public Track(){};
 
-    public Track(DaoFactory dao,Duration duration){
+    public Track(DaoFactory dao,int duration){
 
         this.dao = dao;
         this.duration = duration;
 
     }
 
-    public abstract <T> HashSet<T> getTracks();
-
     public <T> T getDao(){
         return dao.getDao();
     }
 
-    public Duration getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(Duration duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 

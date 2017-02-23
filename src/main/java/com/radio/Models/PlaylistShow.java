@@ -3,51 +3,30 @@ package com.radio.Models;
 import javax.persistence.*;
 
 @Entity
+@DiscriminatorValue("PL")
 @Table(name="PLAYLISTSHOWS")
 public class PlaylistShow extends Show{
 
-    @Id
-    @Column(name="playlistshowid")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
-    public void addTrackToList(MusicTrack track){
+    public void addTrackToList(Track track){
 
         if (track != null) {
-            //test
+
+            super.getTracks().add(track);
             System.out.println(super.getTracks());
-//            track.getTracks().add(track);
-//            track.getTracks();
+
         }
 
     }
 
-    public void removeMusicTrackFromList(Track track){
+    public void removeTrackFromList(Track track){
 
         if (track != null) {
-            track.getTracks().remove(track);
-            track.getTracks();
+
+            super.getTracks().remove(track);
+            System.out.println(super.getTracks());
+
         }
-//
+
     }
-
-//    public void addAdTrackToList(Track track){
-//
-//        if (track != null) {
-//            track.getTracks().add(track);
-//            track.getTracks();
-//        }
-//
-//    }
-//
-//    public void removeAdTrackFromList(Track track){
-//
-//        if (track != null) {
-//            track.getTracks().remove(track);
-//            track.getTracks();
-//        }
-//
-//    }
-
 
 }

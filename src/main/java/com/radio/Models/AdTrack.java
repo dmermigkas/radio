@@ -6,13 +6,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@DiscriminatorValue("AD")
 @Table(name="ADTRACKS")
 public class AdTrack extends Track{
-
-    @Id
-    @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
 
     @Column(name="brand")
     private String brand;
@@ -29,8 +25,6 @@ public class AdTrack extends Track{
     @Column(name="playsperzone")
     private int playsPerZone; //
 
-    //private Set<Track> adTracks = new HashSet<>();
-
     public AdTrack(){};
 
     public AdTrack(String brand, PlayBackZone zone, Calendar from, Calendar to, int playsPerZone){
@@ -42,12 +36,6 @@ public class AdTrack extends Track{
         this.playsPerZone = playsPerZone;
 
     }
-
-    @Override
-    public HashSet<AdTrack> getTracks(){
-        return new HashSet<AdTrack>();
-    }
-
 
     public String getBrand() {
         return brand;

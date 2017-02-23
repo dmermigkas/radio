@@ -50,4 +50,5 @@ public class EmailAddress {
     public int hashCode() {
         return email == null ? 0 : email.hashCode();
     }
+
 }

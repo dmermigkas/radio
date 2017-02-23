@@ -4,7 +4,7 @@ public class PlaylistShowDao extends ShowDao{
 
     @Override
     public PlaylistShowDao getChildDao(){
-        return new PlaylistShowDao();
+        System.out.println("hello!");return new PlaylistShowDao();
     }
 
 }
