@@ -23,9 +23,6 @@ public class EmailAddress {
         this.email = email;
     }
 
-    public String getAddress() {
-        return email;
-    }
 
     @Override
     public boolean equals(Object other) {
@@ -42,8 +39,8 @@ public class EmailAddress {
         }
 
         EmailAddress theEmail = (EmailAddress) other;
-        return email == null ? theEmail.getAddress() == null
-                : email.equals(theEmail.getAddress());
+        return email == null ? theEmail.getEmail() == null
+                : email.equals(theEmail.getEmail());
     }
 
     @Override

@@ -24,7 +24,6 @@ public class AutoShow extends Show{
     }
 
     public void addTrackToList(Track track){
-
     }
 
     public void removeTrackFromList(Track track){

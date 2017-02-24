@@ -50,13 +50,9 @@ public class ProducerTest {
     @Test
     public void producerSetEmailTest(){
         producer.setEmail(new EmailAddress("b@b.c"));
-        Assert.assertEquals(producer.getEmail().getEmail(), "b.b.c");
+        Assert.assertEquals(producer.getEmail().getEmail(), "b@b.c");
     }
 
-//    @Test
-//    public void producerSetAutoShowTest(){
-//        producer.addAutoShow(new AutoShow());
-//    }
 
 
 }
