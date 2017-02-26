@@ -1,6 +1,7 @@
 package com.radio.Models;
 
 import javax.persistence.*;
+import java.util.Calendar;
 
 @Entity
 @DiscriminatorValue("PL")
@@ -29,4 +30,11 @@ public class PlaylistShow extends Show{
 
     }
 
+    public PlaylistShow(String name, Producer producer, int duration, Calendar playDateTime) {
+
+        super.name = name;
+        super.producer = producer;
+        super.duration = duration;
+        super.playDateTime = playDateTime;
+    }
 }
