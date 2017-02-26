@@ -43,17 +43,6 @@ public abstract class Show {
     )
     private Set<Track> tracks = new HashSet<>();
 
-    public Show(){};
-
-    public Show(DaoFactory dao,String name,Calendar playDateTime,int duration){
-
-        this.dao = dao;
-        this.name = name;
-        this.playDateTime = playDateTime;
-        this.duration = duration;
-
-    }
-
     public <T> T getDao(){
         return dao.getDao();
     }
