@@ -27,4 +27,16 @@ public class EmailTest {
         emailAddress.setEmail("another@email.org");
         Assert.assertEquals("another@email.org", emailAddress.getEmail());
     }
+
+    @Test
+    public void emailEqualsTest(){
+        EmailAddress emailAddress2;
+        emailAddress2 = null;
+        Assert.assertNotEquals(emailAddress, emailAddress2);
+        emailAddress2 = new EmailAddress("a@a.c");
+        Assert.assertNotEquals(emailAddress, emailAddress2);
+        emailAddress2 = emailAddress;
+        Assert.assertEquals(emailAddress, emailAddress2);
+        Assert.assertNotEquals(emailAddress, "hello");
+    }
 }
