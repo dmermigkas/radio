@@ -1,6 +1,7 @@
 package com.radio.Models;
 
 import javax.persistence.*;
+import java.util.Calendar;
 
 @Entity
 @DiscriminatorValue("AU")
@@ -28,6 +29,15 @@ public class AutoShow extends Show{
 
     public void removeTrackFromList(Track track){
 
+    }
+
+    public AutoShow(String name, Producer producer, int duration, Genre genre, Calendar playDateTime) {
+
+        super.duration = duration;
+        super.producer = producer;
+        super.name = name;
+        super.playDateTime = playDateTime;
+        this.genre = genre;
     }
 
 //    public Policies getPolicies() {

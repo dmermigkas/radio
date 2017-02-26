@@ -20,20 +20,20 @@ public abstract class Show {
     private Integer showId;
 
     @Column(name="name")
-    private String name;
+    protected String name;
 
     @Column(name="playdatetime")
-    private Calendar playDateTime;
+    protected Calendar playDateTime;
 
     @Column(name="duration")
-    private int duration;
+    protected int duration;
 
     private DaoFactory dao;
 
     //Relational Properties
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name="producerid")
-    private Producer producer;
+    protected Producer producer;
 
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE },
             fetch=FetchType.LAZY)
