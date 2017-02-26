@@ -49,7 +49,7 @@ public class AutoShowTest {
         Producer producer2 = new Producer("firstName2", "lastName2", new EmailAddress("testing2@email.org"));
         autoShow.setProducer(producer2);
         Assert.assertEquals(autoShow.getProducer(), producer2);
-        Calendar playDateTime2 = Calendar.getInstance();
+        Calendar playDateTime2 = playDateTime;
         playDateTime2.add(Calendar.HOUR, 2);
         autoShow.setPlayDateTime(playDateTime2);
         Assert.assertEquals(autoShow.getPlayDateTime(),playDateTime2);

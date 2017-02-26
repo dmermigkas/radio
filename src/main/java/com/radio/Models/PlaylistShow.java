@@ -37,4 +37,6 @@ public class PlaylistShow extends Show{
         super.duration = duration;
         super.playDateTime = playDateTime;
     }
+
+    public PlaylistShow(){}
 }
