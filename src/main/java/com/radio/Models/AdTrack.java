@@ -27,13 +27,14 @@ public class AdTrack extends Track{
 
     public AdTrack(){};
 
-    public AdTrack(String brand, PlayBackZone zone, Calendar from, Calendar to, int playsPerZone){
+    public AdTrack(String brand, PlayBackZone zone, Calendar fromDate, Calendar toDate, int playsPerZone, int duration){
 
         this.brand = brand;
         this.zone = zone;
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.playsPerZone = playsPerZone;
+        super.duration = duration;
 
     }
 
@@ -54,7 +55,7 @@ public class AdTrack extends Track{
     }
 
     public Calendar getFrom() {
-        return fromDate;
+        return this.fromDate;
     }
 
     public void setFrom(Calendar from) {
@@ -62,7 +63,7 @@ public class AdTrack extends Track{
     }
 
     public Calendar getTo() {
-        return toDate;
+        return this.toDate;
     }
 
     public void setTo(Calendar to) {
@@ -70,7 +71,7 @@ public class AdTrack extends Track{
     }
 
     public int getPlaysPerZone() {
-        return playsPerZone;
+        return this.playsPerZone;
     }
 
     public void setPlaysPerZone(int playsPerZone) {

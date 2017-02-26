@@ -19,7 +19,7 @@ public class Track {
     private Integer trackId;
 
     @Column(name="duration", nullable=false)
-    private int duration;
+    protected int duration;
 
     private DaoFactory dao;
 

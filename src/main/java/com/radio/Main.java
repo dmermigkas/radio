@@ -16,9 +16,9 @@ public class Main {
         //Producer prod = new Producer(new MusicTrackDao(), "dimitris", "mermigkas", new EmailAddress("ddsadasds"));
         //MusicTrackDao dao = prod.getDao();
 
-        Track track = new MusicTrack("test","test artist",new Genre("test"),1990);
+        Track track = new MusicTrack("test","test artist",new Genre("test"),1990, 100);
 
-        Track track2 = new MusicTrack("test","test artist",new Genre("test"),1990);
+        Track track2 = new MusicTrack("test","test artist",new Genre("test"),1990, 100);
 
         Track track3 = new AdTrack();
 

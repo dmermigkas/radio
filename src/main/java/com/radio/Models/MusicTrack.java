@@ -25,12 +25,13 @@ public class MusicTrack extends Track{
 
     public MusicTrack(){}
 
-    public MusicTrack(String title,String artist,Genre genre,int releaseYear){
+    public MusicTrack(String title,String artist,Genre genre,int releaseYear, int duration){
 
         this.title = title;
         this.artist = artist;
         this.genre = genre;
         this.releaseYear = releaseYear;
+        super.duration = duration;
 
     }
 
