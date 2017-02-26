@@ -1,8 +1,12 @@
 package com.radio;
 
 import com.radio.Models.AdTrack;
+import com.radio.Models.PlayBackZone;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
+import javax.validation.constraints.AssertTrue;
 import java.util.Calendar;
 
 /**
@@ -11,13 +15,32 @@ import java.util.Calendar;
 public class AdTrackTest {
 
     AdTrack adTrack;
-    Calendar initialCalendar;
+    Calendar fromCalendar;
+    Calendar toCalendar;
+    Calendar fromZone;
+    Calendar toZone;
+    PlayBackZone playBackZone;
 
     @Before
-    public void AdTrackTestSetup(){/*
-        initialCalendar = Calendar.getInstance();
+    public void PlayBackZoneTestSetUp(){
+        fromCalendar = Calendar.getInstance();
+        toCalendar = fromCalendar;
+        toCalendar.add(Calendar.DATE, 2);
+        fromZone = fromCalendar;
+        fromZone.add(Calendar.HOUR, 1);
+        toZone = fromCalendar;
+        toZone.add(Calendar.HOUR, 2);
+        adTrack= new AdTrack("brand", new PlayBackZone(fromCalendar, toCalendar), fromCalendar, toCalendar, 5, 20);
+    }
 
-        adTrack =  new AdTrack("brand", 5, initialCalendar, initialCalendar.add(3, 5), 5, 100 );
+    @Test
+    public void PlayBackZoneGettersTest(){
+        Assert.assertEquals(adTrack.getBrand(), "brand");
+        Assert.assertEquals(adTrack.getDuration(), 20);
+        Assert.assertEquals(adTrack.getPlaysPerZone(), 5);
+        //Assert.assertEquals(adTrack.getFrom(), fromCalendar);
+        //Assert.assertEquals(adTrack.getTo(), toCalendar);
+        //Assert.assertEquals(adTrack.getZone(), playBackZone);
+    }
 
-    */}
 }
