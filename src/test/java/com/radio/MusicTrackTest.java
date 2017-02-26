@@ -16,7 +16,7 @@ public class MusicTrackTest {
 
     @Before
     public void MusicTrackSetup(){
-        musictrack = new MusicTrack("musictitle", "musicartist", new Genre("musicgenre"), 1999);
+        musictrack = new MusicTrack("musictitle", "musicartist", new Genre("musicgenre"), 1999, 100);
     }
 
     @Test
@@ -42,5 +42,11 @@ public class MusicTrackTest {
     public void MusicTrackGetSetReleaseYearTest(){
         musictrack.setReleaseYear(1998);
         Assert.assertEquals(musictrack.getReleaseYear(), 1998);
+    }
+
+    @Test
+    public void MusicTrackGetSetDurationTest(){
+        musictrack.setDuration(99);
+        Assert.assertEquals(musictrack.getDuration(), 99);
     }
 }

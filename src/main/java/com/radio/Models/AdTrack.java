@@ -27,13 +27,14 @@ public class AdTrack extends Track{
 
     public AdTrack(){};
 
-    public AdTrack(String brand, PlayBackZone zone, Calendar from, Calendar to, int playsPerZone){
+    public AdTrack(String brand, PlayBackZone zone, Calendar from, Calendar to, int playsPerZone, int duration){
 
         this.brand = brand;
         this.zone = zone;
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.playsPerZone = playsPerZone;
+        super.duration = duration;
 
     }
 
