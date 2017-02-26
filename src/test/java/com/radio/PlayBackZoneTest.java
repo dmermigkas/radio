@@ -29,7 +29,7 @@ public class PlayBackZoneTest {
         Assert.assertEquals(playBackZone.getFromTime(), fromCalendar);
         Assert.assertEquals(playBackZone.getToTime(), toCalendar);
         //PlayBackZone newPlaybackZone = playBackZone;                          // This part of the test does not work
-        //Assert.assertEquals(newPlaybackZone, playBackZone.getPlaybackZone()); // 
+        //Assert.assertEquals(newPlaybackZone, playBackZone.getPlaybackZone()); //
 
     }
 
