@@ -7,7 +7,9 @@ import com.radio.Utilities.JPAUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class MusicTrackFactoryImpl  implements FactoryGeneric<MusicTrack, Integer>{
@@ -53,8 +55,8 @@ public class MusicTrackFactoryImpl  implements FactoryGeneric<MusicTrack, Intege
     }
 
     @Override
-    public Set<MusicTrack> getAll(){
-        return new HashSet<>();
+    public List<MusicTrack> getAll(){
+        return new ArrayList<>();
     }
 
     @Override
