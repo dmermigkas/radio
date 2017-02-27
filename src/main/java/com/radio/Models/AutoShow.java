@@ -14,6 +14,10 @@ public class AutoShow extends Show{
 
     //private Policies policies = new Policies();
 
+
+    public AutoShow() {
+    }
+
     public AutoShow(String name, Producer producer, int duration, Genre genre, Calendar playDateTime) {
 
         super.duration = duration;
