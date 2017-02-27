@@ -25,7 +25,7 @@ public class ProducerJPATest {
     public void addProducer(){
         producerDao = new ProducerFactoryImpl();
         Producer producer1 = new Producer();
-        producerDao.add(producer1);
+        producerDao.create(producer1);
         Assert.assertEquals(producerDao.getAll().size(), 2);
     }
 }
