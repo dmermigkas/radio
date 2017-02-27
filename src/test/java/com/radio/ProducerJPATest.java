@@ -1,17 +1,11 @@
 package com.radio;
 
-import com.radio.Daos.ProducerDao;
 import com.radio.Factories.FactoryGeneric;
 import com.radio.Factories.ProducerFactoryImpl;
-import com.radio.Models.EmailAddress;
 import com.radio.Models.Producer;
-import com.radio.Utilities.JPAUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.persistence.EntityManager;
-import java.util.List;
 
 /**
  * Created by lotv on 27/02/2017.
