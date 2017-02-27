@@ -94,7 +94,11 @@ public abstract class Show {
         return tracks;
     }
 
-//    public abstract void addTrackToList(Track track);
+    public void setTracks(Set<Track> tracks) {
+        this.tracks = tracks;
+    }
+
+    //    public abstract void addTrackToList(Track track);
 //
 //    public abstract void removeTrackFromList(Track track);
 
