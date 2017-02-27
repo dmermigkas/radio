@@ -35,8 +35,8 @@ public class Main {
 //        pl.setProducer(prod);
 //        pl.getProducer();
 
-        //FactoryGeneric studentDao = new ProducerFactoryImpl();
-        //studentDao.add(prod);
+        FactoryGeneric studentDao = new ProducerFactoryImpl();
+        studentDao.create(prod);
 
         //prod.getDao();
 

@@ -41,7 +41,7 @@ public abstract class Show {
             joinColumns = {@JoinColumn(name="showId")},
             inverseJoinColumns = {@JoinColumn(name="trackId")}
     )
-    private Set<Track> tracks = new HashSet<>();
+    protected Set<Track> tracks = new HashSet<>();
 
     public Show(){}
 

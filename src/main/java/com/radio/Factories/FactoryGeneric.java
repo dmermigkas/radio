@@ -4,7 +4,7 @@ import java.util.Set;
 
 public interface FactoryGeneric <T, E>{
 
-    public void saveOrUpdate(T entity);
+    public void create(T entity);
     public Set<T> getAll();
     public T get(E id);
     public void add(T entity);

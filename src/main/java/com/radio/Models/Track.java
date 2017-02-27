@@ -15,7 +15,7 @@ public abstract class Track {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer trackId;
 
-    @Column(name="duration", nullable=false)
+    @Column(name="duration")
     protected int duration;
 
     @Transient

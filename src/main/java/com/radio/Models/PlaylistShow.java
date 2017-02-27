@@ -12,7 +12,7 @@ public class PlaylistShow extends Show{
 
         if (track != null) {
 
-            super.getTracks().add(track);
+            super.tracks.add(track);
             System.out.println(super.getTracks());
 
         }

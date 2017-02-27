@@ -1,7 +1,10 @@
 package com.radio.Daos;
 
 import com.radio.Models.Producer;
+import com.radio.Utilities.JPAUtil;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,14 +29,24 @@ public class ProducerDaoImpl implements ProducerDao{
     }
 
     @Override
-    public void add(Producer entity){
+    public void add(Producer entity,EntityManager em){
+
         producers.add(entity);
         System.out.println("hello!!!");
     }
 
     @Override
-    public void saveOrUpdate(Producer entity){
+    public Boolean create(Producer prod,EntityManager em){
 
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        if (prod != null) {
+            em.persist(prod);
+            tx.commit();
+            return Boolean.TRUE;
+        }
+
+        return Boolean.FALSE;
     }
 
     @Override
