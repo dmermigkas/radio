@@ -80,16 +80,16 @@ public class Initializer {
         FactoryGeneric producerdao = new ProducerFactoryImpl();
         producerdao.create(producer);
 
-//        FactoryGeneric musictrackdao = new MusicTrackFactoryImpl();
-//        musictrackdao.create(musictrack);
+////        FactoryGeneric musictrackdao = new MusicTrackFactoryImpl();
+////        musictrackdao.create(musictrack);
+////
+////        FactoryGeneric adtrackdao = new AdTrackFactoryImpl();
+////        adtrackdao.create(adTrack);
 //
-//        FactoryGeneric adtrackdao = new AdTrackFactoryImpl();
-//        adtrackdao.create(adTrack);
-
-        em.persist(pl);
-        em.persist(genre);
-
-        em.persist(autoShow);
+//        em.persist(pl);
+//        em.persist(genre);
+//
+//        em.persist(autoShow);
 
         tx.commit();
         em.close();

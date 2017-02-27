@@ -18,14 +18,16 @@ public class ProducerJPATest {
     @Before
     public void setUpJPA(){
         dataHelper = new Initializer();
-        dataHelper.prepareData();
+        dataHelper.eraseData();
     }
 
     @Test
-    public void addProducer(){
+    public void addRemoveProducer() {
         producerDao = new ProducerFactoryImpl();
         Producer producer1 = new Producer();
         producerDao.create(producer1);
+        Assert.assertEquals(producerDao.getAll().size(), 1);
+        producerDao.create(null);
         Assert.assertEquals(producerDao.getAll().size(), 2);
     }
 }
