@@ -4,7 +4,9 @@ import com.radio.Models.AdTrack;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class AdTrackDaoImpl implements AdTrackDao{
@@ -72,8 +74,16 @@ public class AdTrackDaoImpl implements AdTrackDao{
     }
 
     @Override
-    public Set<AdTrack> getAll(){
-        return new HashSet<>(tracks);
+    public List<AdTrack> getAll(EntityManager em){
+
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        List<AdTrack> results = null;
+
+        //results = em.createQuery("select b from PLAYLISTSHOWS b").getResultList();
+        tx.commit();
+        return new ArrayList<>();
+
     }
 
 

@@ -4,7 +4,9 @@ import com.radio.Models.MusicTrack;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class MusicTrackDaoImpl implements MusicTrackDao{
@@ -72,8 +74,16 @@ public class MusicTrackDaoImpl implements MusicTrackDao{
     }
 
     @Override
-    public Set<MusicTrack> getAll(){
-        return new HashSet<>(tracks);
+    public List<MusicTrack> getAll(EntityManager em){
+
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        List<MusicTrack> results = null;
+
+        //results = em.createQuery("select b from PLAYLISTSHOWS b").getResultList();
+        tx.commit();
+        return new ArrayList<>();
+
     }
 
 }
