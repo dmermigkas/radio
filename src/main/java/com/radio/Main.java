@@ -19,10 +19,9 @@ public class Main {
 
 
         Producer prod = new Producer("dimitris", "mermigkas", new EmailAddress("ddsadasds"));
-        //Producer prod = new Producer(new MusicTrackDao(), "dimitris", "mermigkas", new EmailAddress("ddsadasds"));
         //MusicTrackDao dao = prod.getDao();
 
-//        Track track = new MusicTrack("test","test artist",new Genre("test"),1990);
+ //       Track track = new MusicTrack("test","test artist",new Genre("test"),1990);
 //
 //        Track track2 = new MusicTrack("test","test artist",new Genre("tdfest"),1990);
 //
@@ -40,13 +39,13 @@ public class Main {
 
         //prod.getDao();
 
-//        EntityManager em = JPAUtil.createEntityManager();
-//        EntityTransaction tx = em.getTransaction();
-//        tx.begin();
-//
-//        em.persist(track);
-//        tx.commit();
-//        em.close();
+        EntityManager em = JPAUtil.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+
+        em.persist(prod);
+        tx.commit();
+        em.close();
 //        em.persist(track2);
 //        em.persist(track3);
 //        em.persist(prod);
