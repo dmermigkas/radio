@@ -13,7 +13,10 @@ public class PlayBackZone {
     @Column(name="totime")
     private Calendar toTime;
 
-    public PlayBackZone(Calendar fromTime,Calendar toTime){
+    public PlayBackZone() {
+    }
+
+    public PlayBackZone(Calendar fromTime, Calendar toTime){
         this.fromTime = fromTime;
         this.toTime = toTime;
     }

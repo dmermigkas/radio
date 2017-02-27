@@ -40,13 +40,13 @@ public class Main {
 
         //prod.getDao();
 
-//        EntityManager em = JPAUtil.createEntityManager();
-//        EntityTransaction tx = em.getTransaction();
-//        tx.begin();
-//
-//        em.persist(track);
-//        tx.commit();
-//        em.close();
+        EntityManager em = JPAUtil.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+
+        em.persist(prod);
+        tx.commit();
+        em.close();
 //        em.persist(track2);
 //        em.persist(track3);
 //        em.persist(prod);
