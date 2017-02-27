@@ -67,11 +67,12 @@ public class Initializer {
 
 
         Calendar playDateTime = Calendar.getInstance();
-        Show pl = new PlaylistShow("playListShow",producer,3600, playDateTime);
+        //Show pl = new PlaylistShow("playListShow",producer,3600, playDateTime);
 
         Genre genre = new Genre("genre");
 
-        Show autoShow = new AutoShow("testAutoShow", producer, 3600, genre, playDateTime);
+        Show autoShow = new AutoShow("testAutoShow", 3600, genre, playDateTime);
+        autoShow.setProducer(producer);
 
         EntityManager em = JPAUtil.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -86,10 +87,10 @@ public class Initializer {
 //        FactoryGeneric adtrackdao = new AdTrackFactoryImpl();
 //        adtrackdao.create(adTrack);
 
-        em.persist(pl);
-        em.persist(genre);
-
-        em.persist(autoShow);
+//        em.persist(pl);
+//        em.persist(genre);
+//
+        //em.persist(autoShow);
 
         tx.commit();
         em.close();

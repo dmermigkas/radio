@@ -29,7 +29,7 @@ public abstract class Show {
     private DaoGeneric dao;
 
     //Relational Properties
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinColumn(name="producerid")
     protected Producer producer;
 
