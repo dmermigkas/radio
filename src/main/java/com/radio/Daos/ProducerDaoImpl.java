@@ -80,7 +80,7 @@ public class ProducerDaoImpl implements ProducerDao{
         tx.begin();
         List<Producer> results = null;
 
-        results = em.createQuery("select b from PRODUCERS b").getResultList();
+        results = em.createQuery("select b from Producer b").getResultList();
         tx.commit();
         return results;
 
