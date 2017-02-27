@@ -1,10 +1,11 @@
 package com.radio.Daos;
 
-//public class AdTrackDao extends TrackDao{
-//
-//    @Override
-//    public AdTrackDao getChildDao(){
-//        System.out.println("im in ad track dao");return new AdTrackDao();
-//    }
-//
-//}
+import com.radio.Models.AdTrack;
+
+import javax.persistence.EntityManager;
+
+public interface AdTrackDao  extends DaoGeneric<AdTrack,Integer> {
+
+    public void merge(AdTrack entity,EntityManager em);
+
+}

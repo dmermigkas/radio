@@ -3,9 +3,7 @@ package com.radio.Models;
 import com.radio.Daos.DaoGeneric;
 
 import javax.persistence.*;
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -41,7 +39,7 @@ public abstract class Show {
             joinColumns = {@JoinColumn(name="showId")},
             inverseJoinColumns = {@JoinColumn(name="trackId")}
     )
-    protected Set<Track> tracks = new HashSet<>();
+    protected List<Track> tracks = new ArrayList<>();
 
     public Show(){}
 
@@ -90,11 +88,11 @@ public abstract class Show {
         this.producer = producer;
     }
 
-    public Set<Track> getTracks(){
+    public List<Track> getTracks(){
         return tracks;
     }
 
-    public void setTracks(Set<Track> tracks) {
+    public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
     }
 

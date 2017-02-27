@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ProducerFactoryImpl implements FactoryGeneric<Producer, Integer>{
@@ -32,9 +33,15 @@ public class ProducerFactoryImpl implements FactoryGeneric<Producer, Integer>{
     }
 
     @Override
-    public void create(Producer entity){
-        Boolean a = prodDao.create(entity,em);
-        System.out.println(a);
+    public void create(Producer prod){
+        System.out.println("into create!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        if(prod == null){
+            prodDao.create(prod,em);
+        }
+        else{
+            prodDao.merge(prod,em);
+        }
+
     }
 
     @Override
@@ -48,8 +55,8 @@ public class ProducerFactoryImpl implements FactoryGeneric<Producer, Integer>{
     }
 
     @Override
-    public Set<Producer> getAll(){
-        return new HashSet<>();
+    public List<Producer> getAll(){
+        return prodDao.getAll(em);
     }
 
     @Override

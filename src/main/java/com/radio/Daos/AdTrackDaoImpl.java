@@ -1,20 +1,20 @@
 package com.radio.Daos;
 
-import com.radio.Models.Producer;
-import com.radio.Utilities.JPAUtil;
+import com.radio.Models.AdTrack;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class ProducerDaoImpl implements ProducerDao{
+public class AdTrackDaoImpl implements AdTrackDao{
 
-    Set<Producer> producers;
+    Set<AdTrack> tracks;
 
-    public ProducerDaoImpl(){
-        producers = new HashSet<>();
+    public AdTrackDaoImpl(){
+        tracks = new HashSet<>();
 //        Producer student1 = new Producer();
 //        producers.add(student1);
     }
@@ -30,25 +30,25 @@ public class ProducerDaoImpl implements ProducerDao{
 //    }
 
     @Override
-    public void add(Producer entity,EntityManager em){
+    public void add(AdTrack entity,EntityManager em){
 
-        producers.add(entity);
+        tracks.add(entity);
         System.out.println("hello!!!");
     }
 
     @Override
-    public void create(Producer prod,EntityManager em){
+    public void create(AdTrack prod,EntityManager em){
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-
+        System.out.println("helloooooooooooooooooooooooooooooooooooooooo");
         em.persist(prod);
         tx.commit();
 
     }
 
     @Override
-    public void merge(Producer prod,EntityManager em){
+    public void merge(AdTrack prod,EntityManager em){
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -59,31 +59,32 @@ public class ProducerDaoImpl implements ProducerDao{
     }
 
     @Override
-    public void update(Producer entity){
+    public void update(AdTrack entity){
 
     }
 
     @Override
-    public void remove(Producer entity){
+    public void remove(AdTrack entity){
 
     }
 
     @Override
-    public Producer find(Integer key) {
+    public AdTrack find(Integer key) {
         return null;
     }
 
     @Override
-    public List<Producer> getAll(EntityManager em){
+    public List<AdTrack> getAll(EntityManager em){
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        List<Producer> results = null;
+        List<AdTrack> results = null;
 
-        results = em.createQuery("select b from Producer b").getResultList();
+        //results = em.createQuery("select b from PLAYLISTSHOWS b").getResultList();
         tx.commit();
-        return results;
+        return new ArrayList<>();
 
     }
+
 
 }

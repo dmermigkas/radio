@@ -1,10 +1,13 @@
 package com.radio.Daos;
 
-//public class PlaylistShowDao extends ShowDao{
-//
-//    @Override
-//    public PlaylistShowDao getChildDao(){
-//        System.out.println("hello!");return new PlaylistShowDao();
-//    }
-//
-//}
+import com.radio.Models.PlaylistShow;
+
+import javax.persistence.EntityManager;
+
+public interface PlaylistShowDao extends DaoGeneric<PlaylistShow,Integer> {
+
+    public void getDao();
+
+    public void merge(PlaylistShow entity,EntityManager em);
+
+}

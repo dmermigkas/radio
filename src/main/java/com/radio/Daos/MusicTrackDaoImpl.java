@@ -1,20 +1,20 @@
 package com.radio.Daos;
 
-import com.radio.Models.Producer;
-import com.radio.Utilities.JPAUtil;
+import com.radio.Models.MusicTrack;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class ProducerDaoImpl implements ProducerDao{
+public class MusicTrackDaoImpl implements MusicTrackDao{
 
-    Set<Producer> producers;
+    Set<MusicTrack> tracks;
 
-    public ProducerDaoImpl(){
-        producers = new HashSet<>();
+    public MusicTrackDaoImpl(){
+        tracks = new HashSet<>();
 //        Producer student1 = new Producer();
 //        producers.add(student1);
     }
@@ -30,14 +30,14 @@ public class ProducerDaoImpl implements ProducerDao{
 //    }
 
     @Override
-    public void add(Producer entity,EntityManager em){
+    public void add(MusicTrack entity,EntityManager em){
 
-        producers.add(entity);
+        tracks.add(entity);
         System.out.println("hello!!!");
     }
 
     @Override
-    public void create(Producer prod,EntityManager em){
+    public void create(MusicTrack prod,EntityManager em){
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -48,7 +48,7 @@ public class ProducerDaoImpl implements ProducerDao{
     }
 
     @Override
-    public void merge(Producer prod,EntityManager em){
+    public void merge(MusicTrack prod,EntityManager em){
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -59,30 +59,30 @@ public class ProducerDaoImpl implements ProducerDao{
     }
 
     @Override
-    public void update(Producer entity){
+    public void update(MusicTrack entity){
 
     }
 
     @Override
-    public void remove(Producer entity){
+    public void remove(MusicTrack entity){
 
     }
 
     @Override
-    public Producer find(Integer key) {
+    public MusicTrack find(Integer key) {
         return null;
     }
 
     @Override
-    public List<Producer> getAll(EntityManager em){
+    public List<MusicTrack> getAll(EntityManager em){
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        List<Producer> results = null;
+        List<MusicTrack> results = null;
 
-        results = em.createQuery("select b from Producer b").getResultList();
+        //results = em.createQuery("select b from PLAYLISTSHOWS b").getResultList();
         tx.commit();
-        return results;
+        return new ArrayList<>();
 
     }
 
