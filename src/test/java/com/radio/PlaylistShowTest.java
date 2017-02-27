@@ -1,8 +1,6 @@
 package com.radio;
 
-import com.radio.Models.EmailAddress;
-import com.radio.Models.PlaylistShow;
-import com.radio.Models.Producer;
+import com.radio.Models.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,6 +42,33 @@ public class PlaylistShowTest {
         playDateTime2.add(Calendar.HOUR, 2);
         playlistShow.setPlayDateTime(playDateTime2);
         Assert.assertEquals(playlistShow.getPlayDateTime(), playDateTime2);
+    }
+
+    @Test
+    public void AddRemoveTrackTest() {
+
+        Track musicTrack = new MusicTrack("musictitle", "musicartist", new Genre("musicgenre"), 1999, 100);
+
+        Calendar fromCalendar = Calendar.getInstance();
+        Calendar toCalendar = fromCalendar;
+        toCalendar.add(Calendar.DATE, 2);
+        Calendar fromZone = fromCalendar;
+        fromZone.add(Calendar.HOUR, 1);
+        Calendar toZone = fromCalendar;
+        toZone.add(Calendar.HOUR, 2);
+        PlayBackZone playBackZone = new PlayBackZone(fromZone, toZone);
+
+
+        Track adTrack = new AdTrack("jumbo", playBackZone, fromCalendar, toCalendar, 5, 20);
+
+        playlistShow.addTrackToList(musicTrack);
+        Assert.assertEquals(playlistShow.getTracks().get(0), musicTrack);
+
+        playlistShow.removeTrackFromList(musicTrack);
+        Assert.assertEquals(playlistShow.getTracks().isEmpty(), true);
+
+
+
     }
 }
 

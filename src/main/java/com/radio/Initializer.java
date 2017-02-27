@@ -41,9 +41,9 @@ public class Initializer {
     public void prepareData() {
         eraseData();
 
-        Producer producer = new Producer("firstname", "lastname", new EmailAddress("a@a.a"));
+        Producer producer = new Producer("firstname1", "lastname", new EmailAddress("a@a.a"));
 
-        Track musictrack = new MusicTrack("musictitle", "musicartist", new Genre("musicgenre"), 1999, 100);
+        Track musictrack = new MusicTrack("musictitle1", "musicartist", new Genre("musicgenre"), 1999, 100);
 
 
         Calendar fromCalendar = Calendar.getInstance();
@@ -55,14 +55,30 @@ public class Initializer {
         toZone.add(Calendar.HOUR, 2);
         PlayBackZone playBackZone = new PlayBackZone(fromZone, toZone);
 
+
         Track adTrack= new AdTrack("jumbo", playBackZone, fromCalendar, toCalendar, 5, 20);
 
 
         Calendar playDateTime = Calendar.getInstance();
         Show pl = new PlaylistShow("playListShow",producer,3600, playDateTime);
 
+        Genre genre = new Genre("genre");
 
+        Show autoShow = new AutoShow("testAutoShow", producer, 3600, genre, playDateTime);
 
+        EntityManager em = JPAUtil.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+
+        em.persist(producer);
+        em.persist(musictrack);
+        em.persist(adTrack);
+        em.persist(pl);
+        em.persist(genre);
+        em.persist(autoShow);
+
+        tx.commit();
+        em.close();
 
     }
 }
