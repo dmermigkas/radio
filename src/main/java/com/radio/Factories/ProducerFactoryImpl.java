@@ -32,9 +32,15 @@ public class ProducerFactoryImpl implements FactoryGeneric<Producer, Integer>{
     }
 
     @Override
-    public void create(Producer entity){
-        Boolean a = prodDao.create(entity,em);
-        System.out.println(a);
+    public void create(Producer prod){
+        System.out.println("into create!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        if(prod == null){
+            prodDao.create(prod,em);
+        }
+        else{
+            prodDao.merge(prod,em);
+        }
+
     }
 
     @Override

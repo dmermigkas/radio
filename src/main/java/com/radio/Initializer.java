@@ -1,12 +1,15 @@
 package com.radio;
 
+import com.radio.Controllers.PlaylistShowController;
 import com.radio.Models.*;
 import com.radio.Utilities.JPAUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
 
 /**
  * Created by lotv on 27/02/2017.
@@ -79,6 +82,20 @@ public class Initializer {
 
         tx.commit();
         em.close();
+
+//        pl.setTracks(new ArrayList<Track>());
+//
+//        pl.addTrackToList(musictrack);
+//        pl.addTrackToList(adTrack);
+//        pl.getTracks();
+//
+//        PlaylistShowController plCtrl = new PlaylistShowController();
+//        System.out.println(plCtrl.checkDuration(pl));
+//        while (plCtrl.checkDuration(pl) == true){
+//            plCtrl.fixDuration(pl);
+//        }
+//
+//        System.out.println(pl.getTracks());
 
     }
 }

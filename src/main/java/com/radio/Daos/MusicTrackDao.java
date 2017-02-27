@@ -1,11 +1,11 @@
 package com.radio.Daos;
 
-//public class MusicTrackDao extends TrackDao{
-//
-//    @Override
-//    public MusicTrackDao getChildDao(){
-//        System.out.println("Music Track Dao");
-//        return new MusicTrackDao();
-//    }
-//
-//}
+import com.radio.Models.MusicTrack;
+
+import javax.persistence.EntityManager;
+
+public interface MusicTrackDao  extends DaoGeneric<MusicTrack,Integer> {
+
+    public void merge(MusicTrack entity,EntityManager em);
+
+}
