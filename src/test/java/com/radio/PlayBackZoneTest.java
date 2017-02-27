@@ -26,8 +26,8 @@ public class PlayBackZoneTest {
 
     @Test
     public void PlayBackZoneGettersTest(){
-        Assert.assertEquals(playBackZone.getFromTime(), fromCalendar);
-        Assert.assertEquals(playBackZone.getToTime(), toCalendar);
+        Assert.assertEquals(fromCalendar, playBackZone.getFromTime());
+        Assert.assertEquals(toCalendar, playBackZone.getToTime());
         //PlayBackZone newPlaybackZone = playBackZone;                          // This part of the test does not work
         //Assert.assertEquals(newPlaybackZone, playBackZone.getPlaybackZone()); //
 
@@ -40,9 +40,9 @@ public class PlayBackZoneTest {
         Calendar newToCalendar = toCalendar;
         newToCalendar.add(Calendar.HOUR, 4);
         playBackZone.setFromTime(newFromCalendar);
-        Assert.assertEquals(playBackZone.getFromTime(), newFromCalendar);
+        Assert.assertEquals(newFromCalendar, playBackZone.getFromTime());
         playBackZone.setToTime(newToCalendar);
-        Assert.assertEquals(playBackZone.getToTime(), newToCalendar);
+        Assert.assertEquals(newToCalendar, playBackZone.getToTime());
     }
 
     @Test
@@ -53,11 +53,11 @@ public class PlayBackZoneTest {
         newToCalendar.add(Calendar.HOUR, 4);
         PlayBackZone playBackZone2;
         playBackZone2 = null;
-        Assert.assertNotEquals(playBackZone, playBackZone2);
+        Assert.assertNotEquals(playBackZone2, playBackZone);
         //playBackZone2 = new PlayBackZone(newFromCalendar, newToCalendar);
         //Assert.assertNotEquals(playBackZone, playBackZone2);  //not sure why it does not run
         playBackZone2 = playBackZone;
-        Assert.assertEquals(playBackZone, playBackZone2);
+        Assert.assertEquals(playBackZone2, playBackZone);
         Assert.assertNotEquals(playBackZone, "hello");
     }
 

@@ -34,9 +34,9 @@ public class EmailTest {
         emailAddress2 = null;
         Assert.assertNotEquals(emailAddress, emailAddress2);
         emailAddress2 = new EmailAddress("a@a.c");
-        Assert.assertNotEquals(emailAddress, emailAddress2);
+        Assert.assertNotEquals(emailAddress2, emailAddress);
         emailAddress2 = emailAddress;
-        Assert.assertEquals(emailAddress, emailAddress2);
-        Assert.assertNotEquals(emailAddress, "hello");
+        Assert.assertEquals(emailAddress2, emailAddress);
+        Assert.assertNotEquals("hello", emailAddress);
     }
 }
