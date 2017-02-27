@@ -1,9 +1,6 @@
 package com.radio.Models;
 
 import javax.persistence.*;
-import java.time.Duration;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @DiscriminatorValue("MT")
@@ -16,8 +13,8 @@ public class MusicTrack extends Track{
     @Column(name="artist")
     private String artist;
 
-    @ManyToOne
-    @JoinColumn(name="genreid", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name="genreid")
     private Genre genre;
 
     @Column(name="releaseyear")

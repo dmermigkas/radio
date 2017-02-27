@@ -1,8 +1,14 @@
 package com.radio;
 
-import com.radio.Factories.MusicTrackFactory;
+import com.radio.Daos.DaoGeneric;
+import com.radio.Daos.ProducerDaoImpl;
+import com.radio.Factories.FactoryGeneric;
+import com.radio.Factories.ProducerFactoryImpl;
 import com.radio.Models.*;
+import com.radio.Utilities.JPAUtil;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import java.util.Calendar;
 
 public class Main {
@@ -16,18 +22,38 @@ public class Main {
         //Producer prod = new Producer(new MusicTrackDao(), "dimitris", "mermigkas", new EmailAddress("ddsadasds"));
         //MusicTrackDao dao = prod.getDao();
 
-        Track track = new MusicTrack("test","test artist",new Genre("test"),1990, 100);
+//        Track track = new MusicTrack("test","test artist",new Genre("test"),1990);
+//
+//        Track track2 = new MusicTrack("test","test artist",new Genre("tdfest"),1990);
+//
+//        Track track3 = new AdTrack();
 
-        Track track2 = new MusicTrack("test","test artist",new Genre("test"),1990, 100);
+//        Show pl = new PlaylistShow();
+//        pl.addTrackToList(track);
+//        pl.addTrackToList(track3);
+//        pl.removeTrackFromList(track);
+//        pl.setProducer(prod);
+//        pl.getProducer();
 
-        Track track3 = new AdTrack();
+        //FactoryGeneric studentDao = new ProducerFactoryImpl();
+        //studentDao.add(prod);
 
-        Show pl = new PlaylistShow();
-        pl.addTrackToList(track);
-        pl.addTrackToList(track3);
-        pl.removeTrackFromList(track);
-        pl.setProducer(prod);
-        pl.getProducer();
+        //prod.getDao();
+
+//        EntityManager em = JPAUtil.createEntityManager();
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        em.persist(track);
+//        tx.commit();
+//        em.close();
+//        em.persist(track2);
+//        em.persist(track3);
+//        em.persist(prod);
+//        em.persist(prod);
+
+
+
 
         int diffInDays = (int)( (System.currentTimeMillis() - 0)
                 / (1000 * 60 * 60 * 24) );

@@ -1,6 +1,6 @@
 package com.radio.Daos;
 
-public abstract class ShowDao implements DaoFactory{
+public abstract class ShowDao implements DaoGeneric {
 
     public ShowDao getDao(){
         return getChildDao();

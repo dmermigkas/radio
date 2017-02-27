@@ -8,28 +8,11 @@ import java.util.Calendar;
 @Table(name="AUTOSHOWS")
 public class AutoShow extends Show{
 
-    @ManyToMany(cascade ={CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
-    @JoinTable(name="SHOWGENRES",
-            joinColumns = {@JoinColumn (name="showId")},
-            inverseJoinColumns = {@JoinColumn(name="genreid")})
+    @ManyToOne(cascade ={CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @JoinColumn(name="genreid")
     private Genre genre;
 
     //private Policies policies = new Policies();
-
-    public Genre getGenre() {
-        return genre;
-    }
-
-    public void setGenre(Genre genre) {
-        this.genre = genre;
-    }
-
-    public void addTrackToList(Track track){
-    }
-
-    public void removeTrackFromList(Track track){
-
-    }
 
     public AutoShow(String name, Producer producer, int duration, Genre genre, Calendar playDateTime) {
 
@@ -37,6 +20,14 @@ public class AutoShow extends Show{
         super.producer = producer;
         super.name = name;
         super.playDateTime = playDateTime;
+        this.genre = genre;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
         this.genre = genre;
     }
 
@@ -49,3 +40,4 @@ public class AutoShow extends Show{
 //    }
 
 }
+

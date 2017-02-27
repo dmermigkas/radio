@@ -1,17 +1,14 @@
 package com.radio.Models;
 
-import com.radio.Daos.DaoFactory;
+import com.radio.Daos.DaoGeneric;
 
 import javax.persistence.*;
-import java.time.Duration;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name="TRACK_TYPE")
 @Table(name="TRACKS")
-public class Track {
+public abstract class Track {
 
     @Id
     @Column(name="trackId")
@@ -21,20 +18,21 @@ public class Track {
     @Column(name="duration", nullable=false)
     protected int duration;
 
-    private DaoFactory dao;
+    @Transient
+    private DaoGeneric dao;
 
     public Track(){};
 
-    public Track(DaoFactory dao,int duration){
+    public Track(int duration){
 
-        this.dao = dao;
+        //this.dao = dao;
         this.duration = duration;
 
     }
 
-    public <T> T getDao(){
-        return dao.getDao();
-    }
+//    public <T> T getDao(){
+//        return dao.getDao();
+//    }
 
     public int getDuration() {
         return duration;

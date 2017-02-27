@@ -1,9 +1,8 @@
 package com.radio.Models;
 
-import com.radio.Daos.DaoFactory;
+import com.radio.Daos.DaoGeneric;
 
 import javax.persistence.*;
-import java.time.*;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,7 +27,8 @@ public abstract class Show {
     @Column(name="duration")
     protected int duration;
 
-    private DaoFactory dao;
+    @Transient
+    private DaoGeneric dao;
 
     //Relational Properties
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -43,9 +43,20 @@ public abstract class Show {
     )
     private Set<Track> tracks = new HashSet<>();
 
-    public <T> T getDao(){
-        return dao.getDao();
+    public Show(){}
+
+    public Show(String name,Calendar playDateTime,int duration){
+
+        //this.dao = dao;
+        this.name = name;
+        this.playDateTime = playDateTime;
+        this.duration = duration;
+
     }
+
+//    public <T> T getDao(){
+//        return dao.getDao();
+//    }
 
     public String getName() {
         return name;
@@ -83,8 +94,8 @@ public abstract class Show {
         return tracks;
     }
 
-    public abstract void addTrackToList(Track track);
-
-    public abstract void removeTrackFromList(Track track);
+//    public abstract void addTrackToList(Track track);
+//
+//    public abstract void removeTrackFromList(Track track);
 
 }

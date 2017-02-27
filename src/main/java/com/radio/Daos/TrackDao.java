@@ -1,6 +1,6 @@
 package com.radio.Daos;
 
-public abstract class TrackDao implements DaoFactory{
+public abstract class TrackDao implements DaoGeneric {
 
     public TrackDao getDao(){
         return getChildDao();

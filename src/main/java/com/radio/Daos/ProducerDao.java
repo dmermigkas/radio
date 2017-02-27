@@ -1,14 +1,12 @@
 package com.radio.Daos;
 
-public class ProducerDao implements DaoFactory{
+import com.radio.Models.Producer;
 
-    public ProducerDao getDao(){
-        System.out.println("Producer Dao");
-        return new ProducerDao();
-    }
+public interface ProducerDao extends DaoGeneric<Producer,Integer> {
 
-    public void add(){
-        System.out.println("i am addin");
-    }
+    public void getDao();
+
+    public void addProducer();
+
 
 }

@@ -1,7 +1,5 @@
 package com.radio.Models;
 
-import com.radio.Daos.DaoFactory;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,7 +13,7 @@ public class Producer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private DaoFactory dao;
+//    private DaoFactory dao;
 
     @Column(name="firstname")
     private String firstName;
@@ -37,9 +35,9 @@ public class Producer {
 
     }
 
-    public <T> T getDao(){
-        return dao.getDao();
-    }
+//    public <T> T getDao(){
+//        return dao.getDao();
+//    }
 
     public String getFirstName() {
         return firstName;
