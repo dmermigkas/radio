@@ -1,6 +1,7 @@
 package com.radio.Daos;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 import java.util.Set;
 
 public interface DaoGeneric<T,E> {
@@ -11,6 +12,6 @@ public interface DaoGeneric<T,E> {
     void update(T entity) ;
     void remove(T entity);
     T find(E key);
-    Set<T> getAll();
+    List<T> getAll(EntityManager em);
 
 }
