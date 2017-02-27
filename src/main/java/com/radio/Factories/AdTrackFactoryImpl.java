@@ -7,7 +7,9 @@ import com.radio.Utilities.JPAUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class AdTrackFactoryImpl implements FactoryGeneric<AdTrack, Integer>{
@@ -55,8 +57,8 @@ public class AdTrackFactoryImpl implements FactoryGeneric<AdTrack, Integer>{
     }
 
     @Override
-    public Set<AdTrack> getAll(){
-        return new HashSet<>();
+    public List<AdTrack> getAll(){
+        return new ArrayList<>();
     }
 
     @Override
