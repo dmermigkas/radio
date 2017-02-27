@@ -15,9 +15,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
 
-/**
- * Created by lotv on 27/02/2017.
- */
+
 public class Initializer {
 
     public void eraseData(){
@@ -81,9 +79,13 @@ public class Initializer {
         FactoryGeneric producerdao = new ProducerFactoryImpl();
         producerdao.create(producer);
 
-//        FactoryGeneric musictrackdao = new MusicTrackFactoryImpl();
-//        musictrackdao.create(musictrack);
+////        FactoryGeneric musictrackdao = new MusicTrackFactoryImpl();
+////        musictrackdao.create(musictrack);
+////
+////        FactoryGeneric adtrackdao = new AdTrackFactoryImpl();
+////        adtrackdao.create(adTrack);
 //
+
 //        FactoryGeneric adtrackdao = new AdTrackFactoryImpl();
 //        adtrackdao.create(adTrack);
 
@@ -91,6 +93,12 @@ public class Initializer {
 //        em.persist(genre);
 //
         //em.persist(autoShow);
+
+//        em.persist(pl);
+//        em.persist(genre);
+//
+//        em.persist(autoShow);
+
 
         tx.commit();
         em.close();
