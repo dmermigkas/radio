@@ -50,7 +50,7 @@ public class ProducerTest {
     @Test
     public void producerSetEmailTest(){
         producer.setEmail(new EmailAddress("b@b.c"));
-        Assert.assertEquals(producer.getEmail().getEmail(), "b@b.c");
+        Assert.assertEquals("b@b.c", producer.getEmail().getEmail());
     }
 
 

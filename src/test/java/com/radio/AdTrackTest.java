@@ -34,29 +34,29 @@ public class AdTrackTest {
 
     @Test
     public void PlayBackZoneGettersTest(){
-        Assert.assertEquals(adTrack.getBrand(), "jumbo");
-        Assert.assertEquals(adTrack.getDuration(), 20);
-        Assert.assertEquals(adTrack.getPlaysPerZone(), 5);
-        Assert.assertEquals(adTrack.getFrom(), fromCalendar);
-        Assert.assertEquals(adTrack.getTo(), toCalendar);
+        Assert.assertEquals("jumbo", adTrack.getBrand());
+        Assert.assertEquals(20, adTrack.getDuration());
+        Assert.assertEquals(5, adTrack.getPlaysPerZone());
+        Assert.assertEquals(fromCalendar, adTrack.getFrom());
+        Assert.assertEquals(toCalendar, adTrack.getTo());
         //Assert.assertEquals(adTrack.getZone(), playBackZone); // problem with @Override equals of playbackzone class
     }
 
     @Test
     public void PlaybackZoneSettersTest(){
         adTrack.setBrand("newbrand");
-        Assert.assertEquals(adTrack.getBrand(), "newbrand");
+        Assert.assertEquals("newbrand", adTrack.getBrand());
         adTrack.setDuration(30);
-        Assert.assertEquals(adTrack.getDuration(), 30);
+        Assert.assertEquals(30, adTrack.getDuration());
         adTrack.setPlaysPerZone(8);
-        Assert.assertEquals(adTrack.getPlaysPerZone(), 8);
+        Assert.assertEquals(8, adTrack.getPlaysPerZone());
         Calendar newCalendar = Calendar.getInstance();
         newCalendar.add(Calendar.DATE, 7);
         adTrack.setFrom(newCalendar);
-        Assert.assertEquals(adTrack.getFrom(), newCalendar);
+        Assert.assertEquals(newCalendar, adTrack.getFrom());
         newCalendar.add(Calendar.DATE, 2);
         adTrack.setTo(newCalendar);
-        Assert.assertEquals(adTrack.getTo(), newCalendar);
+        Assert.assertEquals(newCalendar, adTrack.getTo());
         //I have to assert setplaybackzone here
     }
 

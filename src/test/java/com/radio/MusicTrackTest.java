@@ -22,31 +22,31 @@ public class MusicTrackTest {
     @Test
     public void MusicTrackGetSetTitleTest(){
         musictrack.setTitle("newtitle");
-        Assert.assertEquals(musictrack.getTitle(), "newtitle");
+        Assert.assertEquals("newtitle", musictrack.getTitle());
     }
 
     @Test
     public void MusicTrackGetSetArtistTest(){
         musictrack.setArtist("newartist");
-        Assert.assertEquals(musictrack.getArtist(), "newartist");
+        Assert.assertEquals("newartist", musictrack.getArtist());
     }
 
     @Test
     public void MusicTrackGetSetGenreTest(){
         musictrack.setGenre(new Genre("newmusicgenre"));
-        Assert.assertEquals(musictrack.getGenre().getGenre(), "newmusicgenre");
+        Assert.assertEquals("newmusicgenre", musictrack.getGenre().getGenre());
 
     }
 
     @Test
     public void MusicTrackGetSetReleaseYearTest(){
         musictrack.setReleaseYear(1998);
-        Assert.assertEquals(musictrack.getReleaseYear(), 1998);
+        Assert.assertEquals(1998, musictrack.getReleaseYear());
     }
 
     @Test
     public void MusicTrackGetSetDurationTest(){
         musictrack.setDuration(99);
-        Assert.assertEquals(musictrack.getDuration(), 99);
+        Assert.assertEquals(99, musictrack.getDuration());
     }
 }
