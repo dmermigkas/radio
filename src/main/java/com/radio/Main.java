@@ -19,10 +19,9 @@ public class Main {
 
 
         Producer prod = new Producer("dimitris", "mermigkas", new EmailAddress("ddsadasds"));
-        //Producer prod = new Producer(new MusicTrackDao(), "dimitris", "mermigkas", new EmailAddress("ddsadasds"));
         //MusicTrackDao dao = prod.getDao();
 
-//        Track track = new MusicTrack("test","test artist",new Genre("test"),1990);
+ //       Track track = new MusicTrack("test","test artist",new Genre("test"),1990);
 //
 //        Track track2 = new MusicTrack("test","test artist",new Genre("tdfest"),1990);
 //
