@@ -1,6 +1,10 @@
 package com.radio;
 
 import com.radio.Controllers.PlaylistShowController;
+import com.radio.Factories.AdTrackFactoryImpl;
+import com.radio.Factories.FactoryGeneric;
+import com.radio.Factories.MusicTrackFactoryImpl;
+import com.radio.Factories.ProducerFactoryImpl;
 import com.radio.Models.*;
 import com.radio.Utilities.JPAUtil;
 
@@ -73,11 +77,18 @@ public class Initializer {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        em.persist(producer);
-        em.persist(musictrack);
-        em.persist(adTrack);
+        FactoryGeneric producerdao = new ProducerFactoryImpl();
+        producerdao.create(producer);
+
+        FactoryGeneric musictrackdao = new MusicTrackFactoryImpl();
+        musictrackdao.create(musictrack);
+
+        FactoryGeneric adtrackdao = new AdTrackFactoryImpl();
+        adtrackdao.create(adTrack);
+
         em.persist(pl);
         em.persist(genre);
+
         em.persist(autoShow);
 
         tx.commit();
