@@ -35,6 +35,7 @@ public class MusicTrackJPATest {
     @Test
     public void musicTrackRemoveTest(){ //somehow fails...
         musicTrackDao = new MusicTrackFactoryImpl();
+        musicTrackDao.create(musictrack);
         musicTrackDao.remove(musictrack);
         Assert.assertEquals(0, musicTrackDao.getAll().size());
     }
