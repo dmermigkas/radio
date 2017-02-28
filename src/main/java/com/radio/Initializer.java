@@ -69,15 +69,14 @@ public class Initializer {
 
         Genre genre = new Genre("genre");
 
-        Show autoShow = new AutoShow("testAutoShow", 3600, genre, playDateTime);
-        autoShow.setProducer(producer);
+        Show autoShow = new AutoShow("testAutoShow", producer, 3600, genre, playDateTime);
 
         EntityManager em = JPAUtil.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        FactoryGeneric producerdao = new ProducerFactoryImpl();
-        producerdao.create(producer);
+        //FactoryGeneric producerdao = new ProducerFactoryImpl();
+        //producerdao.create(producer);
 
 ////        FactoryGeneric musictrackdao = new MusicTrackFactoryImpl();
 ////        musictrackdao.create(musictrack);
@@ -92,7 +91,7 @@ public class Initializer {
 //        em.persist(pl);
 //        em.persist(genre);
 //
-        //em.persist(autoShow);
+        em.persist(autoShow);
 
 //        em.persist(pl);
 //        em.persist(genre);

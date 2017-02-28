@@ -25,7 +25,7 @@ public class AutoShowTest {
         playDateTime = Calendar.getInstance();
         genre = new Genre("testGenre");
         producer = new Producer("firstName", "lastName", new EmailAddress("testing@email.org"));
-        //autoShow = new AutoShow("testAutoShow", producer, 3600, genre, playDateTime);
+        autoShow = new AutoShow("testAutoShow", producer, 3600, genre, playDateTime);
     }
 
     @Test

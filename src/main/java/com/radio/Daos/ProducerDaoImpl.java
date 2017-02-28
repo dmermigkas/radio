@@ -44,19 +44,21 @@ public class ProducerDaoImpl implements ProducerDao{
 
         em.persist(prod);
         tx.commit();
+        //em.close();
 
     }
 
-    @Override
-    public void merge(Producer prod,EntityManager em){
-
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-
-        em.merge(prod);
-        tx.commit();
-
-    }
+//    @Override
+//    public void merge(Producer prod,EntityManager em){
+//
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        em.merge(prod);
+//        tx.commit();
+//        em.close();
+//
+//    }
 
     @Override
     public void update(Producer entity){
@@ -82,6 +84,7 @@ public class ProducerDaoImpl implements ProducerDao{
 
         results = em.createQuery("select b from Producer b").getResultList();
         tx.commit();
+        em.close();
         return results;
 
     }

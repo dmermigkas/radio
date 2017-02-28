@@ -39,7 +39,7 @@ public class MusicTrackFactoryImpl  implements FactoryGeneric<MusicTrack, Intege
             musicDao.create(prod,em);
         }
         else{
-            musicDao.merge(prod,em);
+           // musicDao.merge(prod,em);
         }
 
     }

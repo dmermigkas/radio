@@ -44,19 +44,21 @@ public class MusicTrackDaoImpl implements MusicTrackDao{
 
         em.persist(prod);
         tx.commit();
+        em.close();
 
     }
 
-    @Override
-    public void merge(MusicTrack prod,EntityManager em){
-
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-
-        em.merge(prod);
-        tx.commit();
-
-    }
+//    @Override
+//    public void merge(MusicTrack prod,EntityManager em){
+//
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        em.merge(prod);
+//        tx.commit();
+//        em.close();
+//
+//    }
 
     @Override
     public void update(MusicTrack entity){
@@ -82,6 +84,7 @@ public class MusicTrackDaoImpl implements MusicTrackDao{
 
         //results = em.createQuery("select b from PLAYLISTSHOWS b").getResultList();
         tx.commit();
+        em.close();
         return new ArrayList<>();
 
     }
