@@ -1,7 +1,8 @@
-package com.radio;
+package jpa;
 
 import com.radio.Factories.FactoryGeneric;
 import com.radio.Factories.ProducerFactoryImpl;
+import com.radio.Initializer;
 import com.radio.Models.Producer;
 import org.junit.Assert;
 import org.junit.Before;
