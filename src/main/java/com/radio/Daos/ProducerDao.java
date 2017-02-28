@@ -8,7 +8,7 @@ public interface ProducerDao extends DaoGeneric<Producer,Integer> {
 
     public void getDao();
 
-    public void merge(Producer entity,EntityManager em);
+    //public void merge(Producer entity,EntityManager em);
 
 
 }

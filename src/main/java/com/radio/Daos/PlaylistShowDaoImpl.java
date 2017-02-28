@@ -44,6 +44,7 @@ public class PlaylistShowDaoImpl implements PlaylistShowDao{
         System.out.println("i run!");
         em.persist(playlist);
         tx.commit();
+        em.close();
 
     }
 
@@ -55,6 +56,7 @@ public class PlaylistShowDaoImpl implements PlaylistShowDao{
 
         em.merge(prod);
         tx.commit();
+        em.close();
 
     }
 
@@ -82,6 +84,7 @@ public class PlaylistShowDaoImpl implements PlaylistShowDao{
 
         //results = em.createQuery("select b from PLAYLISTSHOWS b").getResultList();
         tx.commit();
+        em.close();
         return new ArrayList<>();
 
     }

@@ -44,19 +44,21 @@ public class AdTrackDaoImpl implements AdTrackDao{
         System.out.println("helloooooooooooooooooooooooooooooooooooooooo");
         em.persist(prod);
         tx.commit();
+        em.close();
 
     }
-
-    @Override
-    public void merge(AdTrack prod,EntityManager em){
-
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-
-        em.merge(prod);
-        tx.commit();
-
-    }
+//
+//    @Override
+//    public void merge(AdTrack prod,EntityManager em){
+//
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        em.merge(prod);
+//        tx.commit();
+//        em.close();
+//
+//    }
 
     @Override
     public void update(AdTrack entity){
@@ -82,6 +84,7 @@ public class AdTrackDaoImpl implements AdTrackDao{
 
         //results = em.createQuery("select b from PLAYLISTSHOWS b").getResultList();
         tx.commit();
+        em.close();
         return new ArrayList<>();
 
     }
