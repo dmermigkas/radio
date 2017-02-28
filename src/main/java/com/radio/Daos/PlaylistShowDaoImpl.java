@@ -29,22 +29,22 @@ public class PlaylistShowDaoImpl implements PlaylistShowDao{
 //        System.out.println("i am addin");
 //    }
 
-    @Override
-    public void add(PlaylistShow entity,EntityManager em){
-
-        playlists.add(entity);
-        System.out.println("hello!!!");
-    }
+//    @Override
+//    public void add(PlaylistShow entity,EntityManager em){
+//
+//        playlists.add(entity);
+//        System.out.println("hello!!!");
+//    }
 
     @Override
     public void create(PlaylistShow playlist,EntityManager em){
 
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-        System.out.println("i run!");
-        em.persist(playlist);
-        tx.commit();
-        em.close();
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//        System.out.println("i run!");
+//        em.persist(playlist);
+//        tx.commit();
+//        em.close();
 
     }
 

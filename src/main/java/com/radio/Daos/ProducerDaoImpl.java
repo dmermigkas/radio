@@ -29,22 +29,22 @@ public class ProducerDaoImpl implements ProducerDao{
 //        System.out.println("i am addin");
 //    }
 
-    @Override
-    public void add(Producer entity,EntityManager em){
-
-        producers.add(entity);
-        System.out.println("hello!!!");
-    }
+//    @Override
+//    public void add(Producer entity,EntityManager em){
+//
+//        producers.add(entity);
+//        System.out.println("hello!!!");
+//    }
 
     @Override
     public void create(Producer prod,EntityManager em){
 
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-
-        em.persist(prod);
-        tx.commit();
-        em.close();
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        em.persist(prod);
+//        tx.commit();
+//        em.close();
 
     }
 
@@ -63,24 +63,24 @@ public class ProducerDaoImpl implements ProducerDao{
     @Override
     public void update(Producer entity,EntityManager em){
 
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-
-        em.merge(entity);
-        tx.commit();
-        em.close();
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        em.merge(entity);
+//        tx.commit();
+//        em.close();
 
     }
 
     @Override
     public void remove(Producer entity,EntityManager em){
 
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-
-        em.remove(em.contains(entity) ? entity : em.merge(entity));
-        tx.commit();
-        em.close();
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        em.remove(em.contains(entity) ? entity : em.merge(entity));
+//        tx.commit();
+//        em.close();
 
     }
 

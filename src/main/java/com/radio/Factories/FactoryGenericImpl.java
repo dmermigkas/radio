@@ -1,53 +1,44 @@
 package com.radio.Factories;
 
 import com.radio.Daos.DaoGenericImpl;
-import com.radio.Daos.ProducerDao;
-import com.radio.Daos.ProducerDaoImpl;
 import com.radio.Models.Producer;
 import com.radio.Utilities.JPAUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-public class ProducerFactoryImpl implements ProducerFactory{
+public class FactoryGenericImpl<T> implements FactoryGeneric<T,Integer>{
 
     private DaoGenericImpl prodDao;
     @PersistenceContext
     private EntityManager em;
 
-    public ProducerFactoryImpl(){
+    protected String entityClass;
 
-        //prodDao = new DaoGenericImpl<>();
+    public FactoryGenericImpl(Class<T> entityClass){
+        this.entityClass = entityClass.getSimpleName();
+        prodDao = new DaoGenericImpl<>(entityClass.getSimpleName(),entityClass);
 
     }
 
-//    @Override
-//    public void add(Producer entity){
-//
-//        prodDao.add(entity,em);
-//
-//    }
 
     @Override
-    public void create(Producer prod){
+    public void create(T prod){
 
         em = JPAUtil.createEntityManager();
         System.out.println("into create!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         //if(prod == null){
-            prodDao.create(prod,em);
+        prodDao.create(prod,em);
         //}
         //else{
-            //prodDao.merge(prod,em);
+        //prodDao.merge(prod,em);
         //}
 
     }
 
     @Override
-    public void update(Producer entity){
+    public void update(T entity){
 
         em = JPAUtil.createEntityManager();
         prodDao.update(entity,em);
@@ -55,7 +46,7 @@ public class ProducerFactoryImpl implements ProducerFactory{
     }
 
     @Override
-    public void remove(Producer entity){
+    public void remove(T entity){
 
         em = JPAUtil.createEntityManager();
         prodDao.remove(entity,em);
@@ -63,7 +54,7 @@ public class ProducerFactoryImpl implements ProducerFactory{
     }
 
     @Override
-    public List<Producer> getAll(){
+    public List<T> getAll(){
 
         em = JPAUtil.createEntityManager();
         return prodDao.getAll(em);
@@ -71,11 +62,11 @@ public class ProducerFactoryImpl implements ProducerFactory{
     }
 
     @Override
-    public Producer get(Integer id) {
+    public T get(Integer id) {
 
         em = JPAUtil.createEntityManager();
-        //return prodDao.find(id,em);
-        return new Producer();
+        return (T) prodDao.find(id,em);
+        //return  (T) new Producer();
 
     }
 

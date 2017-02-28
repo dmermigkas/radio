@@ -1,6 +1,7 @@
 package jpa;
 
 import com.radio.Factories.FactoryGeneric;
+import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Factories.MusicTrackFactoryImpl;
 import com.radio.Initializer;
 import com.radio.Models.Genre;
@@ -28,14 +29,14 @@ public class MusicTrackJPATest {
 
     @Test
     public void musicTrackAddTest(){
-        musicTrackDao = new MusicTrackFactoryImpl();
+        musicTrackDao = new FactoryGenericImpl(MusicTrack.class);
         musicTrackDao.create(musictrack);
         Assert.assertEquals(1, musicTrackDao.getAll().size());
     }
 
     @Test
     public void musicTrackRemoveTest(){ //somehow fails...
-        musicTrackDao = new MusicTrackFactoryImpl();
+        musicTrackDao = new FactoryGenericImpl(MusicTrack.class);
         musicTrackDao.create(musictrack);
         musicTrackDao.remove(musictrack);
         Assert.assertEquals(0, musicTrackDao.getAll().size());

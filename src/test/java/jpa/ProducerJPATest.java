@@ -1,6 +1,7 @@
 package com.radio;
 
 import com.radio.Factories.FactoryGeneric;
+import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Factories.ProducerFactoryImpl;
 import com.radio.Models.EmailAddress;
 import com.radio.Models.Producer;
@@ -10,9 +11,6 @@ import org.junit.Test;
 
 import java.util.List;
 
-/**
- * Created by lotv on 27/02/2017.
- */
 public class ProducerJPATest {
 
     Initializer dataHelper;
@@ -27,8 +25,9 @@ public class ProducerJPATest {
 
     @Test
     public void addRemoveProducer() {
-        producerDao = new ProducerFactoryImpl();
+
         Producer producer1 = new Producer("firstname1", "lastname", new EmailAddress("a@a.a"));
+        producerDao = new FactoryGenericImpl(Producer.class);
         Assert.assertEquals(producer1.getFirstName(), "firstname1");
         producerDao.create(producer1);
         Assert.assertEquals(producerDao.getAll().size(), 2);

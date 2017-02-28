@@ -5,11 +5,11 @@ import java.util.Set;
 
 public interface FactoryGeneric <T, E>{
 
-    public void create(T entity);
-    public List<T> getAll();
-    public T get(E id);
-    public void add(T entity);
-    public void update(T entity);
-    public void remove(T entity);
+    void create(T entity);
+    List<T> getAll();
+    T get(E id);
+    //public void add(T entity);
+    void update(T entity);
+    void remove(T entity);
 
 }

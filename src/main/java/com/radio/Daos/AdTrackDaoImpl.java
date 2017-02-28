@@ -29,22 +29,22 @@ public class AdTrackDaoImpl implements AdTrackDao{
 //        System.out.println("i am addin");
 //    }
 
-    @Override
-    public void add(AdTrack entity,EntityManager em){
-
-        tracks.add(entity);
-        System.out.println("hello!!!");
-    }
+//    @Override
+//    public void add(AdTrack entity,EntityManager em){
+//
+//        tracks.add(entity);
+//        System.out.println("hello!!!");
+//    }
 
     @Override
     public void create(AdTrack prod,EntityManager em){
 
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-        System.out.println("helloooooooooooooooooooooooooooooooooooooooo");
-        em.persist(prod);
-        tx.commit();
-        em.close();
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//        System.out.println("helloooooooooooooooooooooooooooooooooooooooo");
+//        em.persist(prod);
+//        tx.commit();
+//        em.close();
 
     }
 //

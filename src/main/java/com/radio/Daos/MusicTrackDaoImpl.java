@@ -29,22 +29,22 @@ public class MusicTrackDaoImpl implements MusicTrackDao{
 //        System.out.println("i am addin");
 //    }
 
-    @Override
-    public void add(MusicTrack entity,EntityManager em){
-
-        tracks.add(entity);
-        System.out.println("hello!!!");
-    }
+//    @Override
+//    public void add(MusicTrack entity,EntityManager em){
+//
+//        tracks.add(entity);
+//        System.out.println("hello!!!");
+//    }
 
     @Override
     public void create(MusicTrack prod,EntityManager em){
 
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-
-        em.persist(prod);
-        tx.commit();
-        em.close();
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        em.persist(prod);
+//        tx.commit();
+//        em.close();
 
     }
 
@@ -63,17 +63,24 @@ public class MusicTrackDaoImpl implements MusicTrackDao{
     @Override
     public void update(MusicTrack entity,EntityManager em){
 
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        em.merge(entity);
+//        tx.commit();
+//        em.close();
+
     }
 
     @Override
     public void remove(MusicTrack entity,EntityManager em){
 
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-
-        em.remove(em.contains(entity) ? entity : em.merge(entity));
-        tx.commit();
-        em.close();
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        em.remove(em.contains(entity) ? entity : em.merge(entity));
+//        tx.commit();
+//        em.close();
 
     }
 

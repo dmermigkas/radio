@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class AdTrackFactoryImpl implements FactoryGeneric<AdTrack, Integer>{
+public class AdTrackFactoryImpl implements AdTrackFactory{
 
     private AdTrackDao musicDao;
     @PersistenceContext
@@ -24,12 +24,12 @@ public class AdTrackFactoryImpl implements FactoryGeneric<AdTrack, Integer>{
 
     }
 
-    @Override
-    public void add(AdTrack entity){
-
-        musicDao.add(entity,em);
-
-    }
+//    @Override
+//    public void add(AdTrack entity){
+//
+//        musicDao.add(entity,em);
+//
+//    }
 
     @Override
     public void create(AdTrack prod){
