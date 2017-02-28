@@ -61,17 +61,24 @@ public class MusicTrackDaoImpl implements MusicTrackDao{
 //    }
 
     @Override
-    public void update(MusicTrack entity){
+    public void update(MusicTrack entity,EntityManager em){
 
     }
 
     @Override
-    public void remove(MusicTrack entity){
+    public void remove(MusicTrack entity,EntityManager em){
+
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+
+        em.remove(entity);
+        tx.commit();
+        em.close();
 
     }
 
     @Override
-    public MusicTrack find(Integer key) {
+    public MusicTrack find(Integer key,EntityManager em) {
         return null;
     }
 

@@ -61,17 +61,17 @@ public class AdTrackDaoImpl implements AdTrackDao{
 //    }
 
     @Override
-    public void update(AdTrack entity){
+    public void update(AdTrack entity,EntityManager em){
 
     }
 
     @Override
-    public void remove(AdTrack entity){
+    public void remove(AdTrack entity,EntityManager em){
 
     }
 
     @Override
-    public AdTrack find(Integer key) {
+    public AdTrack find(Integer key,EntityManager em) {
         return null;
     }
 

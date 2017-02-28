@@ -20,7 +20,6 @@ public class ProducerFactoryImpl implements FactoryGeneric<Producer, Integer>{
 
     public ProducerFactoryImpl(){
 
-        em = JPAUtil.createEntityManager();
         prodDao = new ProducerDaoImpl();
 
     }
@@ -34,6 +33,8 @@ public class ProducerFactoryImpl implements FactoryGeneric<Producer, Integer>{
 
     @Override
     public void create(Producer prod){
+
+        em = JPAUtil.createEntityManager();
         System.out.println("into create!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         //if(prod == null){
             prodDao.create(prod,em);
@@ -47,21 +48,33 @@ public class ProducerFactoryImpl implements FactoryGeneric<Producer, Integer>{
     @Override
     public void update(Producer entity){
 
+        em = JPAUtil.createEntityManager();
+        prodDao.update(entity,em);
+
     }
 
     @Override
     public void remove(Producer entity){
 
+        em = JPAUtil.createEntityManager();
+        prodDao.remove(entity,em);
+
     }
 
     @Override
     public List<Producer> getAll(){
+
+        em = JPAUtil.createEntityManager();
         return prodDao.getAll(em);
+
     }
 
     @Override
     public Producer get(Integer id) {
-        return null;
+
+        em = JPAUtil.createEntityManager();
+        return prodDao.find(id,em);
+
     }
 
 }

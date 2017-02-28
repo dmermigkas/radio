@@ -20,7 +20,6 @@ public class MusicTrackFactoryImpl  implements FactoryGeneric<MusicTrack, Intege
 
     public MusicTrackFactoryImpl(){
 
-        em = JPAUtil.getCurrentEntityManager();
         musicDao = new MusicTrackDaoImpl();
 
     }
@@ -35,12 +34,8 @@ public class MusicTrackFactoryImpl  implements FactoryGeneric<MusicTrack, Intege
     @Override
     public void create(MusicTrack prod){
 
-        if(prod == null){
-            musicDao.create(prod,em);
-        }
-        else{
-           // musicDao.merge(prod,em);
-        }
+        em = JPAUtil.createEntityManager();
+        musicDao.create(prod,em);
 
     }
 
@@ -52,10 +47,14 @@ public class MusicTrackFactoryImpl  implements FactoryGeneric<MusicTrack, Intege
     @Override
     public void remove(MusicTrack entity){
 
+        em = JPAUtil.createEntityManager();
+        musicDao.remove(entity,em);
+
     }
 
     @Override
     public List<MusicTrack> getAll(){
+        em = JPAUtil.createEntityManager();
         return new ArrayList<>();
     }
 

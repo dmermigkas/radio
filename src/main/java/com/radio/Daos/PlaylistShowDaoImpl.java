@@ -48,30 +48,30 @@ public class PlaylistShowDaoImpl implements PlaylistShowDao{
 
     }
 
+//    @Override
+//    public void merge(PlaylistShow prod,EntityManager em){
+//
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        em.merge(prod);
+//        tx.commit();
+//        em.close();
+//
+//    }
+
     @Override
-    public void merge(PlaylistShow prod,EntityManager em){
-
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-
-        em.merge(prod);
-        tx.commit();
-        em.close();
+    public void update(PlaylistShow entity,EntityManager em){
 
     }
 
     @Override
-    public void update(PlaylistShow entity){
+    public void remove(PlaylistShow entity,EntityManager em){
 
     }
 
     @Override
-    public void remove(PlaylistShow entity){
-
-    }
-
-    @Override
-    public PlaylistShow find(Integer key) {
+    public PlaylistShow find(Integer key,EntityManager em) {
         return null;
     }
 

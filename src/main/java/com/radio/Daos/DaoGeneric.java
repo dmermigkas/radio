@@ -9,9 +9,9 @@ public interface DaoGeneric<T,E> {
     //<T> T getDao();
     void add(T entity,EntityManager em) ;
     void create(T entity,EntityManager em) ;
-    void update(T entity) ;
-    void remove(T entity);
-    T find(E key);
+    void update(T entity,EntityManager em) ;
+    void remove(T entity,EntityManager em);
+    T find(E key,EntityManager em);
     List<T> getAll(EntityManager em);
 
 }

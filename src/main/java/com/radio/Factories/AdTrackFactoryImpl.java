@@ -20,7 +20,6 @@ public class AdTrackFactoryImpl implements FactoryGeneric<AdTrack, Integer>{
 
     public AdTrackFactoryImpl(){
 
-        em = JPAUtil.getCurrentEntityManager();
         musicDao = new AdTrackDaoImpl();
 
     }
@@ -35,14 +34,15 @@ public class AdTrackFactoryImpl implements FactoryGeneric<AdTrack, Integer>{
     @Override
     public void create(AdTrack prod){
 
-        if(prod == null){
+        em = JPAUtil.createEntityManager();
+        //if(prod == null){
 
             musicDao.create(prod,em);
-        }
-        else{
-            System.out.println("helloooooooooooooooooooooo2");
-            musicDao.create(prod,em);
-        }
+//        }
+//        else{
+//            System.out.println("helloooooooooooooooooooooo2");
+//            musicDao.create(prod,em);
+//        }
 
     }
 
@@ -58,6 +58,7 @@ public class AdTrackFactoryImpl implements FactoryGeneric<AdTrack, Integer>{
 
     @Override
     public List<AdTrack> getAll(){
+        em = JPAUtil.createEntityManager();
         return new ArrayList<>();
     }
 

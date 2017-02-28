@@ -44,7 +44,7 @@ public class ProducerDaoImpl implements ProducerDao{
 
         em.persist(prod);
         tx.commit();
-        //em.close();
+        em.close();
 
     }
 
@@ -61,18 +61,41 @@ public class ProducerDaoImpl implements ProducerDao{
 //    }
 
     @Override
-    public void update(Producer entity){
+    public void update(Producer entity,EntityManager em){
+
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+
+        em.merge(entity);
+        tx.commit();
+        em.close();
 
     }
 
     @Override
-    public void remove(Producer entity){
+    public void remove(Producer entity,EntityManager em){
+
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+
+        em.remove(em.contains(entity) ? entity : em.merge(entity));
+        tx.commit();
+        em.close();
 
     }
 
     @Override
-    public Producer find(Integer key) {
-        return null;
+    public Producer find(Integer key,EntityManager em) {
+
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        Producer results = null;
+
+        results = em.find(Producer.class, key);
+        tx.commit();
+        em.close();
+        return results;
+
     }
 
     @Override
