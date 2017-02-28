@@ -70,10 +70,8 @@ public class Initializer {
         Genre genre = new Genre("genre");
 
 
-        Show autoShow = new AutoShow("testAutoShow", 3600, genre, playDateTime);
-        autoShow.setProducer(producer);
-
         Show autoShow = new AutoShow("testAutoShow", producer, 3600, genre, playDateTime);
+        autoShow.setProducer(producer);
 
 
         EntityManager em = JPAUtil.createEntityManager();
@@ -102,6 +100,7 @@ public class Initializer {
 //        em.persist(genre);
 //
 //        em.persist(autoShow);
+        em.persist(musictrack);
 
 
         tx.commit();
