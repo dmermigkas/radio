@@ -55,7 +55,7 @@ public class MusicTrackFactoryImpl  implements FactoryGeneric<MusicTrack, Intege
     @Override
     public List<MusicTrack> getAll(){
         em = JPAUtil.createEntityManager();
-        return new ArrayList<>();
+        return musicDao.getAll(em);
     }
 
     @Override

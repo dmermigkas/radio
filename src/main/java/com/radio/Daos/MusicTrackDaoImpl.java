@@ -71,7 +71,7 @@ public class MusicTrackDaoImpl implements MusicTrackDao{
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        em.remove(entity);
+        em.remove(em.contains(entity) ? entity : em.merge(entity));
         tx.commit();
         em.close();
 
@@ -89,10 +89,10 @@ public class MusicTrackDaoImpl implements MusicTrackDao{
         tx.begin();
         List<MusicTrack> results = null;
 
-        //results = em.createQuery("select b from PLAYLISTSHOWS b").getResultList();
+        results = em.createQuery("select b from MusicTrack b").getResultList();
         tx.commit();
         em.close();
-        return new ArrayList<>();
+        return results;
 
     }
 
