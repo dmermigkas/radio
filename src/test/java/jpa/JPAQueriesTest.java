@@ -1,5 +1,6 @@
-package com.radio;
+package jpa;
 
+import com.radio.Initializer;
 import com.radio.Models.Track;
 import com.radio.Utilities.JPAUtil;
 import org.junit.Assert;

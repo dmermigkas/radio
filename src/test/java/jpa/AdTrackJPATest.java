@@ -1,4 +1,4 @@
-package com.radio;
+package jpa;
 
 /**
  * Created by agk on 28/02/2017.
