@@ -15,8 +15,8 @@ public class PlayListShowJPATest {
     @Before
     public void setUpJPA(){
         dataHelper = new Initializer();
-        dataHelper.eraseData();
-        dataHelper.prepareData();
+        //dataHelper.eraseData();
+        //dataHelper.prepareData();
     }
 
 }
