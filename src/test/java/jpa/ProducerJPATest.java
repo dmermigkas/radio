@@ -2,7 +2,6 @@ package com.radio;
 
 import com.radio.Factories.FactoryGeneric;
 import com.radio.Factories.FactoryGenericImpl;
-import com.radio.Factories.ProducerFactoryImpl;
 import com.radio.Models.EmailAddress;
 import com.radio.Models.Producer;
 import org.junit.Assert;
@@ -25,13 +24,13 @@ public class ProducerJPATest {
     @Test
     public void addRemoveUpdateProducer() {
 
-        Producer producer1 = new Producer("firstname1", "lastname", new EmailAddress("a@a.a"));
+        Producer producer = new Producer("firstname1", "lastname", new EmailAddress("a@a.a"));
         producerDao = new FactoryGenericImpl(Producer.class);
-        Assert.assertEquals(producer1.getFirstName(), "firstname1");
-        producerDao.create(producer1);
+        Assert.assertEquals(producer.getFirstName(), "firstname1");
+        producerDao.create(producer);
         Assert.assertEquals(producerDao.getAll().size(), 1);
-        producer1.setFirstName("dimitris");
-        producerDao.update(producer1);
+        producer.setFirstName("dimitris");
+        producerDao.update(producer);
         List<Producer> listPersons = producerDao.getAll();
         Assert.assertEquals(listPersons.get(0).getFirstName(), "dimitris");
 
@@ -40,9 +39,13 @@ public class ProducerJPATest {
     @Test
     public void findProducer() {
 
-        Producer producer2 = new Producer("name1", "name2", new EmailAddress("a@a.a"));
+        Producer producer = new Producer("name1", "name2", new EmailAddress("a@a.a"));
         producerDao = new FactoryGenericImpl(Producer.class);
-
+        producerDao.create(producer);
+        List<Producer> producers = producerDao.getAll();
+        Producer producer1 = producers.get(0);
+        Producer producer2 = (Producer) producerDao.get(producer1.getId());
+        Assert.assertEquals(producer1.getFirstName(), producer2.getFirstName());
 
     }
 

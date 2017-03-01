@@ -57,7 +57,8 @@ public class AdTrackTest {
         newCalendar.add(Calendar.DATE, 2);
         adTrack.setTo(newCalendar);
         Assert.assertEquals(newCalendar, adTrack.getTo());
-        //I have to assert setplaybackzone here
+        adTrack.setDuration(12);
+        Assert.assertEquals(adTrack.getDuration(), 12);
     }
 
 }

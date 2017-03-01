@@ -56,4 +56,8 @@ public class Producer {
         this.email = email;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
 }
