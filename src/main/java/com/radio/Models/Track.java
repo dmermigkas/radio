@@ -18,21 +18,13 @@ public abstract class Track {
     @Column(name="duration")
     protected int duration;
 
-    @Transient
-    private DaoGeneric dao;
-
     public Track(){};
 
     public Track(int duration){
 
-        //this.dao = dao;
         this.duration = duration;
 
     }
-
-//    public <T> T getDao(){
-//        return dao.getDao();
-//    }
 
     public int getDuration() {
         return duration;

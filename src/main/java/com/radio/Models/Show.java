@@ -25,9 +25,6 @@ public abstract class Show {
     @Column(name="duration")
     protected int duration;
 
-    @Transient
-    private DaoGeneric dao;
-
     //Relational Properties
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinColumn(name="producerid")
@@ -45,16 +42,11 @@ public abstract class Show {
 
     public Show(String name,Calendar playDateTime,int duration){
 
-        //this.dao = dao;
         this.name = name;
         this.playDateTime = playDateTime;
         this.duration = duration;
 
     }
-
-//    public <T> T getDao(){
-//        return dao.getDao();
-//    }
 
     public String getName() {
         return name;
@@ -95,9 +87,5 @@ public abstract class Show {
     public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
     }
-
-    //    public abstract void addTrackToList(Track track);
-//
-//    public abstract void removeTrackFromList(Track track);
 
 }

@@ -13,8 +13,6 @@ public class Producer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-//    private DaoFactory dao;
-
     @Column(name="firstname")
     private String firstName;
 
@@ -26,18 +24,13 @@ public class Producer {
 
     public Producer(){};
 
-    //public Producer(DaoFactory dao, String firstName, String lastName, EmailAddress email){
     public Producer(String firstName, String lastName, EmailAddress email){
-        //this.dao = dao;
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
 
     }
-
-//    public <T> T getDao(){
-//        return dao.getDao();
-//    }
 
     public String getFirstName() {
         return firstName;
