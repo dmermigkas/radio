@@ -10,3 +10,15 @@ delete from GENRES [50200-192]
 2017-03-01 19:11:07 jdbc[4]: exception
 org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
 delete from GENRES [50200-192]
+2017-03-01 21:42:42 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from TRACKS [50200-192]
+2017-03-01 21:42:44 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from TRACKS [50200-192]
+2017-03-01 21:43:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from AUTOSHOWS [50200-192]
+2017-03-01 21:43:47 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
+delete from AUTOSHOWS [50200-192]
