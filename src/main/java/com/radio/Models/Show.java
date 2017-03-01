@@ -31,7 +31,7 @@ public abstract class Show {
     protected Producer producer;
 
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE },
-            fetch=FetchType.LAZY)
+            fetch=FetchType.EAGER)
     @JoinTable(name="SHOWTRACKS",
             joinColumns = {@JoinColumn(name="showId")},
             inverseJoinColumns = {@JoinColumn(name="trackId")}
