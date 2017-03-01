@@ -1,24 +1,18 @@
-2017-03-01 19:03:38 jdbc[4]: exception
-org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
-delete from TRACKS [50200-192]
-2017-03-01 19:07:52 jdbc[4]: exception
-org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
-delete from GENRES [50200-192]
-2017-03-01 19:10:37 jdbc[4]: exception
-org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
-delete from GENRES [50200-192]
-2017-03-01 19:11:07 jdbc[4]: exception
-org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
-delete from GENRES [50200-192]
-2017-03-01 21:42:42 jdbc[4]: exception
-org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
-delete from TRACKS [50200-192]
-2017-03-01 21:42:44 jdbc[5]: exception
-org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
-delete from TRACKS [50200-192]
-2017-03-01 21:43:45 jdbc[4]: exception
-org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
-delete from AUTOSHOWS [50200-192]
-2017-03-01 21:43:47 jdbc[5]: exception
-org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
-delete from AUTOSHOWS [50200-192]
+2017-03-01 22:43:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ADTRACKS" not found; SQL statement:
+delete from ADTRACKS [42102-192]
+2017-03-01 22:45:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ADTRACKS" not found; SQL statement:
+delete from ADTRACKS [42102-192]
+2017-03-01 22:48:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ADTRACKS" not found; SQL statement:
+delete from   ADTRACKS [42102-192]
+2017-03-01 22:48:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ADTRACKS" not found; SQL statement:
+delete from   ADTRACKS [42102-192]
+2017-03-01 22:49:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ADTRACKS" not found; SQL statement:
+delete from ADTRACKS [42102-192]
+2017-03-01 22:52:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "MUSICTRACKS" not found; SQL statement:
+delete from MUSICTRACKS [42102-192]

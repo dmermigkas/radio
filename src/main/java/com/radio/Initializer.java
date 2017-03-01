@@ -11,24 +11,28 @@ public class Initializer {
 
     public void eraseData(){
         EntityManager em = JPAUtil.getCurrentEntityManager();
+
+
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        Query query = em.createNativeQuery("delete from TRACKS");
+        Query query = em.createNativeQuery("delete from SHOWS");
         query.executeUpdate();
-        query = em.createNativeQuery("delete from ADTRACKS");
-        query.executeUpdate();
-        query = em.createNativeQuery("delete from AUTOSHOWS");
+//        query = em.createNativeQuery("delete from AUTOSHOWS");
+//        query.executeUpdate();
+//        query = em.createNativeQuery("delete from PLAYLISTSHOWS");
+//        query.executeUpdate();
+        query = em.createNativeQuery("delete from TRACKS");
         query.executeUpdate();
         query = em.createNativeQuery("delete from GENRES");
         query.executeUpdate();
-        query = em.createNativeQuery("delete from MUSICTRACKS");
-        query.executeUpdate();
-        query = em.createNativeQuery("delete from PLAYLISTSHOWS");
-        query.executeUpdate();
+//        query = em.createNativeQuery("delete from MUSICTRACKS");
+//        query.executeUpdate();
+//        query = em.createNativeQuery("delete from ADTRACKS");
+//        query.executeUpdate();
+//        query = em.createNativeQuery("delete from PLAYLISTSHOWS");
+//        query.executeUpdate();
         query = em.createNativeQuery("delete from PRODUCERS");
-        query.executeUpdate();
-        query = em.createNativeQuery("delete from TRACKS");
         query.executeUpdate();
         tx.commit();
         em.close();
