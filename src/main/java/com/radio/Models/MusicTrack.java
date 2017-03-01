@@ -13,7 +13,7 @@ public class MusicTrack extends Track{
     @Column(name="artist")
     private String artist;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name="genreid")
     private Genre genre;
 
@@ -62,6 +62,32 @@ public class MusicTrack extends Track{
 
     public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if ( other == null) {
+            return false;
+        }
+        if (this == other) {
+            return true;
+        }
+        if (! (other instanceof MusicTrack)) {
+            return false;
+        }
+
+        MusicTrack musicTrack = (MusicTrack) other;
+        if (! (getTitle() == null ? musicTrack.getTitle()
+                == null : getTitle().equals(musicTrack.getTitle()))) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return title == null ? 0 : title.hashCode();
     }
 
 }

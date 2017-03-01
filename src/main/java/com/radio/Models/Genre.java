@@ -28,4 +28,30 @@ public class Genre {
         this.genre = genre;
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if ( other == null) {
+            return false;
+        }
+        if (this == other) {
+            return true;
+        }
+        if (! (other instanceof Genre)) {
+            return false;
+        }
+
+        Genre musicTrack = (Genre) other;
+        if (! (getGenre() == null ? musicTrack.getGenre()
+                == null : getGenre().equals(musicTrack.getGenre()))) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return genre == null ? 0 : genre.hashCode();
+    }
+
 }

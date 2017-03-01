@@ -8,7 +8,7 @@ import java.util.Calendar;
 @Table(name="AUTOSHOWS")
 public class AutoShow extends Show{
 
-    @ManyToOne(cascade ={CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @ManyToOne(cascade ={CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinColumn(name="genreid")
     private Genre genre;
 
@@ -33,6 +33,32 @@ public class AutoShow extends Show{
 
     public void setGenre(Genre genre) {
         this.genre = genre;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if ( other == null) {
+            return false;
+        }
+        if (this == other) {
+            return true;
+        }
+        if (! (other instanceof AutoShow)) {
+            return false;
+        }
+
+        AutoShow musicTrack = (AutoShow) other;
+        if (! (getName() == null ? musicTrack.getName()
+                == null : getName().equals(musicTrack.getName()))) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return name == null ? 0 : name.hashCode();
     }
 
 //    public Policies getPolicies() {
