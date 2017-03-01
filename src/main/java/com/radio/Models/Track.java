@@ -5,7 +5,7 @@ import com.radio.Daos.DaoGeneric;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="TRACK_TYPE")
 @Table(name="TRACKS")
 public abstract class Track {

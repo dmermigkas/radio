@@ -23,7 +23,7 @@ public class ProducerJPATest {
     }
 
     @Test
-    public void addRemoveProducer() {
+    public void addRemoveUpdateProducer() {
 
         Producer producer1 = new Producer("firstname1", "lastname", new EmailAddress("a@a.a"));
         producerDao = new FactoryGenericImpl(Producer.class);
@@ -33,13 +33,17 @@ public class ProducerJPATest {
         producer1.setFirstName("dimitris");
         producerDao.update(producer1);
         List<Producer> listPersons = producerDao.getAll();
-        Assert.assertEquals(listPersons.get(1).getFirstName(), "dimitris");
+        Assert.assertEquals(listPersons.get(0).getFirstName(), "dimitris");
 
-
-        //Assert.assertEquals(producerDao.getAll().get(1), 2);
-//        producerDao.remove(producer1);
-//        Assert.assertEquals(producerDao.getAll().size(), 1);
-//        producerDao.create(null);
-//        Assert.assertEquals(producerDao.getAll().size(), 2);
     }
+
+    @Test
+    public void findProducer() {
+
+        Producer producer2 = new Producer("name1", "name2", new EmailAddress("a@a.a"));
+        producerDao = new FactoryGenericImpl(Producer.class);
+
+
+    }
+
 }

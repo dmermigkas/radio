@@ -36,7 +36,7 @@ public class MusicTrackJPATest {
     }
 
     @Test
-    public void musicTrackRemoveTest(){ //somehow fails...
+    public void musicTrackRemoveTest(){
         musicTrackDao = new FactoryGenericImpl(MusicTrack.class);
         musicTrackDao.create(musictrack);
         musicTrackDao.remove(musictrack);
@@ -44,7 +44,7 @@ public class MusicTrackJPATest {
     }
 
     @Test
-    public void musicTrackUpdateTest(){
+    public void musicTrackUpdateTest(){ //does not work when run with other tests
         musicTrackDao = new FactoryGenericImpl(MusicTrack.class);
         musicTrackDao.create(musictrack);
         musictrack.setArtist("mermigkas");
