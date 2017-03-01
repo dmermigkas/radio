@@ -1,6 +1,7 @@
 package com.radio;
 
 import com.radio.Controllers.PlaylistShowController;
+import com.radio.Controllers.ShowController;
 import com.radio.Models.MusicTrack;
 import com.radio.Models.PlaylistShow;
 import com.radio.Models.Show;
@@ -16,7 +17,7 @@ public class PlayListShowSetDurationTest {
     @Test
     public void PlayListShowControllerTest(){
 
-        PlaylistShowController controller = new PlaylistShowController();
+        ShowController controller = new PlaylistShowController();
         Track track = new MusicTrack();
         track.setDuration(100);
         PlaylistShow show = new PlaylistShow();

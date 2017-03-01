@@ -18,14 +18,6 @@ public abstract class Track {
     @Column(name="duration")
     protected int duration;
 
-    public Track(){};
-
-    public Track(int duration){
-
-        this.duration = duration;
-
-    }
-
     public int getDuration() {
         return duration;
     }
