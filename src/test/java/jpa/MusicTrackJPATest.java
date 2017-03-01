@@ -11,6 +11,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 /**
  * Created by lotv on 28/02/2017.
  */
@@ -18,13 +20,12 @@ public class MusicTrackJPATest {
 
     Initializer dataHelper;
     FactoryGeneric musicTrackDao;
-    Track musictrack;
+    MusicTrack musictrack = new MusicTrack("title", "artist", new Genre("genre"), 1998, 100);
 
     @Before
     public void setUpJPA(){
         dataHelper = new Initializer();
         dataHelper.eraseData();
-        musictrack = new MusicTrack("title", "artist", new Genre("genre"), 1998, 100);
     }
 
     @Test
@@ -40,6 +41,17 @@ public class MusicTrackJPATest {
         musicTrackDao.create(musictrack);
         musicTrackDao.remove(musictrack);
         Assert.assertEquals(0, musicTrackDao.getAll().size());
+    }
+
+    @Test
+    public void musicTrackUpdateTest(){
+        musicTrackDao = new FactoryGenericImpl(MusicTrack.class);
+        musicTrackDao.create(musictrack);
+        musictrack.setArtist("mermigkas");
+        musicTrackDao.update(musictrack);
+        List<MusicTrack> tracks = musicTrackDao.getAll();
+        Assert.assertEquals("mermigkas", tracks.get(0).getArtist());
+
     }
 
 }

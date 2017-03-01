@@ -20,7 +20,6 @@ public class ProducerJPATest {
     public void setUpJPA(){
         dataHelper = new Initializer();
         dataHelper.eraseData();
-        dataHelper.prepareData();
     }
 
     @Test
@@ -30,16 +29,13 @@ public class ProducerJPATest {
         producerDao = new FactoryGenericImpl(Producer.class);
         Assert.assertEquals(producer1.getFirstName(), "firstname1");
         producerDao.create(producer1);
-        Assert.assertEquals(producerDao.getAll().size(), 2);
+        Assert.assertEquals(producerDao.getAll().size(), 1);
         producer1.setFirstName("dimitris");
         producerDao.update(producer1);
         List<Producer> listPersons = producerDao.getAll();
+        Assert.assertEquals(listPersons.get(1).getFirstName(), "dimitris");
 
-        for(int i = 0; i < listPersons.size(); i++) {
-            if(i == 1){
-                Assert.assertEquals(listPersons.get(i).getFirstName(), "dimitris");
-            }
-        }
+
         //Assert.assertEquals(producerDao.getAll().get(1), 2);
 //        producerDao.remove(producer1);
 //        Assert.assertEquals(producerDao.getAll().size(), 1);

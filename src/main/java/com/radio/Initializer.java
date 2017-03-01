@@ -10,13 +10,11 @@ import java.util.Calendar;
 public class Initializer {
 
     public void eraseData(){
-        EntityManager em = JPAUtil.getCurrentEntityManager();
+        EntityManager em = JPAUtil.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        Query query = em.createNativeQuery("delete from TRACKS");
-        query.executeUpdate();
-        query = em.createNativeQuery("delete from ADTRACKS");
+        Query query = em.createNativeQuery("delete from ADTRACKS");
         query.executeUpdate();
         query = em.createNativeQuery("delete from AUTOSHOWS");
         query.executeUpdate();
@@ -27,8 +25,6 @@ public class Initializer {
         query = em.createNativeQuery("delete from PLAYLISTSHOWS");
         query.executeUpdate();
         query = em.createNativeQuery("delete from PRODUCERS");
-        query.executeUpdate();
-        query = em.createNativeQuery("delete from TRACKS");
         query.executeUpdate();
         tx.commit();
         em.close();
