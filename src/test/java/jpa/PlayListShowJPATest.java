@@ -11,9 +11,6 @@ import org.junit.Test;
 import java.util.Calendar;
 import java.util.List;
 
-/**
- * Created by lotv on 28/02/2017.
- */
 public class PlayListShowJPATest {
     Initializer dataHelper;
     FactoryGeneric playListShowDao;

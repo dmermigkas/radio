@@ -6,6 +6,6 @@ import javax.persistence.EntityManager;
 
 public interface MusicTrackDao  extends DaoGeneric<MusicTrack,Integer> {
 
-   // public void merge(MusicTrack entity,EntityManager em);
+
 
 }

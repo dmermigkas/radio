@@ -3,6 +3,7 @@ package com.radio;
 import com.radio.Models.Genre;
 import org.junit.Assert;
 import org.junit.Test;
+import com.radio.Initializer;
 
 /**
  * Created by lotv on 21/02/2017.

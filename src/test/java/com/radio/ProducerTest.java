@@ -5,6 +5,7 @@ import com.radio.Models.EmailAddress;
 import com.radio.Models.Producer;
 import org.junit.Assert;
 import org.junit.Before;
+import com.radio.Initializer;
 import org.junit.Test;
 
 /**

@@ -6,6 +6,7 @@ import com.radio.Models.MusicTrack;
 import com.radio.Models.PlaylistShow;
 import com.radio.Models.Show;
 import com.radio.Models.Track;
+import com.radio.Initializer;
 import org.junit.Assert;
 import org.junit.Test;
 
