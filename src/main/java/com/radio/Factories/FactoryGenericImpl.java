@@ -27,13 +27,8 @@ public class FactoryGenericImpl<T> implements FactoryGeneric<T,Integer>{
     public void create(T prod){
 
         em = JPAUtil.createEntityManager();
-        System.out.println("into create!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        //if(prod == null){
+
         prodDao.create(prod,em);
-        //}
-        //else{
-        //prodDao.merge(prod,em);
-        //}
 
     }
 
@@ -66,7 +61,6 @@ public class FactoryGenericImpl<T> implements FactoryGeneric<T,Integer>{
 
         em = JPAUtil.createEntityManager();
         return (T) prodDao.find(id,em);
-        //return  (T) new Producer();
 
     }
 

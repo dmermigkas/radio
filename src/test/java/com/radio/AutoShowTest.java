@@ -4,6 +4,7 @@ import com.radio.Models.AutoShow;
 import com.radio.Models.EmailAddress;
 import com.radio.Models.Genre;
 import com.radio.Models.Producer;
+import com.radio.Initializer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

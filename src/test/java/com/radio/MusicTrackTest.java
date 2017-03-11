@@ -4,6 +4,7 @@ import com.radio.Models.Genre;
 import com.radio.Models.MusicTrack;
 import org.junit.Assert;
 import org.junit.Before;
+import com.radio.Initializer;
 import org.junit.Test;
 
 import javax.validation.constraints.AssertTrue;

@@ -6,8 +6,6 @@ import java.util.Set;
 
 public interface DaoGeneric<T,E> {
 
-    //<T> T getDao();
-//    void add(T entity,EntityManager em) ;
     void create(T entity,EntityManager em) ;
     void update(T entity,EntityManager em) ;
     void remove(T entity,EntityManager em);

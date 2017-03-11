@@ -71,7 +71,7 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         List<T> results = null;
-        System.out.println(entityClass);
+
         results = em.createQuery("select b from " + entityClass + " b").getResultList();
         tx.commit();
         em.close();

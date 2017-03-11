@@ -27,7 +27,6 @@ public class AutoShowController extends ShowController{
         myShow.setTracks(showTracks);
 
         while(super.checkDuration(myShow) == true){
-            System.out.println("is invalid");
             myShow = (AutoShow) super.fixDuration(myShow);
         }
 
@@ -38,8 +37,6 @@ public class AutoShowController extends ShowController{
             }
         }
 
-
-        System.out.println(myShow.getTracks() + "    aaaaaaaaaaaaaaaaa");
         return myShow;
         
     }

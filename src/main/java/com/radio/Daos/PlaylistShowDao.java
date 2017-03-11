@@ -6,8 +6,5 @@ import javax.persistence.EntityManager;
 
 public interface PlaylistShowDao extends DaoGeneric<PlaylistShow,Integer> {
 
-    public void getDao();
-
-   // public void merge(PlaylistShow entity,EntityManager em);
 
 }

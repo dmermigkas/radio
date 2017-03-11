@@ -1,15 +1,13 @@
 package com.radio;
 
 import com.radio.Models.*;
+import com.radio.Initializer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Calendar;
 
-/**
- * Created by agk on 26/02/2017.
- */
 public class PlaylistShowTest {
     PlaylistShow playlistShow;
     Calendar playDateTime;

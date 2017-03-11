@@ -1,9 +1,10 @@
-package com.radio;
+package jpa;
 
 import com.radio.Factories.FactoryGeneric;
 import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Models.EmailAddress;
 import com.radio.Models.Producer;
+import com.radio.Initializer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
