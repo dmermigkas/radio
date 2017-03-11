@@ -26,4 +26,6 @@ public abstract class Track {
         this.duration = duration;
     }
 
+    public Integer getId() { return trackId; }
+
 }

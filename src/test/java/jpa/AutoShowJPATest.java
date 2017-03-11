@@ -13,7 +13,7 @@ import org.junit.Test;
 import java.util.Calendar;
 import java.util.List;
 
-public class AutoShowJPATest {
+public class AutoShowJPATest { //todo clean the test and add assertions
 
     Initializer dataHelper;
     FactoryGeneric producerDao;
@@ -59,8 +59,6 @@ public class AutoShowJPATest {
         producerDao.create(adTrack);
 
         List<AdTrack> adTracks = producerDao.getAll();
-
-        //producerDao = new FactoryGenericImpl(AutoShow.class);
 
         AutoShowController ctrl = new AutoShowController();
 
