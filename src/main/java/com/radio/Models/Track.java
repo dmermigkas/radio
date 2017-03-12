@@ -13,7 +13,7 @@ public abstract class Track {
     @Id
     @Column(name="trackId")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer trackId;
+    protected Integer trackId;
 
     @Column(name="duration")
     protected int duration;

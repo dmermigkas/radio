@@ -97,7 +97,7 @@ public class MusicTrackInfo {
         this.genre = genre;
     }
 
-    public MusicTrackInfo wrap(MusicTrack musicTrack) {return new MusicTrackInfo(musicTrack);}
+    public static MusicTrackInfo wrap(MusicTrack musicTrack) {return new MusicTrackInfo(musicTrack);}
 
 
     public static List<MusicTrackInfo> wrap(List<MusicTrack> musicTracks) {
