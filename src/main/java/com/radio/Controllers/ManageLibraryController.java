@@ -41,7 +41,6 @@ public class ManageLibraryController {
     }
 
     @GET
-//    @Path("getAll")
     @Produces(MediaType.APPLICATION_JSON)
     public List<MusicTrackInfo> listAllMusicTracks() {
         List<MusicTrack> musicTracks = musicTrackFactory.getAll();
@@ -62,6 +61,15 @@ public class ManageLibraryController {
         MusicTrackInfo musicTrackInfo = MusicTrackInfo.wrap(musicTrack);
 
         return musicTrackInfo;
+
+    }
+
+    @DELETE
+    @Path("{trackId:[0-9]*}")
+    public Response deleteTrackById(@PathParam("trackId") int trackId) {
+
+        musicTrackFactory.removeById(trackId);
+        return
 
     }
 

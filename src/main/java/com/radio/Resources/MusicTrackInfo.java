@@ -1,5 +1,6 @@
 package com.radio.Resources;
 
+import com.radio.Factories.FactoryGeneric;
 import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Models.Genre;
 import com.radio.Models.MusicTrack;
@@ -14,7 +15,7 @@ import java.util.List;
 @XmlRootElement
 public class MusicTrackInfo {
 
-    FactoryGenericImpl musicTrackFactory;
+    FactoryGeneric musicTrackFactory;
 
     private Integer id;
     private String title;
