@@ -15,11 +15,12 @@ public class FactoryGenericImpl<T> implements FactoryGeneric<T,Integer>{
     private EntityManager em;
 
     protected String entityClass;
+    protected Class entityClass2;
 
     public FactoryGenericImpl(Class<T> entityClass){
         this.entityClass = entityClass.getSimpleName();
         prodDao = new DaoGenericImpl<>(entityClass.getSimpleName(),entityClass);
-
+        this.entityClass2 = entityClass;
     }
 
 
