@@ -10,5 +10,6 @@ public interface FactoryGeneric <T, E>{
     T get(E id);
     void update(T entity);
     void remove(T entity);
+    void removeById(E id);
 
 }

@@ -17,6 +17,8 @@ public class FactoryGenericImpl<T> implements FactoryGeneric<T,Integer>{
     protected String entityClass;
     protected Class entityClass2;
 
+    public FactoryGenericImpl(){}
+
     public FactoryGenericImpl(Class<T> entityClass){
         this.entityClass = entityClass.getSimpleName();
         prodDao = new DaoGenericImpl<>(entityClass.getSimpleName(),entityClass);
@@ -46,6 +48,14 @@ public class FactoryGenericImpl<T> implements FactoryGeneric<T,Integer>{
 
         em = JPAUtil.createEntityManager();
         prodDao.remove(entity,em);
+
+    }
+
+    @Override
+    public void removeById(Integer id){
+
+        em = JPAUtil.createEntityManager();
+        prodDao.removeById(id,em);
 
     }
 

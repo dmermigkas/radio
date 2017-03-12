@@ -1,6 +1,7 @@
 package com.radio.Daos;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityNotFoundException;
 import javax.persistence.EntityTransaction;
 import java.util.List;
 
@@ -8,6 +9,8 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
 
     protected String entityClass;
     protected Class<T> thisClass;
+
+    public DaoGenericImpl(){}
 
     public DaoGenericImpl(String entityClass,Class<T> thisClass) {
         this.thisClass = thisClass;
@@ -25,7 +28,6 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
         em.close();
 
     }
-
 
     @Override
     public void update(T entity,EntityManager em){
@@ -46,6 +48,24 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
         tx.begin();
 
         em.remove(em.contains(entity) ? entity : em.merge(entity));
+        tx.commit();
+        em.close();
+
+    }
+
+    @Override
+    public void removeById(Integer id,EntityManager em){
+
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+
+        try {
+            T ent = em.getReference(thisClass, id);
+            em.remove(ent);
+        } catch (EntityNotFoundException e) {
+            tx.rollback();
+        }
+
         tx.commit();
         em.close();
 
