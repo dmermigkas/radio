@@ -13,13 +13,8 @@ import javax.ws.rs.core.UriInfo;
 import java.net.URI;
 import java.util.List;
 
-/**
- * Created by lotv on 11/03/2017.
- */
-
 @Path("musicTrackLibrary")
 public class ManageLibraryController {
-
 
     UriInfo uriInfo;
     FactoryGenericImpl musicTrackFactory = new MusicTrackFactoryImpl();
@@ -64,14 +59,33 @@ public class ManageLibraryController {
 
     }
 
+    @PUT
+    @Path("{trackId:[0-9]*}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response updateBook(@PathParam("trackId") int trackId) {
+
+        boolean result = musicTrackFactory.update(MusicTrack.class,trackId);
+
+        if (!result) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        return Response.ok().build();
+
+    }
+
     @DELETE
     @Path("{trackId:[0-9]*}")
     public Response deleteTrackById(@PathParam("trackId") int trackId) {
 
-        musicTrackFactory.removeById(trackId);
-        return
+        boolean result = musicTrackFactory.removeById(trackId);
+
+        if (!result) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        return Response.ok().build();
 
     }
-
 
 }

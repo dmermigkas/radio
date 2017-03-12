@@ -30,15 +30,21 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
     }
 
     @Override
-    public void update(T entity,EntityManager em){
+    public boolean update(T entity,EntityManager em,Integer id){
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        em.merge(entity);
+        try {
+            em.getReference(thisClass, id);
+            em.merge(entity);
+        } catch (EntityNotFoundException e) {
+            return false;
+        }
+
         tx.commit();
         em.close();
-
+        return true;
     }
 
     @Override
@@ -54,7 +60,7 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
     }
 
     @Override
-    public void removeById(Integer id,EntityManager em){
+    public boolean removeById(Integer id,EntityManager em){
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -64,10 +70,12 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
             em.remove(ent);
         } catch (EntityNotFoundException e) {
             tx.rollback();
+            return false;
         }
 
         tx.commit();
         em.close();
+        return true;
 
     }
 
