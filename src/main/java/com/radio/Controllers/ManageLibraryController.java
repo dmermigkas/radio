@@ -1,6 +1,6 @@
 package com.radio.Controllers;
 
-import com.radio.Factories.MusicTrackFactoryImpl;
+import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Models.MusicTrack;
 import com.radio.Resources.MusicTrackInfo;
 
@@ -20,17 +20,17 @@ import java.net.URI;
 @Path("musicTrackLibrary")
 public class ManageLibraryController {
 
+
     UriInfo uriInfo;
+    FactoryGenericImpl musicTrackFactory = new FactoryGenericImpl(MusicTrack.class);
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addMusicTrackToLibrary(MusicTrackInfo musicTrackInfo) {
 
-        MusicTrackFactoryImpl musicTrackFactory = new MusicTrackFactoryImpl();
+        MusicTrack musicTrack = musicTrackInfo.getMusicTrack();
 
-        MusicTrack musicTrack = musicTrackInfo.getMusicTrack(musicTrackFactory);
-
-        musicTrack=musicTrackFactory.create(musicTrackInfo.getMusicTrack(musicTrackFactory)); //todo issue with factory
+        musicTrackFactory.create(musicTrack); //todo issue with factory
 
         UriBuilder ub = uriInfo.getAbsolutePathBuilder();
         URI newMusicTrackUri = ub.path(Integer.toString(musicTrack.getId())).build();

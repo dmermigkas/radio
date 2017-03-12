@@ -1,6 +1,6 @@
 package com.radio.Resources;
 
-import com.radio.Factories.MusicTrackFactoryImpl;
+import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Models.Genre;
 import com.radio.Models.MusicTrack;
 
@@ -13,6 +13,8 @@ import java.util.List;
  */
 @XmlRootElement
 public class MusicTrackInfo {
+
+    FactoryGenericImpl musicTrackFactory;
 
     private Integer id;
     private String title;
@@ -110,12 +112,13 @@ public class MusicTrackInfo {
 
     }
 
-    public MusicTrack getMusicTrack(MusicTrackFactoryImpl musicTrackFactory){ //todo check if factory is used properly
+    public MusicTrack getMusicTrack(){ //todo check if factory is used properly
 
         MusicTrack musicTrack = null;
+        musicTrackFactory = new FactoryGenericImpl(MusicTrack.class);
 
         if (id != null) {
-            musicTrack = musicTrackFactory.get(id);
+            musicTrack = (MusicTrack)musicTrackFactory.get(id);
         } else {
             musicTrack = new MusicTrack();
         }
