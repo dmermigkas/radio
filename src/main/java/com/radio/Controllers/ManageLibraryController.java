@@ -1,6 +1,7 @@
 package com.radio.Controllers;
 
 import com.radio.Factories.FactoryGenericImpl;
+import com.radio.Factories.MusicTrackFactoryImpl;
 import com.radio.Models.MusicTrack;
 import com.radio.Resources.MusicTrackInfo;
 
@@ -21,7 +22,7 @@ public class ManageLibraryController {
 
 
     UriInfo uriInfo;
-    FactoryGenericImpl musicTrackFactory = new FactoryGenericImpl(MusicTrack.class);
+    FactoryGenericImpl musicTrackFactory = new MusicTrackFactoryImpl();
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -40,6 +41,7 @@ public class ManageLibraryController {
     }
 
     @GET
+//    @Path("getAll")
     @Produces(MediaType.APPLICATION_JSON)
     public List<MusicTrackInfo> listAllMusicTracks() {
         List<MusicTrack> musicTracks = musicTrackFactory.getAll();
