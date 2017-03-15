@@ -1,6 +1,5 @@
 package com.radio.Resources;
 
-import com.radio.Factories.FactoryGeneric;
 import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Models.Genre;
 import com.radio.Models.MusicTrack;
@@ -15,7 +14,7 @@ import java.util.List;
 @XmlRootElement
 public class MusicTrackInfo {
 
-    FactoryGeneric musicTrackFactory;
+    FactoryGenericImpl musicTrackFactory;
 
     private Integer id;
     private String title;
@@ -24,7 +23,10 @@ public class MusicTrackInfo {
     private Integer releaseYear;
     private String genre;
 
+    public MusicTrackInfo(){}
+
     public MusicTrackInfo(String title, String artist, Integer duration, Integer releaseYear, String genre) {
+        System.out.println("bbbbbbbbbbbbbbbbbbbbb");
         this.title = title;
         this.artist = artist;
         this.duration = duration;
@@ -42,12 +44,12 @@ public class MusicTrackInfo {
     }
 
     public MusicTrackInfo(MusicTrack musicTrack){
-        id=musicTrack.getId();
-        title=musicTrack.getTitle();
-        artist=musicTrack.getArtist();
-        duration=musicTrack.getDuration();
-        releaseYear=musicTrack.getReleaseYear();
-        genre=musicTrack.getGenre().getGenre();
+        id = musicTrack.getId();
+        title = musicTrack.getTitle();
+        artist = musicTrack.getArtist();
+        duration = musicTrack.getDuration();
+        releaseYear = musicTrack.getReleaseYear();
+        genre = musicTrack.getGenre().getGenre();
     }
 
     public Integer getId() {
@@ -113,13 +115,13 @@ public class MusicTrackInfo {
 
     }
 
-    public MusicTrack getMusicTrack(){ //todo check if factory is used properly
+    public MusicTrack getMusicTrack(Integer id2){ //todo check if factory is used properly
 
         MusicTrack musicTrack = null;
         musicTrackFactory = new FactoryGenericImpl(MusicTrack.class);
 
-        if (id != null) {
-            musicTrack = (MusicTrack)musicTrackFactory.get(id);
+        if (id2 != null) {
+            musicTrack = (MusicTrack)musicTrackFactory.get(id2);
         } else {
             musicTrack = new MusicTrack();
         }

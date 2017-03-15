@@ -6,24 +6,28 @@ import com.radio.Models.MusicTrack;
 import com.radio.Resources.MusicTrackInfo;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
-import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.*;
 import java.net.URI;
 import java.util.List;
+
+/**
+ * Created by lotv on 11/03/2017.
+ */
 
 @Path("musicTrackLibrary")
 public class ManageLibraryController {
 
+    @Context
     UriInfo uriInfo;
-    FactoryGenericImpl musicTrackFactory = new MusicTrackFactoryImpl();
+
+    FactoryGenericImpl musicTrackFactory = new FactoryGenericImpl(MusicTrack.class);
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addMusicTrackToLibrary(MusicTrackInfo musicTrackInfo) {
 
-        MusicTrack musicTrack = musicTrackInfo.getMusicTrack();
+        //todo check error codes
+        MusicTrack musicTrack = musicTrackInfo.getMusicTrack(null);
 
         musicTrackFactory.create(musicTrack); //todo issue with factory
 
@@ -38,6 +42,8 @@ public class ManageLibraryController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<MusicTrackInfo> listAllMusicTracks() {
+
+        //todo check error codes
         List<MusicTrack> musicTracks = musicTrackFactory.getAll();
 
         List<MusicTrackInfo> musicTrackInfo = MusicTrackInfo.wrap(musicTracks);
@@ -51,7 +57,8 @@ public class ManageLibraryController {
     @Produces(MediaType.APPLICATION_JSON)
     public MusicTrackInfo getMusicTrackById(@PathParam("musicTrackId") int trackId) {
 
-        MusicTrack musicTrack = (MusicTrack)musicTrackFactory.get(trackId);
+        //todo check error codes
+        MusicTrack musicTrack = (MusicTrack) musicTrackFactory.get(trackId);
 
         MusicTrackInfo musicTrackInfo = MusicTrackInfo.wrap(musicTrack);
 
@@ -62,30 +69,26 @@ public class ManageLibraryController {
     @PUT
     @Path("{trackId:[0-9]*}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateBook(@PathParam("trackId") int trackId) {
+    public Response updateBook(@PathParam("trackId") int trackId,MusicTrackInfo musicTrackInfo) {
 
-        boolean result = musicTrackFactory.update(MusicTrack.class,trackId);
+        //todo check error codes
+        MusicTrack musicTrack = musicTrackInfo.getMusicTrack(trackId);
 
-        if (!result) {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
+        musicTrackFactory.update(musicTrack);
 
         return Response.ok().build();
-
     }
 
     @DELETE
     @Path("{trackId:[0-9]*}")
-    public Response deleteTrackById(@PathParam("trackId") int trackId) {
+    public Response deleteBook(@PathParam("trackId") int trackId) {
 
-        boolean result = musicTrackFactory.removeById(trackId);
-
-        if (!result) {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
+        //todo check error codes
+        musicTrackFactory.removeById(trackId);
 
         return Response.ok().build();
 
     }
+
 
 }

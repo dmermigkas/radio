@@ -8,8 +8,8 @@ public interface FactoryGeneric <T, E>{
     void create(T entity);
     List<T> getAll();
     T get(E id);
-    boolean update(T entity,E id);
+    void update(T entity);
     void remove(T entity);
-    boolean removeById(E id);
+    void removeById(E id);
 
 }

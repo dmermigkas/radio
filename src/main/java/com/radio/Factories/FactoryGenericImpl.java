@@ -36,10 +36,10 @@ public class FactoryGenericImpl<T> implements FactoryGeneric<T,Integer>{
     }
 
     @Override
-    public boolean update(T entity,Integer id){
+    public void update(T entity){
 
         em = JPAUtil.createEntityManager();
-        return prodDao.update(entity,em,id);
+        prodDao.update(entity,em);
 
     }
 
@@ -52,10 +52,10 @@ public class FactoryGenericImpl<T> implements FactoryGeneric<T,Integer>{
     }
 
     @Override
-    public boolean removeById(Integer id){
+    public void removeById(Integer id){
 
         em = JPAUtil.createEntityManager();
-        return prodDao.removeById(id,em);
+        prodDao.removeById(id,em);
 
     }
 
