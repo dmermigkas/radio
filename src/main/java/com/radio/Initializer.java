@@ -16,13 +16,14 @@ public class Initializer {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        Query query = em.createNativeQuery("delete from SHOWS");
+        Query query = em.createNativeQuery("delete from TRACKS");
         query.executeUpdate();
 //        query = em.createNativeQuery("delete from AUTOSHOWS");
 //        query.executeUpdate();
 //        query = em.createNativeQuery("delete from PLAYLISTSHOWS");
 //        query.executeUpdate();
-        query = em.createNativeQuery("delete from TRACKS");
+
+        query = em.createNativeQuery("delete from SHOWS");
         query.executeUpdate();
         query = em.createNativeQuery("delete from GENRES");
         query.executeUpdate();

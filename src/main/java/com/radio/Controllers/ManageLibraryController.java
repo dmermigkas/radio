@@ -27,16 +27,21 @@ public class ManageLibraryController {
     public Response addMusicTrackToLibrary(MusicTrackInfo musicTrackInfo) {
 
         //todo check error codes
-        MusicTrack musicTrack = musicTrackInfo.getMusicTrack(null);
+        try{
+            MusicTrack musicTrack = musicTrackInfo.getMusicTrack(null);
+            musicTrackFactory.create(musicTrack); //todo issue with factory
 
-        musicTrackFactory.create(musicTrack); //todo issue with factory
+            UriBuilder ub = uriInfo.getAbsolutePathBuilder();
+            URI newMusicTrackUri = ub.path(Integer.toString(musicTrack.getId())).build();
 
-        UriBuilder ub = uriInfo.getAbsolutePathBuilder();
-        URI newMusicTrackUri = ub.path(Integer.toString(musicTrack.getId())).build();
+            musicTrackFactory.create(musicTrack);
 
-        musicTrackFactory.create(musicTrack);
+            return Response.created(newMusicTrackUri).build();
+        }
+        catch (Exception e){
+            return Response.status(Response.Status.NOT_FOUND).entity("Id "  + " not found").build();
+        }
 
-        return Response.created(newMusicTrackUri).build();
     }
 
     @GET
@@ -69,26 +74,31 @@ public class ManageLibraryController {
     @PUT
     @Path("{trackId:[0-9]*}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateBook(@PathParam("trackId") int trackId,MusicTrackInfo musicTrackInfo) {
+    public Response updateMusicTrack(@PathParam("trackId") int trackId,MusicTrackInfo musicTrackInfo) {
 
         //todo check error codes
-        MusicTrack musicTrack = musicTrackInfo.getMusicTrack(trackId);
+        try{
+            MusicTrack musicTrack = musicTrackInfo.getMusicTrack(trackId);
+            musicTrackFactory.update(musicTrack);
+            return Response.ok().build();
+        }
+        catch (Exception e){
+            return Response.status(Response.Status.NOT_FOUND).entity("Id " + trackId + " not found").build();
+        }
 
-        musicTrackFactory.update(musicTrack);
-
-        return Response.ok().build();
     }
 
     @DELETE
     @Path("{trackId:[0-9]*}")
-    public Response deleteBook(@PathParam("trackId") int trackId) {
+    public Response deleteMusicTrack(@PathParam("trackId") int trackId) {
 
-        //todo check error codes
-        musicTrackFactory.removeById(trackId);
-
-        return Response.ok().build();
+        if(musicTrackFactory.removeById(trackId) == true){
+            return Response.ok().build();
+        }
+        else{
+            return Response.status(Response.Status.NOT_FOUND).entity("Id " + trackId + " not found").build();
+        }
 
     }
-
 
 }

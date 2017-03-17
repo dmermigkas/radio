@@ -115,15 +115,22 @@ public class MusicTrackInfo {
 
     }
 
-    public MusicTrack getMusicTrack(Integer id2){ //todo check if factory is used properly
+    public MusicTrack getMusicTrack(Integer id2) throws Exception{ //todo check if factory is used properly
 
         MusicTrack musicTrack = null;
         musicTrackFactory = new FactoryGenericImpl(MusicTrack.class);
 
         if (id2 != null) {
-            musicTrack = (MusicTrack)musicTrackFactory.get(id2);
+            try{
+                musicTrack = (MusicTrack)musicTrackFactory.get(id2);
+            }
+            catch (Exception e){
+                throw e;
+            }
+
         } else {
             musicTrack = new MusicTrack();
+            //return musicTrack;
         }
 
         musicTrack.setArtist(artist);

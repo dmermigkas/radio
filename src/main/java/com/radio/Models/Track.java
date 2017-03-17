@@ -18,6 +18,16 @@ public abstract class Track {
     @Column(name="duration")
     protected int duration;
 
+    @Embedded
+    private TrackPlayEvent trackPlayEvent;
+
+    public void setTrackPlayEvent(TrackPlayEvent event) {
+        this.trackPlayEvent = event == null ? null : new TrackPlayEvent();
+    }
+    public TrackPlayEvent getTrackPlayEvent() {
+        return trackPlayEvent == null ? null : new TrackPlayEvent();
+    }
+
     public int getDuration() {
         return duration;
     }

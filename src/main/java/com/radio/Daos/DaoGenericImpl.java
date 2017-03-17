@@ -1,8 +1,11 @@
 package com.radio.Daos;
 
+import com.radio.Models.AutoShow;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import java.util.List;
 
 public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
@@ -18,14 +21,17 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
     }
 
     @Override
-    public void create(T prod,EntityManager em){
+    public T create(T prod,EntityManager em){
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
         em.persist(prod);
+
         tx.commit();
         em.close();
+
+        return prod;
 
     }
 
@@ -54,7 +60,7 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
     }
 
     @Override
-    public void removeById(Integer id,EntityManager em){
+    public boolean removeById(Integer id,EntityManager em){
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -62,12 +68,15 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
         try {
             T ent = em.getReference(thisClass, id);
             em.remove(ent);
+            tx.commit();
+            em.close();
+            return true;
         } catch (EntityNotFoundException e) {
             tx.rollback();
         }
 
-        tx.commit();
         em.close();
+        return false;
 
     }
 
@@ -78,9 +87,14 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
         tx.begin();
         T results = null;
 
-        results = em.find(thisClass, key);
-        tx.commit();
-        em.close();
+        try {
+            results = em.find(thisClass, key);
+            tx.commit();
+            em.close();
+        } catch (NoResultException ex) {
+            tx.rollback();
+        }
+
         return results;
 
     }
@@ -92,9 +106,14 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
         tx.begin();
         List<T> results = null;
 
-        results = em.createQuery("select b from " + entityClass + " b").getResultList();
-        tx.commit();
-        em.close();
+        try {
+            results = em.createQuery("select b from " + entityClass + " b").getResultList();
+            tx.commit();
+            em.close();
+        } catch (NoResultException ex) {
+            tx.rollback();
+        }
+
         return results;
 
     }
