@@ -34,9 +34,9 @@ public class RadioServerConfig {
                 "Jersey app started with WADL available at " + "%sapplication.wadl\nHit enter to stop it...",
                 BASE_URI));
         System.in.read();
-        server.stop();
+        //server.stop();
 
-        JPAUtil.getEntityManagerFactory().close();
+        //JPAUtil.getEntityManagerFactory().close();
 
     }
 

@@ -1,5 +1,6 @@
 package com.radio.Controllers;
 
+import com.radio.Factories.*;
 import com.radio.Models.*;
 import org.hibernate.Hibernate;
 
@@ -11,10 +12,9 @@ public class AutoShowController extends ShowController{
 
     public AutoShow fillAutoshow(List<MusicTrack> musicTracks,List<AdTrack> adTracks,AutoShow myShow){
 
-        List<Track> showTracks = new ArrayList<>();
+        FactoryGeneric showDao = new FactoryGenericImpl(AutoShow.class);
 
-        System.out.println(musicTracks);
-        System.out.println(adTracks);
+        List<Track> showTracks = new ArrayList<>();
 
         for(MusicTrack musicTrack : musicTracks) {
 
@@ -31,14 +31,34 @@ public class AutoShowController extends ShowController{
         }
 
         for(int i=0; i<adTracks.size(); i++) {
+
             if(super.checkDuration(myShow) == false) {
                 showTracks.add(adTracks.get(i));
                 myShow.setTracks(showTracks);
             }
+
         }
+
+        showDao.create(myShow);
 
         return myShow;
         
+    }
+
+    public List<MusicTrack> getMusicTracks(Integer id){
+
+        TrackFactory trackDao = new TrackFactoryImpl();
+
+        return trackDao.getMusicTracks(id);
+
+    }
+
+    public int getMusicTrackSize(Integer id){
+
+        TrackFactory trackDao = new TrackFactoryImpl();
+
+        return trackDao.getMusicTracks(id).size();
+
     }
     
 }

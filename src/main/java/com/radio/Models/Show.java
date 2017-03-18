@@ -30,12 +30,13 @@ public abstract class Show {
     @JoinColumn(name="producerid")
     protected Producer producer;
 
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE },
+    @OneToMany(orphanRemoval = true,cascade = { CascadeType.PERSIST,CascadeType.MERGE},
             fetch=FetchType.EAGER)
-    @JoinTable(name="SHOWTRACKS",
-            joinColumns = {@JoinColumn(name="showId")},
-            inverseJoinColumns = {@JoinColumn(name="trackId")}
-    )
+    @JoinColumn(name="showId")
+//    @JoinTable(name="SHOWTRACKS",
+//            joinColumns = {@JoinColumn(name="showId")},
+//            inverseJoinColumns = {@JoinColumn(name="trackId")}
+//    )
     protected List<Track> tracks = new ArrayList<>();
 
     public Show(){}
@@ -46,6 +47,14 @@ public abstract class Show {
         this.playDateTime = playDateTime;
         this.duration = duration;
 
+    }
+
+    public Integer getShowId() {
+        return showId;
+    }
+
+    public void setShowId(Integer showId) {
+        this.showId = showId;
     }
 
     public String getName() {
