@@ -73,6 +73,7 @@
       <groupId>org.glassfish.jersey.media</groupId>
       <artifactId>jersey-media-moxy</artifactId>
     </dependency>
+
   </dependencies>
 
   <build>
