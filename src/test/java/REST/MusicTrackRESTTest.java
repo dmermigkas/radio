@@ -67,7 +67,7 @@ public class MusicTrackRESTTest extends RESTTest {
     public void testUpdateTrack() {
         MusicTrack musictrack = new MusicTrack("musictitle3", "musicartist2", new Genre("musicgenre"), 1999, 100);
         MusicTrackInfo musicTrackInfo = new MusicTrackInfo(musictrack);
-        Response response = target( "musicTrackLibrary/9").request().put(Entity.entity(musictrack, MediaType.APPLICATION_JSON));
+        Response response = target( "musicTrackLibrary/9").request().put(Entity.entity(musicTrackInfo, MediaType.APPLICATION_JSON));
         String allTracks = target("musicTrackLibrary").request().get(String.class);
         Assert.assertFalse(allTracks.contains("musictitle2"));
 
