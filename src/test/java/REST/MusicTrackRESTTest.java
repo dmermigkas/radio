@@ -1,37 +1,76 @@
 package REST;
 
+import com.radio.Controllers.ManageLibraryController;
 import com.radio.Models.Genre;
 import com.radio.Models.MusicTrack;
 import com.radio.Resources.MusicTrackInfo;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Created by lotv on 12/03/2017.
- */
-public class MusicTrackRESTTest {
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
-    MusicTrack musictrack;
+
+
+/**
+ * Created by lotv on 18/03/2017.
+ */
+public class MusicTrackRESTTest extends RESTTest {
+
+
+    protected Application configure() { //todo does not know DebugExceptionMapper
+        return new ResourceConfig(ManageLibraryController.class);
+    }
+
 
     @Before
-    public void MusicTrackSetup(){
-        musictrack = new MusicTrack("musictitle", "musicartist", new Genre("musicgenre"), 1999, 100);
-
+    public void setUpData() {
+        dataHelper.prepareData();
     }
 
 
     @Test
-    public void testListBookById() {
+    public void testListAllMusicTracks() {
+        String response = target("musicTrackLibrary").request().get(String.class);
+        Assert.assertEquals("[{\"artist\":\"musicartist\",\"duration\":100,\"genre\":\"musicgenre\",\"id\":9,\"releaseYear\":1999,\"title\":\"musictitle1\"}]", response);
+    }
 
-        // get all books
-        List<MusicTrackInfo> books = target(BOOKS).request().get(new GenericType<List<BookInfo>>() {
-        });
+    @Test
+    public void testGetMusicTrackById() { //todo runs on its own not with others....
+        String response = target("musicTrackLibrary/9").request().get(String.class);
+        System.out.println(response);
+        Assert.assertTrue(response.contains("musictitle1"));
+    }
 
-        String firstBookId = Integer.toString(books.get(0).getId());
+    @Test
+    public void testAddMusicTrackToLibrary() {
 
-        BookInfo book = target(bookIdUri(firstBookId)).request().get(BookInfo.class);
-        Assert.assertNotNull(book);
-        Assert.assertEquals("The Unified Modeling Language User Guide", book.getTitle());
+        MusicTrack musictrack = new MusicTrack("musictitle2", "musicartist2", new Genre("musicgenre"), 1999, 100);
+        Response response = target("musicTrackLibrary").request().post(Entity.json(musictrack));
+        String allTracks = target("musicTrackLibrary").request().get(String.class);
+        System.out.println(allTracks);
+        Assert.assertTrue(allTracks.contains("musictitle2"));
+    }
+
+    @Test
+    public void testDeleteTrackById() { //todo runs on its own not with others....
+        Response response = target("musicTrackLibrary/9").request().delete();
+        String allTracks = target("musicTrackLibrary").request().get(String.class);
+        Assert.assertFalse(allTracks.contains("musictitle1"));
+    }
+
+    @Test
+    public void testUpdateTrack() {
+        MusicTrack musictrack = new MusicTrack("musictitle3", "musicartist2", new Genre("musicgenre"), 1999, 100);
+        MusicTrackInfo musicTrackInfo = new MusicTrackInfo(musictrack);
+        Response response = target( "musicTrackLibrary/9").request().put(Entity.entity(musictrack, MediaType.APPLICATION_JSON));
+        String allTracks = target("musicTrackLibrary").request().get(String.class);
+        Assert.assertFalse(allTracks.contains("musictitle2"));
+
     }
 
 }
