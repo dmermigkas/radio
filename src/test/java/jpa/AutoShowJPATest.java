@@ -8,6 +8,7 @@ import com.radio.Initializer;
 import com.radio.Models.*;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -16,17 +17,16 @@ import java.util.List;
 
 public class AutoShowJPATest { //todo clean the test and add assertions
 
-    Initializer dataHelper;
+    static Initializer dataHelper;
     FactoryGeneric producerDao;
+    static AutoShowController ctrl;
+    static AutoShow rockShow;
 
-    @Before
-    public void setUpJPA(){
+    @BeforeClass
+    public static void initiateClass(){
+
         dataHelper = new Initializer();
         dataHelper.eraseData();
-    }
-
-    @Test
-    public void testShow() {
 
         List mtracks = new ArrayList();
         List atracks = new ArrayList();
@@ -52,16 +52,39 @@ public class AutoShowJPATest { //todo clean the test and add assertions
 
         atracks.add(adTrack);
 
-        AutoShowController ctrl = new AutoShowController();
+        ctrl = new AutoShowController();
 
-        AutoShow rockShow = ctrl.fillAutoshow(mtracks,atracks,autoShow);
+        rockShow = ctrl.fillAutoshow(mtracks,atracks,autoShow);
 
+    }
+
+    @Test
+    public void testTracksSize(){
+        Assert.assertEquals(3, ctrl.getTrackSize(rockShow.getShowId()));
+    }
+
+    @Test
+    public void testMusicTracksSize() {
         Assert.assertEquals(2, ctrl.getMusicTrackSize(rockShow.getShowId()));
+    }
 
+    @Test
+    public void testAdTrackSize(){
+        Assert.assertEquals(1, ctrl.getAdTrackSize(rockShow.getShowId()));
+    }
+
+    @Test
+    public void testMusicTracksGenre(){
         for (MusicTrack tr : ctrl.getMusicTracks(rockShow.getShowId())){
             Assert.assertEquals("rock", tr.getGenre().getGenre());
         }
+    }
 
+    @Test
+    public void testAdTrackBrand(){
+        for (AdTrack ad : ctrl.getAdTracks(rockShow.getShowId())){
+            Assert.assertEquals("titldsdsae", ad.getBrand());
+        }
     }
 
 }

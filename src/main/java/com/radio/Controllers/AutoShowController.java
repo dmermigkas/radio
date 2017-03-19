@@ -10,6 +10,8 @@ import java.util.Set;
 
 public class AutoShowController extends ShowController{
 
+    TrackFactory trackDao = new TrackFactoryImpl();
+
     public AutoShow fillAutoshow(List<MusicTrack> musicTracks,List<AdTrack> adTracks,AutoShow myShow){
 
         FactoryGeneric showDao = new FactoryGenericImpl(AutoShow.class);
@@ -45,19 +47,39 @@ public class AutoShowController extends ShowController{
         
     }
 
-    public List<MusicTrack> getMusicTracks(Integer id){
+    public List<Track> getTracks(Integer id){
 
-        TrackFactory trackDao = new TrackFactoryImpl();
+        return trackDao.getTracks(id);
+
+    }
+
+    public List<MusicTrack> getMusicTracks(Integer id){
 
         return trackDao.getMusicTracks(id);
 
     }
 
+    public List<AdTrack> getAdTracks(Integer id){
+
+        return trackDao.getAdTracks(id);
+
+    }
+
+    public int getTrackSize(Integer id){
+
+        return trackDao.getTracks(id).size();
+
+    }
+
     public int getMusicTrackSize(Integer id){
 
-        TrackFactory trackDao = new TrackFactoryImpl();
-
         return trackDao.getMusicTracks(id).size();
+
+    }
+
+    public int getAdTrackSize(Integer id){
+
+        return trackDao.getAdTracks(id).size();
 
     }
     

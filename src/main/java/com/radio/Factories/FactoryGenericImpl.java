@@ -36,10 +36,10 @@ public class FactoryGenericImpl<T> implements FactoryGeneric<T,Integer>{
     }
 
     @Override
-    public void update(T entity){
+    public T update(T entity){
 
         em = JPAUtil.createEntityManager();
-        prodDao.update(entity,em);
+        return (T) prodDao.update(entity,em);
 
     }
 

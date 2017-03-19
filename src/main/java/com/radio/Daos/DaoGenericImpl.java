@@ -36,7 +36,7 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
     }
 
     @Override
-    public void update(T entity,EntityManager em){
+    public T update(T entity,EntityManager em){
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -44,6 +44,8 @@ public class DaoGenericImpl<T> implements DaoGeneric<T,Integer>{
         em.merge(entity);
         tx.commit();
         em.close();
+
+        return entity;
 
     }
 

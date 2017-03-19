@@ -1,5 +1,7 @@
 package REST;
 
+import com.radio.Factories.FactoryGeneric;
+import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Factories.MusicTrackFactory;
 import com.radio.Factories.MusicTrackFactoryImpl;
 import com.radio.Initializer;
@@ -21,6 +23,8 @@ public abstract class RESTTest extends JerseyTest {
 
     Initializer dataHelper;
 
+    FactoryGeneric f = new FactoryGenericImpl(MusicTrack.class);
+
     public RESTTest() {
         super();
     }
@@ -37,7 +41,8 @@ public abstract class RESTTest extends JerseyTest {
     public void setUp() throws Exception {
         super.setUp();
         dataHelper = new Initializer();
-        dataHelper.prepareData();
+        dataHelper.eraseData();
+        //dataHelper.prepareData();
     }
 
     public List<MusicTrack> listMusicTracks() {
@@ -57,7 +62,10 @@ public abstract class RESTTest extends JerseyTest {
         return musicTracks;
     }
 
+    public MusicTrack createMusicTrack(MusicTrack mtrack){
 
+        return (MusicTrack) f.create(mtrack);
 
+    }
 
 }
