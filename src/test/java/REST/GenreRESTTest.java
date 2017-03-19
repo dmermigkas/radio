@@ -1,5 +1,6 @@
 package REST;
 
+import com.google.gson.Gson;
 import com.radio.Controllers.GenreLibraryController;
 import com.radio.Controllers.MusicTracksLibraryController;
 import com.radio.Initializer;
@@ -52,7 +53,7 @@ public class GenreRESTTest extends RESTTest { //todo needs work
     @Test
     public void testGetGenreById() {
         String response = target("genreLibrary/"+genre1.getId()).request().get(String.class); //todo what is the id of a valid genre in the database? oeo?
-        Assert.assertTrue(response.contains("r"));
+        Assert.assertTrue(response.contains("rock"));
     }
 
     @Test
