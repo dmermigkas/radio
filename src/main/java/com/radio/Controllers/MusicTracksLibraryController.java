@@ -15,7 +15,7 @@ import java.util.List;
  */
 
 @Path("musicTrackLibrary")
-public class ManageLibraryController {
+public class MusicTracksLibraryController {
 
     @Context
     UriInfo uriInfo;
@@ -27,7 +27,7 @@ public class ManageLibraryController {
     public Response addMusicTrackToLibrary(MusicTrackInfo musicTrackInfo) {
 
         //todo check error codes
-        try{
+        try {
             MusicTrack musicTrack = musicTrackInfo.getMusicTrack(null);
             musicTrackFactory.create(musicTrack); //todo issue with factory
 
@@ -37,9 +37,8 @@ public class ManageLibraryController {
             musicTrackFactory.create(musicTrack);
 
             return Response.created(newMusicTrackUri).build();
-        }
-        catch (Exception e){
-            return Response.status(Response.Status.NOT_FOUND).entity("Id "  + " not found").build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Id " + " not found").build();
         }
 
     }
@@ -74,15 +73,14 @@ public class ManageLibraryController {
     @PUT
     @Path("{trackId:[0-9]*}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateMusicTrack(@PathParam("trackId") int trackId,MusicTrackInfo musicTrackInfo) {
+    public Response updateMusicTrack(@PathParam("trackId") int trackId, MusicTrackInfo musicTrackInfo) {
 
         //todo check error codes
-        try{
+        try {
             MusicTrack musicTrack = musicTrackInfo.getMusicTrack(trackId);
             musicTrackFactory.update(musicTrack);
             return Response.ok().build();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return Response.status(Response.Status.NOT_FOUND).entity("Id " + trackId + " not found").build();
         }
 
@@ -92,10 +90,9 @@ public class ManageLibraryController {
     @Path("{trackId:[0-9]*}")
     public Response deleteMusicTrack(@PathParam("trackId") int trackId) {
 
-        if(musicTrackFactory.removeById(trackId) == true){
+        if (musicTrackFactory.removeById(trackId) == true) {
             return Response.ok().build();
-        }
-        else{
+        } else {
             return Response.status(Response.Status.NOT_FOUND).entity("Id " + trackId + " not found").build();
         }
 
