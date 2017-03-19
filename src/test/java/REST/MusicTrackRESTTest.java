@@ -1,6 +1,6 @@
 package REST;
 
-import com.radio.Controllers.ManageLibraryController;
+import com.radio.Controllers.MusicTracksLibraryController;
 import com.radio.Models.Genre;
 import com.radio.Models.MusicTrack;
 import com.radio.Resources.MusicTrackInfo;
@@ -23,7 +23,7 @@ public class MusicTrackRESTTest extends RESTTest {
 
 
     protected Application configure() { //todo does not know DebugExceptionMapper
-        return new ResourceConfig(ManageLibraryController.class);
+        return new ResourceConfig(MusicTracksLibraryController.class);
     }
 
 
