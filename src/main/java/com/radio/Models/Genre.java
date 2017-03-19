@@ -28,6 +28,8 @@ public class Genre {
         this.genre = genre;
     }
 
+    public Integer getId() { return id; }
+
     @Override
     public boolean equals(Object other) {
         if ( other == null) {
