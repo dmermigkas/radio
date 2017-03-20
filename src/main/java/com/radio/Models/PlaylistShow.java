@@ -8,6 +8,16 @@ import java.util.Calendar;
 @Table(name="PLAYLISTSHOWS")
 public class PlaylistShow extends Show{
 
+    public PlaylistShow(){}
+
+    public PlaylistShow(String name, Producer producer, int duration, Calendar playDateTime) {
+
+        super.name = name;
+        super.producer = producer;
+        super.duration = duration;
+        super.playDateTime = playDateTime;
+    }
+
     public void addTrackToList(Track track){
 
         if (track != null) {
@@ -29,15 +39,5 @@ public class PlaylistShow extends Show{
         }
 
     }
-
-    public PlaylistShow(String name, Producer producer, int duration, Calendar playDateTime) {
-
-        super.name = name;
-        super.producer = producer;
-        super.duration = duration;
-        super.playDateTime = playDateTime;
-    }
-
-    public PlaylistShow(){}
 
 }

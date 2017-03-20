@@ -1,21 +1,29 @@
 package com.radio.Models;
 
+import org.glassfish.grizzly.http.util.TimeStamp;
+
 import javax.persistence.*;
 import java.util.Calendar;
+import java.util.Date;
 
 @Embeddable
 public class TrackPlayEvent {
 
     @Column(name="timestamp")
-    private Calendar dateTime;
+    private Long dateTime;
 
-    public TrackPlayEvent(){}
+    public TrackPlayEvent(){
+    }
 
-    public Calendar getDateTime() {
+    public TrackPlayEvent(Long dateTime){
+        this.dateTime = dateTime;
+    }
+
+    public Long getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(Calendar dateTime) {
+    public void setDateTime(Long dateTime) {
         this.dateTime = dateTime;
     }
 

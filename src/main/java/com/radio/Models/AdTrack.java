@@ -16,10 +16,10 @@ public class AdTrack extends Track{
     @Embedded
     private PlayBackZone zone;
 
-    @Column(name="fromdate")
+    @Column(name="fromdate",columnDefinition="TIMESTAMP")
     private Calendar fromDate;
 
-    @Column(name="todate")
+    @Column(name="todate",columnDefinition="TIMESTAMP")
     private Calendar toDate;
 
     @Column(name="playsperzone")
@@ -35,6 +35,18 @@ public class AdTrack extends Track{
         this.toDate = toDate;
         this.playsPerZone = playsPerZone;
         super.duration = duration;
+
+    }
+
+    public AdTrack(String brand, PlayBackZone zone, Calendar fromDate, Calendar toDate, int playsPerZone, int duration,TrackPlayEvent event){
+
+        this.brand = brand;
+        this.zone = zone;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+        this.playsPerZone = playsPerZone;
+        super.duration = duration;
+        super.trackPlayEvent = event;
 
     }
 

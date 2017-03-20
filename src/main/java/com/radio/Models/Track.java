@@ -19,7 +19,7 @@ public abstract class Track {
     protected int duration;
 
     @Embedded
-    private TrackPlayEvent trackPlayEvent;
+    protected TrackPlayEvent trackPlayEvent;
 
     public void setTrackPlayEvent(TrackPlayEvent event) {
         this.trackPlayEvent = event == null ? null : new TrackPlayEvent();
