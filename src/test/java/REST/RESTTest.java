@@ -68,4 +68,9 @@ public abstract class RESTTest extends JerseyTest {
 
     }
 
+    public Genre createGenre(Genre genre){
+
+        return (Genre) f.create(genre);
+    }
+
 }
