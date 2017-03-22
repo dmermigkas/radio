@@ -42,8 +42,6 @@ public class StatisticsController {
             Show currShow = (Show) shows.get(i);
             Show nextShow = (Show) shows.get(i+1);
 
-            System.out.println(currShow.getPlayDateTime());
-            System.out.println(nextShow.getPlayDateTime());
             sum = sum + abs(currShow.getPlayDateTime() - nextShow.getPlayDateTime());
 
         }

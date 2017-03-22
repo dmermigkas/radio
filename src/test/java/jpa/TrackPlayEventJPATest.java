@@ -1,10 +1,12 @@
 package jpa;
 
+import com.radio.Controllers.PoliciesController;
 import com.radio.Controllers.StatisticsController;
 import com.radio.Factories.FactoryGeneric;
 import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Initializer;
 import com.radio.Models.*;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -68,17 +70,36 @@ public class TrackPlayEventJPATest {
     }
 
     @Test
-    public void testEvent() {
+    public void testScheduleSize() {
 
-        showdao = new FactoryGenericImpl(Show.class);
-        showdao.create(plShow1);
-        showdao.create(plShow2);
+        PoliciesController polctrl = new PoliciesController();
+
+        polctrl.createShows(plShow1);
+        polctrl.createShows(plShow2);
 
         StatisticsController ctrl = new StatisticsController();
 
         List<Show> plshows = ctrl.showDailySchedule();
-        //System.out.println(ctrl.getShowGaps(p));
-        System.out.println(ctrl.getProgramGaps(plshows));
+
+        Assert.assertEquals(2,plshows.size());
+
+    }
+
+    @Test
+    public void testProgramGaps() {
+
+        PoliciesController polctrl = new PoliciesController();
+
+        polctrl.createShows(plShow1);
+        polctrl.createShows(plShow2);
+
+        StatisticsController ctrl = new StatisticsController();
+
+        List<Show> plshows = ctrl.showDailySchedule();
+        Calendar date3 = Calendar.getInstance();
+        date3.add(Calendar.HOUR, 2);
+
+        Assert.assertTrue("true",date3.getTimeInMillis()>ctrl.getProgramGaps(plshows));
 
     }
 

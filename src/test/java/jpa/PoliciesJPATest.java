@@ -15,10 +15,6 @@ import java.util.*;
 public class PoliciesJPATest {
 
     Initializer dataHelper;
-    FactoryGeneric adtrackdao;
-    FactoryGeneric showdao;
-    ShowFactory showFactory;
-    TrackFactory trackFactory;
     AdTrack adTrack2;
     AdTrack adTrack21;
     AdTrack adTrack22;
@@ -78,7 +74,7 @@ public class PoliciesJPATest {
         plShow1.addTrackToList(adTrack21);
         plShow1.addTrackToList(adTrack22);
         plShow1.addTrackToList(musicTrack);
-       // plShow2.addTrackToList(adTrack21);
+
         plShow2.addTrackToList(adTrack3);
 
     }
@@ -86,14 +82,10 @@ public class PoliciesJPATest {
     @Test
     public void getAdTracksBetweenDates() {
 
-        System.out.println(plShow1.getTracks());
-        showdao = new FactoryGenericImpl(Show.class);
-        showdao.create(plShow1);
-        showdao.create(plShow2);
+        PoliciesController polCtrl = new PoliciesController();
 
-        showFactory = new ShowFactoryImpl();
-
-        trackFactory = new TrackFactoryImpl();
+        polCtrl.createShows(plShow1);
+        polCtrl.createShows(plShow2);
 
         Calendar from = Calendar.getInstance();
         Calendar to = Calendar.getInstance();
@@ -102,8 +94,6 @@ public class PoliciesJPATest {
         StatisticsController ctrl = new StatisticsController();
 
         List<Show> allShows = ctrl.getShowsByDate(from.getTimeInMillis(),to.getTimeInMillis());
-
-        PoliciesController polCtrl = new PoliciesController();
 
         Map hm = polCtrl.getUniqueAdTracks(allShows);
 
