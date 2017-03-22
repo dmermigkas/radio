@@ -68,7 +68,7 @@ public class TrackPlayEventJPATest {
     }
 
     @Test
-    public void testEvent() {
+    public void testEvent() { //todo add assertion
 
         showdao = new FactoryGenericImpl(Show.class);
         showdao.create(plShow1);

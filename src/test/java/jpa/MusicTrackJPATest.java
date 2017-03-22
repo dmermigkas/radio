@@ -44,13 +44,12 @@ public class MusicTrackJPATest {
     }
 
     @Test
-    public void musicTrackUpdateTest(){ //todo add assert
-        musicTrackDao = new FactoryGenericImpl(MusicTrack.class);
+    public void musicTrackUpdateTest(){
         musicTrackDao.create(musictrack);
         musictrack.setArtist("mermigkas");
         musicTrackDao.update(musictrack);
         List<MusicTrack> tracks = musicTrackDao.getAll();
-
+        Assert.assertEquals(tracks.get(0).getArtist(), "mermigkas");
 
     }
 

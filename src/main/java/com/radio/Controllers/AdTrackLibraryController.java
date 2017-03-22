@@ -26,7 +26,7 @@ public class AdTrackLibraryController {
 
         //todo check error codes
         try {
-            adTrackFactory.create(adTrack); //todo issue with factory
+            adTrackFactory.create(adTrack);
 
             UriBuilder ub = uriInfo.getAbsolutePathBuilder();
             URI newAdTrackURI = ub.path(Integer.toString(adTrack.getId())).build();
