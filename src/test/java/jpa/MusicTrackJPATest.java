@@ -45,6 +45,7 @@ public class MusicTrackJPATest {
 
     @Test
     public void musicTrackUpdateTest(){
+        musicTrackDao = new FactoryGenericImpl(MusicTrack.class);
         musicTrackDao.create(musictrack);
         musictrack.setArtist("mermigkas");
         musicTrackDao.update(musictrack);
