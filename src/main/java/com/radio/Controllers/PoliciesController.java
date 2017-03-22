@@ -1,13 +1,23 @@
 package com.radio.Controllers;
 
+import com.radio.Factories.FactoryGeneric;
+import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Factories.TrackFactory;
 import com.radio.Factories.TrackFactoryImpl;
 import com.radio.Models.AdTrack;
+import com.radio.Models.PlaylistShow;
 import com.radio.Models.Show;
 
 import java.util.*;
 
 public class PoliciesController {
+
+    public void createShows(PlaylistShow pl){
+
+        FactoryGeneric showdao = new FactoryGenericImpl(Show.class);
+        showdao.create(pl);
+
+    }
 
     public Map getUniqueAdTracks(List<Show> allshows){
 
