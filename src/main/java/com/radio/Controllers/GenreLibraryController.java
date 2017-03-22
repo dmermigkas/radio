@@ -26,7 +26,7 @@ public class GenreLibraryController {
 
         //todo check error codes
         try {
-            genreFactory.create(genre); //todo issue with factory
+            genreFactory.create(genre);
 
             UriBuilder ub = uriInfo.getAbsolutePathBuilder();
             URI genreURI = ub.path(Integer.toString(genre.getId())).build();
