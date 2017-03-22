@@ -6,9 +6,12 @@ import com.radio.Factories.ShowFactory;
 import com.radio.Factories.ShowFactoryImpl;
 import com.radio.Models.AdTrack;
 import com.radio.Models.Show;
+import com.radio.Models.Track;
 
 import java.util.Calendar;
 import java.util.List;
+
+import static java.lang.Math.abs;
 
 public class StatisticsController {
 
@@ -19,7 +22,51 @@ public class StatisticsController {
         Calendar yesterday = Calendar.getInstance();
         Calendar now = Calendar.getInstance();
         yesterday.add(Calendar.DATE, -1);
-        return showDao.getShowsByDate(yesterday.getTimeInMillis(),now.getTimeInMillis());
+        return showDao.getTodaysShows(yesterday.getTimeInMillis(),now.getTimeInMillis());
+    }
+
+    public Long getProgramGaps(List<Show> shows){
+
+        Long sum = 0L;
+        System.out.println(shows);
+        for (int i=0; i<shows.size()-1; i++){
+
+            Show currShow = (Show) shows.get(i);
+            Show nextShow = (Show) shows.get(i+1);
+
+            System.out.println(currShow.getPlayDateTime());
+            System.out.println(nextShow.getPlayDateTime());
+            sum = sum + abs(currShow.getPlayDateTime() - nextShow.getPlayDateTime());
+
+        }
+
+        return sum;
+
+    }
+
+    public Long getShowGaps(Show show){
+
+        Long sum = 0L;
+        List tracks = show.getTracks();
+        System.out.println(tracks);
+        for (int i=0; i<tracks.size()-1; i++){
+
+            Track currTrack = (Track) tracks.get(i);
+            Track nextTrack = (Track) tracks.get(i+1);
+            System.out.println(currTrack.getTrackPlayEvent());
+            System.out.println(nextTrack.getTrackPlayEvent().getDateTime());
+            sum = sum + abs(currTrack.getTrackPlayEvent().getDateTime() - nextTrack.getTrackPlayEvent().getDateTime());
+
+        }
+
+        return sum;
+
+    }
+
+    public Boolean satisfiesPolicies(Show show){
+
+        return true;
+
     }
 
     public List<AdTrack> getAllAdTracks(){

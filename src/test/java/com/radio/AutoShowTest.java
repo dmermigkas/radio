@@ -26,7 +26,7 @@ public class AutoShowTest {
         playDateTime = Calendar.getInstance();
         genre = new Genre("testGenre");
         producer = new Producer("firstName", "lastName", new EmailAddress("testing@email.org"));
-        autoShow = new AutoShow("testAutoShow", producer, 3600, genre, playDateTime);
+        autoShow = new AutoShow("testAutoShow", producer, 3600, genre, playDateTime.getTimeInMillis());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class AutoShowTest {
         Assert.assertEquals(genre, autoShow.getGenre());
         Assert.assertEquals(3600, autoShow.getDuration());
         Assert.assertEquals(producer, autoShow.getProducer());
-        Assert.assertEquals(playDateTime, autoShow.getPlayDateTime());
+        Assert.assertEquals((Long) playDateTime.getTimeInMillis(), autoShow.getPlayDateTime());
     }
 
     @Test
@@ -52,8 +52,8 @@ public class AutoShowTest {
         Assert.assertEquals(producer2, autoShow.getProducer());
         Calendar playDateTime2 = playDateTime;
         playDateTime2.add(Calendar.HOUR, 2);
-        autoShow.setPlayDateTime(playDateTime2);
-        Assert.assertEquals(playDateTime2,autoShow.getPlayDateTime());
+        autoShow.setPlayDateTime(playDateTime2.getTimeInMillis());
+        Assert.assertEquals((Long) playDateTime2.getTimeInMillis(),autoShow.getPlayDateTime());
 
     }
 }

@@ -20,7 +20,7 @@ public abstract class Show {
     protected String name;
 
     @Column(name="playdatetime")
-    protected Calendar playDateTime;
+    protected Long playDateTime;
 
     @Column(name="duration")
     protected int duration;
@@ -41,7 +41,7 @@ public abstract class Show {
 
     public Show(){}
 
-    public Show(String name,Calendar playDateTime,int duration){
+    public Show(String name,Long playDateTime,int duration){
 
         this.name = name;
         this.playDateTime = playDateTime;
@@ -65,11 +65,11 @@ public abstract class Show {
         this.name = name;
     }
 
-    public Calendar getPlayDateTime() {
+    public Long getPlayDateTime() {
         return playDateTime;
     }
 
-    public void setPlayDateTime(Calendar playDateTime) {
+    public void setPlayDateTime(Long playDateTime) {
         this.playDateTime = playDateTime;
     }
 

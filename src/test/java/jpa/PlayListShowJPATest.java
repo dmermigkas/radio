@@ -24,7 +24,7 @@ public class PlayListShowJPATest {
         dataHelper.eraseData();
         playDateTime = Calendar.getInstance();
         producer = new Producer("firstName", "lastName", new EmailAddress("testing@email.org"));
-        playlistShow = new PlaylistShow("playListShow",producer,3600, playDateTime);
+        playlistShow = new PlaylistShow("playListShow",producer,3600, playDateTime.getTimeInMillis());
     }
 
     @Test

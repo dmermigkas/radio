@@ -1,23 +1,20 @@
-package jpa;
+package com.radio;
 
-import com.radio.Controllers.StatisticsController;
-import com.radio.Factories.FactoryGeneric;
-import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Initializer;
 import com.radio.Models.*;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.validation.constraints.AssertTrue;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class TrackPlayEventJPATest {
+public class PoliciesTest {
 
     Initializer dataHelper;
-    FactoryGeneric adtrackdao;
-    FactoryGeneric showdao;
     AdTrack adTrack2;
     AdTrack adTrack3;
     Calendar fromCalendar;
@@ -53,32 +50,24 @@ public class TrackPlayEventJPATest {
         event2 = new TrackPlayEvent(Calendar.getInstance().getTimeInMillis()-100);
         event3 = new TrackPlayEvent(Calendar.getInstance().getTimeInMillis()-1000);
 
-        musicTrack = new MusicTrack("title", "artist", new Genre("genre"), 1998, 100,event3);
+        musicTrack = new MusicTrack("title", "artist", new Genre("genre"), 1998, 100,event3,new Policies(1,4));
 
-        adTrack2 = new AdTrack("jumbo", playBackZone, fromCalendar, toCalendar, 5, 20,event);
-        adTrack3 = new AdTrack("survivor", playBackZone, fromCalendar, toCalendar, 5, 20,event2);
+        adTrack2 = new AdTrack("jumbo", playBackZone, fromCalendar, toCalendar, 5, 20,event,new Policies(1,3));
+        adTrack3 = new AdTrack("survivor", playBackZone, fromCalendar, toCalendar, 5, 20,event2,new Policies(1,2));
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.HOUR, -5);
         plShow1 = new PlaylistShow("playlist1",new Producer(),200,cal.getTimeInMillis());
         plShow1.addTrackToList(adTrack2);
+        plShow1.addTrackToList(adTrack2);
+        plShow1.addTrackToList(adTrack2);
         plShow1.addTrackToList(musicTrack);
-        plShow2 = new PlaylistShow("playlist2",new Producer(),200,Calendar.getInstance().getTimeInMillis());
-        plShow2.addTrackToList(adTrack3);
 
     }
 
     @Test
-    public void testEvent() {
+    public void testEvent3() {
 
-        showdao = new FactoryGenericImpl(Show.class);
-        showdao.create(plShow1);
-        showdao.create(plShow2);
-
-        StatisticsController ctrl = new StatisticsController();
-
-        List<Show> plshows = ctrl.showDailySchedule();
-        //System.out.println(ctrl.getShowGaps(p));
-        System.out.println(ctrl.getProgramGaps(plshows));
+        //Assert.assertEquals(adTrack2.getPolicies().getMinTimes(), plShow1.getTracks().size());
 
     }
 

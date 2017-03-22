@@ -44,7 +44,7 @@ public class AutoShowJPATest { //todo clean the test and add assertions
 
         AdTrack adTrack = new AdTrack("titldsdsae", playBackZone, Calendar.getInstance(),Calendar.getInstance(), 1998, 200);
 
-        AutoShow autoShow = new AutoShow("testAutoShow", prod, 3600, new Genre("rock"), playDateTime);
+        AutoShow autoShow = new AutoShow("testAutoShow", prod, 3600, new Genre("rock"), playDateTime.getTimeInMillis());
 
         mtracks.add(musictrack);
         mtracks.add(musictrack2);

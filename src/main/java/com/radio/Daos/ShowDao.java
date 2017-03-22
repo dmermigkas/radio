@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface ShowDao extends DaoGeneric<Show,Integer>{
 
-    List<Show> getShowsByDate(EntityManager em, Long yesterday,Long now);
+    List<Show> getTodaysShows(EntityManager em, Long yesterday,Long now);
+
+    List<Show> getShowsByDate(EntityManager em, Long from,Long to);
 
 }

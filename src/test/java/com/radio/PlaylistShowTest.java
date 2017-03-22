@@ -17,7 +17,7 @@ public class PlaylistShowTest {
     public void PlaylistShowSetup() {
         playDateTime = Calendar.getInstance();
         producer = new Producer("firstName", "lastName", new EmailAddress("testing@email.org"));
-        playlistShow = new PlaylistShow("playListShow",producer,3600, playDateTime);
+        playlistShow = new PlaylistShow("playListShow",producer,3600, playDateTime.getTimeInMillis());
     }
 
     @Test
@@ -25,7 +25,7 @@ public class PlaylistShowTest {
         Assert.assertEquals("playListShow", playlistShow.getName());
         Assert.assertEquals(3600, playlistShow.getDuration());
         Assert.assertEquals(producer, playlistShow.getProducer());
-        Assert.assertEquals(playDateTime, playlistShow.getPlayDateTime());
+        Assert.assertEquals((Long)playDateTime.getTimeInMillis(), playlistShow.getPlayDateTime());
     }
     @Test
     public void PlaylistShowSettersTest() {
@@ -38,8 +38,8 @@ public class PlaylistShowTest {
         Assert.assertEquals(3200, playlistShow.getDuration());
         Calendar playDateTime2 = playDateTime;
         playDateTime2.add(Calendar.HOUR, 2);
-        playlistShow.setPlayDateTime(playDateTime2);
-        Assert.assertEquals(playDateTime2, playlistShow.getPlayDateTime());
+        playlistShow.setPlayDateTime(playDateTime2.getTimeInMillis());
+        Assert.assertEquals((Long) playDateTime2.getTimeInMillis(), playlistShow.getPlayDateTime());
     }
 
     @Test

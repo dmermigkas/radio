@@ -60,7 +60,7 @@ public class Initializer {
 
         Calendar playDateTime = Calendar.getInstance();
 
-        Show autoShow = new AutoShow("testAutoShow", producer, 3600, new Genre("genre"), playDateTime);
+        Show autoShow = new AutoShow("testAutoShow", producer, 3600, new Genre("genre"), playDateTime.getTimeInMillis());
 
         EntityManager em = JPAUtil.createEntityManager();
         EntityTransaction tx = em.getTransaction();

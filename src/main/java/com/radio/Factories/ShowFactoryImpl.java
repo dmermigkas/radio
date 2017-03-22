@@ -24,10 +24,18 @@ public class ShowFactoryImpl extends FactoryGenericImpl<Show> implements ShowFac
     }
 
     @Override
-    public List<Show> getShowsByDate(Long yesterday,Long now){
+    public List<Show> getTodaysShows(Long yesterday,Long now){
 
         em = JPAUtil.createEntityManager();
-        return showDao.getShowsByDate(em,yesterday,now);
+        return showDao.getTodaysShows(em,yesterday,now);
+
+    }
+
+    @Override
+    public List<Show> getShowsByDate(Long from,Long to){
+
+        em = JPAUtil.createEntityManager();
+        return showDao.getShowsByDate(em,from,to);
 
     }
 
