@@ -18,7 +18,7 @@ public class AutoShow extends Show{
     public AutoShow() {
     }
 
-    public AutoShow(String name, Producer producer, int duration, Genre genre, Calendar playDateTime) {
+    public AutoShow(String name, Producer producer, int duration, Genre genre, Long playDateTime) {
 
         super.duration = duration;
         super.producer = producer;

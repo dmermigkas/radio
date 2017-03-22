@@ -32,6 +32,29 @@ public class MusicTrack extends Track{
 
     }
 
+    public MusicTrack(String title,String artist,Genre genre,int releaseYear, int duration,TrackPlayEvent event){
+
+        this.title = title;
+        this.artist = artist;
+        this.genre = genre;
+        this.releaseYear = releaseYear;
+        super.duration = duration;
+        super.trackPlayEvent = event;
+
+    }
+
+    public MusicTrack(String title,String artist,Genre genre,int releaseYear, int duration,TrackPlayEvent event,Policies policies){
+
+        this.title = title;
+        this.artist = artist;
+        this.genre = genre;
+        this.releaseYear = releaseYear;
+        super.duration = duration;
+        super.trackPlayEvent = event;
+        super.policies = policies;
+
+    }
+
     public String getTitle() {
         return title;
     }

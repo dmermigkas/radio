@@ -50,6 +50,19 @@ public class AdTrack extends Track{
 
     }
 
+    public AdTrack(String brand, PlayBackZone zone, Calendar fromDate, Calendar toDate, int playsPerZone, int duration,TrackPlayEvent event,Policies policies){
+
+        this.brand = brand;
+        this.zone = zone;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+        this.playsPerZone = playsPerZone;
+        super.duration = duration;
+        super.trackPlayEvent = event;
+        super.policies = policies;
+
+    }
+
     public String getBrand() {
         return brand;
     }

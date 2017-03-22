@@ -21,11 +21,21 @@ public abstract class Track {
     @Embedded
     protected TrackPlayEvent trackPlayEvent;
 
+    @Embedded
+    protected Policies policies;
+
     public void setTrackPlayEvent(TrackPlayEvent event) {
         this.trackPlayEvent = event == null ? null : new TrackPlayEvent();
     }
     public TrackPlayEvent getTrackPlayEvent() {
-        return trackPlayEvent == null ? null : new TrackPlayEvent();
+        return trackPlayEvent == null ? null : new TrackPlayEvent(trackPlayEvent.getDateTime());
+    }
+
+    public void setPolicies(Policies policies) {
+        this.policies = policies == null ? null : new Policies();
+    }
+    public Policies getPolicies() {
+        return policies == null ? null : new Policies(policies.getMinTimes(),policies.getMaxTimes());
     }
 
     public int getDuration() {
@@ -37,5 +47,30 @@ public abstract class Track {
     }
 
     public Integer getId() { return trackId; }
+
+    public boolean equals(Object other) {
+
+        if ( other == null) {
+            return false;
+        }
+        if (this == other) {
+            return true;
+        }
+        if (! (other instanceof Track)) {
+            return false;
+        }
+
+        Track track0 = (Track) other;
+        if (! (getTrackPlayEvent().getDateTime() == null ? track0.getTrackPlayEvent().getDateTime()
+                == null : getTrackPlayEvent().getDateTime().equals(track0.getTrackPlayEvent().getDateTime()))) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public int hashCode() {
+        return trackPlayEvent == null ? 0 : trackPlayEvent.hashCode();
+    }
 
 }

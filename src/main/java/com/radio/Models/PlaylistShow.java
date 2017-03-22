@@ -10,7 +10,7 @@ public class PlaylistShow extends Show{
 
     public PlaylistShow(){}
 
-    public PlaylistShow(String name, Producer producer, int duration, Calendar playDateTime) {
+    public PlaylistShow(String name, Producer producer, int duration, Long playDateTime) {
 
         super.name = name;
         super.producer = producer;

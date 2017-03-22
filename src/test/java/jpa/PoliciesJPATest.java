@@ -115,20 +115,28 @@ public class PoliciesJPATest {
         List<AdTrack> allShowsAdtracksCopy = new ArrayList<>(allShowsAdtracks);
 
         Set<AdTrack> uniqueAds = new HashSet<>();
-        System.out.println("dsasdasd");
+        System.out.println(allShowsAdtracksCopy);
         int counter = 0;
         for (AdTrack a : allShowsAdtracks) {
+
             for (AdTrack b : allShowsAdtracksCopy) {
                 if(a.equals(b)){
-                    uniqueAds.add(a);
-                    allShowsAdtracks.remove(a);
-                    allShowsAdtracksCopy.remove(b);
+
+                    //allShowsAdtracks.remove(a);
+                    //allShowsAdtracksCopy.remove(b);
+
                     counter++;
+                    //break;
+                }
+                else{
+                    //System.out.println(a..);
                     break;
                 }
+
             }
         }
         System.out.println(counter);
+        System.out.println(uniqueAds);
 
         Assert.assertEquals(4,allShowsAdtracks.size());
         System.out.println(allShowsAdtracks);
