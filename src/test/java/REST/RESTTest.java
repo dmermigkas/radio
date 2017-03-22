@@ -5,6 +5,7 @@ import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Factories.MusicTrackFactory;
 import com.radio.Factories.MusicTrackFactoryImpl;
 import com.radio.Initializer;
+import com.radio.Models.AdTrack;
 import com.radio.Models.Genre;
 import com.radio.Models.MusicTrack;
 
@@ -71,6 +72,10 @@ public abstract class RESTTest extends JerseyTest {
     public Genre createGenre(Genre genre){
 
         return (Genre) f.create(genre);
+    }
+
+    public AdTrack createAdTrack(AdTrack adTrack){
+        return (AdTrack) f.create(adTrack);
     }
 
 }

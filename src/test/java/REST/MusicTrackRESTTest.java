@@ -40,7 +40,7 @@ public class MusicTrackRESTTest extends RESTTest {
     @Test
     public void testListAllMusicTracks() {
         String response = target("musicTrackLibrary").request().get(String.class);
-        Assert.assertEquals("[{\"artist\":\"musicartist\",\"duration\":100,\"genre\":\"musicgenre\",\"id\":1,\"releaseYear\":1999,\"title\":\"musictitle1\"}]", response);
+        Assert.assertTrue(response.contains("musictitle1"));
     }
 
     @Test
