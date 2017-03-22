@@ -70,7 +70,7 @@ public abstract class Track {
     }
 
     public int hashCode() {
-        return trackPlayEvent == null ? 0 : trackPlayEvent.hashCode();
+        return trackPlayEvent == null ? 0 : 0;
     }
 
 }

@@ -10,6 +10,7 @@ import com.radio.Models.Track;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 import static java.lang.Math.abs;
 
@@ -23,6 +24,13 @@ public class StatisticsController {
         Calendar now = Calendar.getInstance();
         yesterday.add(Calendar.DATE, -1);
         return showDao.getTodaysShows(yesterday.getTimeInMillis(),now.getTimeInMillis());
+    }
+
+    public List<Show> getShowsByDate(Long from,Long to){
+
+        ShowFactory showFactory = new ShowFactoryImpl();
+        return showFactory.getShowsByDate(from,to);
+
     }
 
     public Long getProgramGaps(List<Show> shows){
@@ -63,9 +71,9 @@ public class StatisticsController {
 
     }
 
-    public Boolean satisfiesPolicies(Show show){
+    public Boolean satisfiesPolicies(int times,AdTrack a){
 
-        return true;
+        return (a.getPolicies().getMinTimes() <= times && a.getPolicies().getMaxTimes() >= times) ? true : false;
 
     }
 

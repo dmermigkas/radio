@@ -1,5 +1,6 @@
 package jpa;
 
+import com.radio.Controllers.PoliciesController;
 import com.radio.Controllers.StatisticsController;
 import com.radio.Factories.*;
 import com.radio.Initializer;
@@ -62,7 +63,7 @@ public class PoliciesJPATest {
         adTrack22 = new AdTrack("jumbo", playBackZone, fromCalendar, toCalendar, 5, 20,event,new Policies(1,3));
 
 
-        adTrack3 = new AdTrack("survivor", playBackZone, fromCalendar, toCalendar, 5, 20,event2,new Policies(1,2));
+        adTrack3 = new AdTrack("survivor", playBackZone, fromCalendar, toCalendar, 5, 20,event2,new Policies(1,5));
 
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -1);
@@ -95,62 +96,24 @@ public class PoliciesJPATest {
         trackFactory = new TrackFactoryImpl();
 
         Calendar from = Calendar.getInstance();
-        System.out.println(from.getTime() + " ggggggggggg");
         Calendar to = Calendar.getInstance();
         from.add(Calendar.DATE, -11);
-        //to.add(Calendar.DATE, -2);
 
-        List<Show> allShows = showFactory.getShowsByDate(from.getTimeInMillis(),to.getTimeInMillis());
+        StatisticsController ctrl = new StatisticsController();
 
-        List<AdTrack> allShowsAdtracks = new ArrayList<>();
+        List<Show> allShows = ctrl.getShowsByDate(from.getTimeInMillis(),to.getTimeInMillis());
 
-        for (Show pl : allShows) {
+        PoliciesController polCtrl = new PoliciesController();
 
-            for (AdTrack a : trackFactory.getAdTracks(pl.getShowId())) {
-                allShowsAdtracks.add(a);
-            }
+        Map hm = polCtrl.getUniqueAdTracks(allShows);
 
+        Set set = hm.entrySet();
+        Iterator i = set.iterator();
+
+        while(i.hasNext()) {
+            Map.Entry m = (Map.Entry)i.next();
+            Assert.assertEquals(true,ctrl.satisfiesPolicies((int)m.getValue(),(AdTrack) m.getKey()));
         }
-
-        List<AdTrack> allShowsAdtracksCopy = new ArrayList<>(allShowsAdtracks);
-
-        Set<AdTrack> uniqueAds = new HashSet<>();
-        System.out.println(allShowsAdtracksCopy);
-        int counter = 0;
-        for (AdTrack a : allShowsAdtracks) {
-
-            for (AdTrack b : allShowsAdtracksCopy) {
-                if(a.equals(b)){
-
-                    //allShowsAdtracks.remove(a);
-                    //allShowsAdtracksCopy.remove(b);
-
-                    counter++;
-                    //break;
-                }
-                else{
-                    //System.out.println(a..);
-                    break;
-                }
-
-            }
-        }
-        System.out.println(counter);
-        System.out.println(uniqueAds);
-
-        Assert.assertEquals(4,allShowsAdtracks.size());
-        System.out.println(allShowsAdtracks);
-//
-//        StatisticsController ctrl = new StatisticsController();
-//
-//        List<AdTrack> adtracks = trackdao.getAdTracks(pl.getShowId());
-//        System.out.println(adtracks + " pppppp");
-
-//        for(AdTrack atrack : adtracks) {
-//
-//            System.out.println(atrack);
-//
-//        }
 
     }
 
