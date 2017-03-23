@@ -8,6 +8,7 @@ import com.radio.Models.AdTrack;
 import com.radio.Models.Show;
 import com.radio.Models.Track;
 
+import javax.ws.rs.Path;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
@@ -36,7 +37,7 @@ public class StatisticsController {
     public Long getProgramGaps(List<Show> shows){
 
         Long sum = 0L;
-        System.out.println(shows);
+
         for (int i=0; i<shows.size()-1; i++){
 
             Show currShow = (Show) shows.get(i);
@@ -54,13 +55,12 @@ public class StatisticsController {
 
         Long sum = 0L;
         List tracks = show.getTracks();
-        System.out.println(tracks);
+
         for (int i=0; i<tracks.size()-1; i++){
 
             Track currTrack = (Track) tracks.get(i);
             Track nextTrack = (Track) tracks.get(i+1);
-            System.out.println(currTrack.getTrackPlayEvent());
-            System.out.println(nextTrack.getTrackPlayEvent().getDateTime());
+
             sum = sum + abs(currTrack.getTrackPlayEvent().getDateTime() - nextTrack.getTrackPlayEvent().getDateTime());
 
         }

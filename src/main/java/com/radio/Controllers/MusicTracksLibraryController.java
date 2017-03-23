@@ -29,7 +29,7 @@ public class MusicTracksLibraryController {
         //todo check error codes
         try {
             MusicTrack musicTrack = musicTrackInfo.getMusicTrack(null);
-            musicTrackFactory.create(musicTrack);
+            musicTrackFactory.create(musicTrack); //todo issue with factory
 
             UriBuilder ub = uriInfo.getAbsolutePathBuilder();
             URI newMusicTrackUri = ub.path(Integer.toString(musicTrack.getId())).build();

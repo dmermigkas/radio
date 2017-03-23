@@ -8,9 +8,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by lotv on 11/03/2017.
- */
 @XmlRootElement
 public class MusicTrackInfo {
 

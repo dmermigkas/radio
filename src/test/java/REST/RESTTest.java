@@ -5,11 +5,8 @@ import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Factories.MusicTrackFactory;
 import com.radio.Factories.MusicTrackFactoryImpl;
 import com.radio.Initializer;
-import com.radio.Models.AdTrack;
-import com.radio.Models.Genre;
-import com.radio.Models.MusicTrack;
+import com.radio.Models.*;
 
-import com.radio.Models.Producer;
 import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.spi.TestContainerFactory;
 
@@ -28,6 +25,8 @@ public abstract class RESTTest extends JerseyTest {
     FactoryGeneric f = new FactoryGenericImpl(MusicTrack.class);
 
     FactoryGeneric p = new FactoryGenericImpl(Producer.class);
+
+    FactoryGeneric s = new FactoryGenericImpl(Show.class);
 
     public RESTTest() {
         super();
@@ -81,6 +80,11 @@ public abstract class RESTTest extends JerseyTest {
     public Genre createGenre(Genre genre){
 
         return (Genre) f.create(genre);
+    }
+
+    public Show createShow(Show show){
+
+        return (Show) s.create(show);
     }
 
     public AdTrack createAdTrack(AdTrack adTrack){

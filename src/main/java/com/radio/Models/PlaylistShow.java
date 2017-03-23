@@ -1,6 +1,7 @@
 package com.radio.Models;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Calendar;
 
 @Entity

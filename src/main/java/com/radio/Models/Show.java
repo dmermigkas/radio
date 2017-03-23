@@ -3,6 +3,7 @@ package com.radio.Models;
 import com.radio.Daos.DaoGeneric;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.*;
 
 @Entity
@@ -96,7 +97,5 @@ public abstract class Show {
     public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
     }
-
-    public int getId() { return showId; }
 
 }

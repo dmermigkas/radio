@@ -1,22 +1,27 @@
-package jpa;
+package REST;
 
 import com.radio.Controllers.PoliciesController;
-import com.radio.Controllers.StatisticsController;
+import com.radio.Controllers.ProducerResourceController;
+import com.radio.Controllers.StatisticsResourceController;
 import com.radio.Factories.FactoryGeneric;
-import com.radio.Factories.FactoryGenericImpl;
 import com.radio.Initializer;
 import com.radio.Models.*;
+import org.glassfish.jersey.server.ResourceConfig;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.sql.Timestamp;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
-public class TrackPlayEventJPATest {
+public class StatisticsRESTTest extends RESTTest{
 
+    protected Application configure() { //todo does not know DebugExceptionMapper
+        return new ResourceConfig(StatisticsResourceController.class);
+    }
     Initializer dataHelper;
     FactoryGeneric adtrackdao;
     FactoryGeneric showdao;
@@ -35,9 +40,7 @@ public class TrackPlayEventJPATest {
     MusicTrack musicTrack;
 
     @Before
-    public void setUpJPA(){
-        dataHelper = new Initializer();
-        dataHelper.eraseData();
+    public void setUpdfdData() {
 
         fromCalendar = Calendar.getInstance();
         toCalendar = fromCalendar;
@@ -51,9 +54,9 @@ public class TrackPlayEventJPATest {
         Calendar date2 = Calendar.getInstance();
         date2.add(Calendar.DATE, 2);
 
-        event = new TrackPlayEvent(Calendar.getInstance().getTimeInMillis()-10000);
-        event2 = new TrackPlayEvent(Calendar.getInstance().getTimeInMillis()-100);
-        event3 = new TrackPlayEvent(Calendar.getInstance().getTimeInMillis()-1000);
+        event = new TrackPlayEvent(Calendar.getInstance().getTimeInMillis()-10);
+        event2 = new TrackPlayEvent(Calendar.getInstance().getTimeInMillis()-10);
+        event3 = new TrackPlayEvent(Calendar.getInstance().getTimeInMillis()-100);
 
         musicTrack = new MusicTrack("title", "artist", new Genre("genre"), 1998, 100,event3);
 
@@ -67,50 +70,18 @@ public class TrackPlayEventJPATest {
         plShow2 = new PlaylistShow("playlist2",new Producer(),200,Calendar.getInstance().getTimeInMillis());
         plShow2.addTrackToList(adTrack3);
 
-    }
-
-    @Test
-    public void testScheduleSize() {
-
-        PoliciesController polctrl = new PoliciesController();
-
-        polctrl.createShows(plShow1);
-        polctrl.createShows(plShow2);
-
-        StatisticsController ctrl = new StatisticsController();
-
-        List<Show> plshows = ctrl.showDailySchedule();
-
-        Assert.assertEquals(2,plshows.size());
+//        PoliciesController polctrl = new PoliciesController();
+//
+        super.createShow(plShow1);
+        super.createShow(plShow2);
 
     }
 
     @Test
-    public void testProgramGaps() {
-
-        PoliciesController polctrl = new PoliciesController();
-
-        polctrl.createShows(plShow1);
-        polctrl.createShows(plShow2);
-
-        StatisticsController ctrl = new StatisticsController();
-
-        List<Show> plshows = ctrl.showDailySchedule();
-        Calendar date3 = Calendar.getInstance();
-        date3.add(Calendar.HOUR, 2);
-
-        Assert.assertTrue(date3.getTimeInMillis()>ctrl.getProgramGaps(plshows));
-
-    }
-
-    @Test
-    public void testShowGaps() {
-
-        PoliciesController polctrl = new PoliciesController();
-        StatisticsController ctrl = new StatisticsController();
-        polctrl.createShows(plShow1);
-
-        Assert.assertTrue(Calendar.getInstance().getTimeInMillis()-10>ctrl.getShowGaps(plShow1));
+    public void testSchedule() {
+        //todo!!!
+        Response response = target("getDailySchedule").request().get();
+        System.out.println(response);
 
     }
 

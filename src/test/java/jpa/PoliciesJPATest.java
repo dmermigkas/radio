@@ -80,6 +80,26 @@ public class PoliciesJPATest {
     }
 
     @Test
+    public void getShowsByDate() {
+
+        PoliciesController polCtrl = new PoliciesController();
+
+        polCtrl.createShows(plShow1);
+        polCtrl.createShows(plShow2);
+
+        Calendar from = Calendar.getInstance();
+        Calendar to = Calendar.getInstance();
+        from.add(Calendar.DATE, -10);
+
+        StatisticsController ctrl = new StatisticsController();
+
+        List<Show> allShows = ctrl.getShowsByDate(from.getTimeInMillis(),to.getTimeInMillis());
+
+        Assert.assertEquals(2,allShows.size());
+
+    }
+
+    @Test
     public void getAdTracksBetweenDates() {
 
         PoliciesController polCtrl = new PoliciesController();

@@ -3,6 +3,7 @@ package com.radio.Models;
 import com.radio.Daos.DaoGeneric;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)

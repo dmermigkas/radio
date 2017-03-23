@@ -67,7 +67,7 @@ public class ProducerRESTTest extends RESTTest{
     @Test
     public void testUpdateProducer() {
         prod.setFirstName("dimitris");
-        
+
         Response response = target( "producer/"+prod.getId()).request().put(Entity.entity(prod, MediaType.APPLICATION_JSON));
         String allProds = target("producer").request().get(String.class);
         System.out.println(allProds);
