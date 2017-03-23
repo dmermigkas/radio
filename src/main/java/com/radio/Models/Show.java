@@ -97,4 +97,6 @@ public abstract class Show {
         this.tracks = tracks;
     }
 
+    public int getId() { return showId; }
+
 }
