@@ -9,6 +9,7 @@ import com.radio.Models.AdTrack;
 import com.radio.Models.Genre;
 import com.radio.Models.MusicTrack;
 
+import com.radio.Models.Producer;
 import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.spi.TestContainerFactory;
 
@@ -25,6 +26,8 @@ public abstract class RESTTest extends JerseyTest {
     Initializer dataHelper;
 
     FactoryGeneric f = new FactoryGenericImpl(MusicTrack.class);
+
+    FactoryGeneric p = new FactoryGenericImpl(Producer.class);
 
     public RESTTest() {
         super();
@@ -66,6 +69,12 @@ public abstract class RESTTest extends JerseyTest {
     public MusicTrack createMusicTrack(MusicTrack mtrack){
 
         return (MusicTrack) f.create(mtrack);
+
+    }
+
+    public Producer createProducer(Producer pr){
+
+        return (Producer) p.create(pr);
 
     }
 
